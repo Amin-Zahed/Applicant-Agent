@@ -21,7 +21,7 @@ function Profile() {
       <br />
       <h1 className="text-center">Profile</h1>
       <br />
-      <Tabs defaultValue="info" className="w-[320px] sm:w-[600px]">
+      <Tabs defaultValue="application" className="w-[320px] sm:w-[600px]">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="info" className="cursor-pointer">
             Info
