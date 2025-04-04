@@ -155,18 +155,18 @@ import {
   //   MenubarShortcut,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CircleUserRound, BellDot } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
   return (
-    <Menubar className="container flex flex-nowrap justify-between h-14 items-center">
+    <Menubar className="flex flex-nowrap justify-between w-full h-full items-center">
       <div className="flex md:w-1/3 xl:w-1/6 w-1/2 justify-between items-center">
         <MenubarMenu>
-          <NavLink to="/">
+          <Link to="/">
             <MenubarTrigger>Logo</MenubarTrigger>
-          </NavLink>
+          </Link>
           <NavLink to="/notifications">
             <MenubarTrigger>
               {" "}
