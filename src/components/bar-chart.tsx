@@ -39,7 +39,7 @@ const chartConfig = {
 
 function Barchart() {
   return (
-    <Card>
+    <Card className="lg:w-[calc((100%)/2)] lg:h-[calc((100%)/2)]">
       <CardHeader>
         <CardTitle>Bar Chart - Multiple</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
