@@ -16,6 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import Piechart from "@/components/pie-chart";
 
 function Profile() {
   return (
@@ -109,8 +110,12 @@ function Profile() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <div className="space-y-1">
+                  <div
+                    id="chart-container"
+                    className="flex flex-col lg:flex-row"
+                  >
                     <Barchart />
+                    <Piechart />
                   </div>
                 </CardContent>
               </Card>
