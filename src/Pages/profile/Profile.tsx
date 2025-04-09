@@ -24,7 +24,7 @@ function Profile() {
       <SidebarProvider className=" w-full min-h-0 h-full">
         <AppSidebar />
         <main className="">
-          <SidebarTrigger className="bg-primary cursor-pointer" />
+          <SidebarTrigger className="cursor-pointer md:bsolute md:hidden" />
           <h1 className="text-center">Profile</h1>
           <br />
           <Tabs
