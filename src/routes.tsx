@@ -17,10 +17,11 @@ const routes = [
   {
     path: "/profile/*",
     element: <Profile />,
-    // children: [
-    //   { path: "application", element: <Application /> },
-    //   { path: "info", element: <Info /> },
-    // ],
+    children: [
+      { path: "application", element: <Application /> },
+      { path: "info", element: <Info /> },
+      { path: "chart", element: <Chart /> },
+    ],
   },
   { path: "/*", element: <NotFound /> },
 ];
