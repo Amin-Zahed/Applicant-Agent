@@ -17,7 +17,7 @@ const Navbar = () => {
               <BellDot />
             </MenubarTrigger>
           </NavLink>
-          <NavLink to="/profile">
+          <NavLink to="/profile/application">
             <MenubarTrigger>
               {" "}
               <CircleUserRound />

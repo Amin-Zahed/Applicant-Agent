@@ -3,10 +3,11 @@ import Dashboard from "./Pages/dashboard/Dashboard";
 import Log from "./Pages/log/Log";
 import NotFound from "./Pages/notFound/NotFound";
 import Profile from "./Pages/profile/Profile";
-// import Application from "./Pages/profile/subPages/application/Application";
-// import Info from "./Pages/profile/subPages/info/Info";
 import Notifications from "./Pages/notifications/Notifications";
 import Add from "./Pages/add/Add";
+import Info from "./Pages/profile/subPages/info/Info";
+import Application from "./Pages/profile/subPages/application/Application";
+import Chart from "./Pages/profile/subPages/chart/Chart";
 
 const routes = [
   { path: "/", element: <Dashboard /> },
@@ -15,7 +16,7 @@ const routes = [
   { path: "/notifications", element: <Notifications /> },
   { path: "/add", element: <Add /> },
   {
-    path: "/profile/*",
+    path: "/profile/",
     element: <Profile />,
     children: [
       { path: "application", element: <Application /> },
