@@ -1,4 +1,3 @@
-// import { GalleryVerticalEnd } from "lucide-react";
 import SigninForm from "@/components/signin-form";
 function Signin() {
   return (

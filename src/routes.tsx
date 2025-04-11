@@ -9,12 +9,12 @@ import Info from "./Pages/profile/subPages/info/Info";
 import Application from "./Pages/profile/subPages/application/Application";
 import Chart from "./Pages/profile/subPages/chart/Chart";
 import Signin from "./Pages/signin/Signin";
-// import Signup from "./Pages/signup/Signup";
+import Signup from "./Pages/signup/Signup";
 
 const routes = [
   { path: "/", element: <Dashboard /> },
   { path: "/signin", element: <Signin /> },
-  // { path: "/signup", element: <Signup /> },
+  { path: "/signup", element: <Signup /> },
   { path: "/list", element: <List /> },
   { path: "/log", element: <Log /> },
   { path: "/notifications", element: <Notifications /> },
