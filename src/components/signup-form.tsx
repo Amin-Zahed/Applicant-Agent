@@ -1,18 +1,22 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useCallback, useState, ChangeEvent } from "react";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 // import { Eye } from "lucide-react";
 // import { EyeOff } from "lucide-react";
 
+interface FormDatas {
+  username: string | null;
+  password: string | null;
+}
+
 function SignupForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
-  const [formDatas, setFormDatas] = useState({
+  const [formDatas, setFormDatas] = useState<FormDatas>({
     username: null,
     password: null,
   });
@@ -39,44 +43,56 @@ function SignupForm({
 
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props}>
-      <fieldset id="main-signup-fieldset" className="flex flex-col gap-6">
+      <fieldset
+        id="main-signup-fieldset"
+        className="flex flex-col gap-6 w-full h-full"
+      >
         <div className="flex flex-col items-center gap-2 text-center">
-          <h1 className="text-2xl font-bold">Create an account</h1>
+          <h1 className="text-2xl font-bold">Sign up form</h1>
           <p className="text-balance text-sm text-muted-foreground">
-            Enter your user name below to sign up at this website
+            Create an account
           </p>
         </div>
         <div className="grid gap-6">
           <div className="grid gap-2">
-            <Label htmlFor="username">User name</Label>
             <Input
               id="username"
               type="username"
               name="username"
               maxLength={20}
               minLength={3}
-              placeholder="AminZahed"
+              placeholder="Username"
               required
               onInput={(e: ChangeEvent<HTMLInputElement>) =>
-                inputsHandler(e, /^(\w+(\w+|\s+))+[\w]+$/)
+                inputsHandler(e, /^[A-Za-z0-9._\-\+]{3,}$/)
               }
             />
-            {formDatas.username === "notValid" && (
+            <p
+              className="text-balance text-sm text-muted-foreground"
+              style={{
+                color:
+                  formDatas.username === "notValid"
+                    ? "red"
+                    : formDatas.username === null
+                    ? "var(--muted-foreground)"
+                    : "green",
+              }}
+            >
+              At least 3 charactors and only letters, numbers, dotes,
+              underscores, dashes and pluses.
+            </p>
+            {/* {formDatas.username === "notValid" && (
               <Alert variant="destructive">
                 <AlertCircle className="h-4 w-4" />
                 <AlertTitle>Warning</AlertTitle>
                 <AlertDescription>
-                  User name must be between 3 and 20 charactors contains
-                  uppercase and/or lowercase letters and/or numbers and/or under
-                  score. also you can to place white spaces between charactors
+                  At least 3 charactors and only letters, numbers, dotes,
+                  underscores, dashes and pluses.
                 </AlertDescription>
               </Alert>
-            )}
+            )} */}
           </div>
           <div className="grid gap-2">
-            <div className="flex items-center">
-              <Label htmlFor="password">Password</Label>
-            </div>
             <Input
               id="password"
               type="password"

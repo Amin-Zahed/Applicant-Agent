@@ -4,16 +4,16 @@ import image from "@/assets/images/a modern dashboard design with Reacts Logo on
 function Signup() {
   return (
     // <div className="flex h-full w-full flex-col items-center justify-center">
-    <div className="grid h-full lg:grid-cols-2 border-2 border-border rounded-2xl overflow-hidden m-4">
-      <div className="flex flex-col gap-4 p-6 md:p-10">
+    <div className="grid h-full container lg:grid-cols-2 border-2 border-border rounded-2xl overflow-hidden m-4">
+      <div className="flex flex-col gap-4 p-6 md:p-10 lg:col-span-1 w-full h-full">
         <div className="flex justify-center gap-2 md:justify-start"></div>
         <div className="flex flex-1 items-center justify-center">
-          <div className="w-full max-w-xs">
-            <SignupForm />
+          <div className="w-full max-w-sm lg:max-w-7xl space-y-8">
+            <SignupForm className="w-full h-full" />
           </div>
         </div>
       </div>
-      <div className="relative hidden bg-muted lg:block">
+      <div className="relative hidden bg-muted lg:block lg:col-span-1">
         <img
           src={image}
           alt="Image"
