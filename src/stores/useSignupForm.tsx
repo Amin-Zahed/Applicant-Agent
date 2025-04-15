@@ -16,7 +16,6 @@ interface PasswordRegexes {
 
 interface UseSignupForm {
   signupFormDatas: SignupFormDatas;
-  //   setSignupFormDatas: (data: SignupFormDatas) => void;
   signupFormInputsHandler: (
     e: ChangeEvent<HTMLInputElement>,
     regex: RegExp
@@ -46,8 +45,6 @@ const passwordRegexes: PasswordRegexes = {
 
 const useSignupForm = create<UseSignupForm>((set) => ({
   signupFormDatas: initialSignupFormDatas,
-
-  //   setSignupFormDatas: (data) => set(() => ({ signupFormDatas: data })),
 
   signupFormInputsHandler: (e, regex) => {
     const { name, value } = e.target;
