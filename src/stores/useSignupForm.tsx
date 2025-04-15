@@ -28,6 +28,7 @@ interface UseSignupForm {
   passwordInputChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   confirmPassword: string | null | undefined;
   confirmPasswordInputHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  confirmPasswordInputValue: string | null;
 }
 
 const initialSignupFormDatas: SignupFormDatas = {
@@ -78,18 +79,29 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       passwordHasAUppercase: passwordRegexes.uppercase.test(value),
       passwordHasASpecialChar: passwordRegexes.specialChar.test(value),
     }));
+    if (typeof useSignupForm.getState().confirmPassword === "string") {
+      set(() => ({ confirmPassword: undefined }));
+    } else if (
+      typeof useSignupForm.getState().signupFormDatas.password === "string" &&
+      value === useSignupForm.getState().confirmPasswordInputValue
+    ) {
+      set(() => ({ confirmPassword: value }));
+    }
   },
 
   confirmPassword: null,
+  confirmPasswordInputValue: null,
 
   confirmPasswordInputHandler: (e) => {
-    if (e.target.value === "") {
+    const { value } = e.target;
+    useSignupForm.getState().confirmPasswordInputValue = value;
+    if (value === "") {
       set(() => ({ confirmPassword: null }));
     } else if (
       typeof useSignupForm.getState().signupFormDatas.password === "string" &&
-      e.target.value === useSignupForm.getState().signupFormDatas.password
+      value === useSignupForm.getState().signupFormDatas.password
     ) {
-      set(() => ({ confirmPassword: e.target.value }));
+      set(() => ({ confirmPassword: value }));
     } else {
       set(() => ({ confirmPassword: undefined }));
     }
