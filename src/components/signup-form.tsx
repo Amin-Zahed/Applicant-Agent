@@ -1,45 +1,20 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useCallback, useState, ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 // import { Eye } from "lucide-react";
 // import { EyeOff } from "lucide-react";
-
-interface FormDatas {
-  username: string | null;
-  password: string | null;
-}
+import useSignupForm from "../stores/useSignupForm";
 
 function SignupForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
-  const [formDatas, setFormDatas] = useState<FormDatas>({
-    username: null,
-    password: null,
-  });
+  const { signupFormDatas, signupFormInputsHandler } = useSignupForm();
+
   // const [showPassword, setShowPassword] = useState(false);
-
-  const inputsHandler = useCallback(
-    (e: ChangeEvent<HTMLInputElement>, regex: RegExp) => {
-      const { name, value } = e.target;
-
-      setFormDatas((prev) => {
-        if (value) {
-          if (value.match(regex)) {
-            return { ...prev, [name]: value };
-          } else {
-            return { ...prev, [name]: "notValid" };
-          }
-        } else {
-          return { ...prev, [name]: null };
-        }
-      });
-    },
-    []
-  );
 
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props}>
@@ -64,16 +39,16 @@ function SignupForm({
               placeholder="Username"
               required
               onInput={(e: ChangeEvent<HTMLInputElement>) =>
-                inputsHandler(e, /^[A-Za-z0-9._\-\+]{3,}$/)
+                signupFormInputsHandler(e, /^[A-Za-z0-9._\-\+]{3,}$/)
               }
             />
             <p
               className="text-balance text-sm text-muted-foreground"
               style={{
                 color:
-                  formDatas.username === "notValid"
+                  signupFormDatas.username === undefined
                     ? "red"
-                    : formDatas.username === null
+                    : signupFormDatas.username === null
                     ? "var(--muted-foreground)"
                     : "green",
               }}
@@ -81,16 +56,6 @@ function SignupForm({
               At least 3 charactors and only letters, numbers, dotes,
               underscores, dashes and pluses.
             </p>
-            {/* {formDatas.username === "notValid" && (
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertTitle>Warning</AlertTitle>
-                <AlertDescription>
-                  At least 3 charactors and only letters, numbers, dotes,
-                  underscores, dashes and pluses.
-                </AlertDescription>
-              </Alert>
-            )} */}
           </div>
           <div className="grid gap-2">
             <Input
@@ -103,7 +68,7 @@ function SignupForm({
               required
               // className="w-[80%]"
               onInput={(e: ChangeEvent<HTMLInputElement>) =>
-                inputsHandler(
+                signupFormInputsHandler(
                   e,
                   /(?=(\S*[0-9]))((?=\S*[a-zA-Z0-9])(?=\S*[A-Z])(?=\S*[a-z]))^\S{6,}$/
                 )
@@ -116,7 +81,7 @@ function SignupForm({
               <EyeOff onClick={setShowPassword(true)} />
             )}
           </span> */}
-            {formDatas.password === "notValid" && (
+            {signupFormDatas.password === undefined && (
               <Alert variant="destructive">
                 <AlertCircle className="h-4 w-4" />
                 <AlertTitle>Warning</AlertTitle>

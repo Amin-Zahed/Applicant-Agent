@@ -1,36 +1,53 @@
 import { create } from "zustand";
 import { ChangeEvent } from "react";
 
+interface SignupFormDatas {
+  username: string | null | undefined;
+  email: string | null | undefined;
+  password: string | null | undefined;
+}
+
 interface UseSignupForm {
-  username: null | string;
-  password: null | string;
-  email: null | string;
-  setUsername: (username: string) => void;
-  setPassword: (password: string) => void;
-  usernameInputHandler: (
+  signupFormInputsHandler: (
     e: ChangeEvent<HTMLInputElement>,
     regex: RegExp
   ) => void;
+  signupFormDatas: SignupFormDatas;
+  setSignupFormDatas: (data: SignupFormDatas) => void;
 }
 
-const useSignupForm = create<UseSignupForm>((set) => ({
+const initialSignupFormDatas: SignupFormDatas = {
   username: null,
-  password: null,
   email: null,
-  setUsername: (username) => set({ username }),
-  setPassword: (password) => set({ password }),
-  usernameInputHandler: (e, regex) => {
+  password: null,
+};
+
+const useSignupForm = create<UseSignupForm>((set) => ({
+  signupFormDatas: initialSignupFormDatas,
+
+  setSignupFormDatas: (data: SignupFormDatas) =>
+    set(() => ({ signupFormDatas: data })),
+
+  signupFormInputsHandler: (
+    e: ChangeEvent<HTMLInputElement>,
+    regex: RegExp
+  ) => {
     const { name, value } = e.target;
-    set((state) => {
-      if (value) {
-        if (value.match(regex)) {
-          return { ...state, [name]: value };
-        } else {
-          return { ...state, [name]: "notValid" };
-        }
-      } else {
-        return { ...state, [name]: null };
-      }
-    });
+    if (regex.test(value)) {
+      set((state) => ({
+        signupFormDatas: { ...state.signupFormDatas, [name]: value },
+      }));
+    } else {
+      set((state) => ({
+        signupFormDatas: { ...state.signupFormDatas, [name]: undefined },
+      }));
+    }
+    if (value === "") {
+      set((state) => ({
+        signupFormDatas: { ...state.signupFormDatas, [name]: null },
+      }));
+    }
   },
 }));
+
+export default useSignupForm;
