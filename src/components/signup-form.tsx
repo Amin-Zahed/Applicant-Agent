@@ -2,8 +2,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChangeEvent } from "react";
-import { AlertCircle } from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 // import { Eye } from "lucide-react";
 // import { EyeOff } from "lucide-react";
 import useSignupForm from "../stores/useSignupForm";
@@ -12,7 +10,11 @@ function SignupForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
-  const { signupFormDatas, signupFormInputsHandler } = useSignupForm();
+  const {
+    signupFormDatas,
+    signupFormInputsHandler,
+    passwordInputChangeHandler,
+  } = useSignupForm();
 
   // const [showPassword, setShowPassword] = useState(false);
 
@@ -59,20 +61,54 @@ function SignupForm({
           </div>
           <div className="grid gap-2">
             <Input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              onInput={(e: ChangeEvent<HTMLInputElement>) =>
+                signupFormInputsHandler(
+                  e,
+                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                )
+              }
+            />
+            <p
+              className="text-balance text-sm text-muted-foreground"
+              style={{
+                color:
+                  signupFormDatas.email === undefined
+                    ? "red"
+                    : signupFormDatas.email === null
+                    ? "var(--muted-foreground)"
+                    : "green",
+              }}
+            >
+              {signupFormDatas.email === undefined
+                ? "Not a valid email address"
+                : signupFormDatas.email === null
+                ? "Email must be a valid email address"
+                : "Valid email address"}
+            </p>
+          </div>
+          <div className="grid gap-2">
+            <Input
               id="password"
               type="password"
               name="password"
               maxLength={20}
-              minLength={6}
-              placeholder="******"
+              minLength={3}
+              placeholder="Password"
               required
               // className="w-[80%]"
               onInput={(e: ChangeEvent<HTMLInputElement>) =>
                 signupFormInputsHandler(
                   e,
-                  /(?=(\S*[0-9]))((?=\S*[a-zA-Z0-9])(?=\S*[A-Z])(?=\S*[a-z]))^\S{6,}$/
+                  // /(?=(\S*[0-9]))((?=\S*[a-zA-Z0-9])(?=\S*[A-Z])(?=\S*[a-z]))^\S{4,}$/
+                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()[\]{}\-_=+|;:'",.<>/?\\`~])[\s\S]{4,}$/
                 )
               }
+              onChange={passwordInputChangeHandler}
             />
             {/* <span className="w-[10%] bg-amber-400">
             {showPassword ? (
@@ -81,17 +117,11 @@ function SignupForm({
               <EyeOff onClick={setShowPassword(true)} />
             )}
           </span> */}
-            {signupFormDatas.password === undefined && (
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertTitle>Warning</AlertTitle>
-                <AlertDescription>
-                  Password must be between 6 and 20 charactors That's for sure
-                  contains minimum 1 number and 1 uppercase and 1 lowercase
-                  letter and 1 special characters like @ or ~ or \ or ...
-                </AlertDescription>
-              </Alert>
-            )}
+            <ol className="text-balance text-sm text-muted-foreground list-inside list-disc">
+              <li>At least one number.</li>
+              <li>Combination of upper and lower case letters.</li>
+              <li>At least one special charactor - [] , + = ? . </li>
+            </ol>
           </div>
           <Button type="button" className="w-full cursor-pointer">
             Sign up

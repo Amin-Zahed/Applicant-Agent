@@ -7,13 +7,26 @@ interface SignupFormDatas {
   password: string | null | undefined;
 }
 
+interface PasswordRegexes {
+  number: RegExp;
+  lowercase: RegExp;
+  uppercase: RegExp;
+  specialChar: RegExp;
+}
+
 interface UseSignupForm {
+  signupFormDatas: SignupFormDatas;
+  setSignupFormDatas: (data: SignupFormDatas) => void;
   signupFormInputsHandler: (
     e: ChangeEvent<HTMLInputElement>,
     regex: RegExp
   ) => void;
-  signupFormDatas: SignupFormDatas;
-  setSignupFormDatas: (data: SignupFormDatas) => void;
+  passwordHasANumber: boolean;
+  passwordHasALowercase: boolean;
+  passwordHasAUppercase: boolean;
+  passwordHasASpecialChar: boolean;
+  passwordRegexes: PasswordRegexes;
+  passwordInputChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const initialSignupFormDatas: SignupFormDatas = {
@@ -22,18 +35,25 @@ const initialSignupFormDatas: SignupFormDatas = {
   password: null,
 };
 
+const passwordRegexes: PasswordRegexes = {
+  number: /(?=.*\d)/,
+  lowercase: /(?=.*[a-z])/,
+  uppercase: /(?=.*[A-Z])/,
+  specialChar: /(?=.*[!@#$%^&*()[\]{}\-_=+|;:'",.<>/?\\`~])/,
+};
+
 const useSignupForm = create<UseSignupForm>((set) => ({
   signupFormDatas: initialSignupFormDatas,
 
-  setSignupFormDatas: (data: SignupFormDatas) =>
-    set(() => ({ signupFormDatas: data })),
+  setSignupFormDatas: (data) => set(() => ({ signupFormDatas: data })),
 
-  signupFormInputsHandler: (
-    e: ChangeEvent<HTMLInputElement>,
-    regex: RegExp
-  ) => {
+  signupFormInputsHandler: (e, regex) => {
     const { name, value } = e.target;
-    if (regex.test(value)) {
+    if (value === "") {
+      set((state) => ({
+        signupFormDatas: { ...state.signupFormDatas, [name]: null },
+      }));
+    } else if (regex.test(value)) {
       set((state) => ({
         signupFormDatas: { ...state.signupFormDatas, [name]: value },
       }));
@@ -42,11 +62,23 @@ const useSignupForm = create<UseSignupForm>((set) => ({
         signupFormDatas: { ...state.signupFormDatas, [name]: undefined },
       }));
     }
-    if (value === "") {
-      set((state) => ({
-        signupFormDatas: { ...state.signupFormDatas, [name]: null },
-      }));
-    }
+  },
+
+  passwordHasANumber: false,
+  passwordHasALowercase: false,
+  passwordHasAUppercase: false,
+  passwordHasASpecialChar: false,
+
+  passwordRegexes,
+
+  passwordInputChangeHandler: (e) => {
+    const { value } = e.target;
+    set(() => ({
+      passwordHasANumber: passwordRegexes.number.test(value),
+      passwordHasALowercase: passwordRegexes.lowercase.test(value),
+      passwordHasAUppercase: passwordRegexes.uppercase.test(value),
+      passwordHasASpecialChar: passwordRegexes.specialChar.test(value),
+    }));
   },
 }));
 
