@@ -14,6 +14,10 @@ function SignupForm({
     signupFormDatas,
     signupFormInputsHandler,
     passwordInputChangeHandler,
+    passwordHasANumber,
+    passwordHasALowercase,
+    passwordHasAUppercase,
+    passwordHasASpecialChar,
   } = useSignupForm();
 
   // const [showPassword, setShowPassword] = useState(false);
@@ -118,9 +122,44 @@ function SignupForm({
             )}
           </span> */}
             <ol className="text-balance text-sm text-muted-foreground list-inside list-disc">
-              <li>At least one number.</li>
-              <li>Combination of upper and lower case letters.</li>
-              <li>At least one special charactor - [] , + = ? . </li>
+              <li
+                style={{
+                  color:
+                    signupFormDatas.password === null
+                      ? "var(--muted-foreground)"
+                      : passwordHasANumber
+                      ? "green"
+                      : "red",
+                }}
+              >
+                At least one number.
+              </li>
+              <li
+                style={{
+                  color:
+                    signupFormDatas.password === null
+                      ? "var(--muted-foreground)"
+                      : passwordHasALowercase && passwordHasAUppercase
+                      ? "green"
+                      : passwordHasALowercase || passwordHasAUppercase
+                      ? "yellow"
+                      : "red",
+                }}
+              >
+                Combination of upper and lower case letters.
+              </li>
+              <li
+                style={{
+                  color:
+                    signupFormDatas.password === null
+                      ? "var(--muted-foreground)"
+                      : passwordHasASpecialChar
+                      ? "green"
+                      : "red",
+                }}
+              >
+                At least one special charactor - [] , + = ? .{" "}
+              </li>
             </ol>
           </div>
           <Button type="button" className="w-full cursor-pointer">
