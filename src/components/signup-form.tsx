@@ -18,6 +18,8 @@ function SignupForm({
     passwordHasALowercase,
     passwordHasAUppercase,
     passwordHasASpecialChar,
+    confirmPassword,
+    confirmPasswordInputHandler,
   } = useSignupForm();
 
   // const [showPassword, setShowPassword] = useState(false);
@@ -161,6 +163,35 @@ function SignupForm({
                 At least one special charactor - [] , + = ? .{" "}
               </li>
             </ol>
+          </div>
+          <div className="grid gap-2">
+            <Input
+              id="confirmPassword"
+              type="password"
+              name="confirmPassword"
+              maxLength={20}
+              minLength={3}
+              placeholder="Confirm password"
+              required
+              onInput={confirmPasswordInputHandler}
+            />
+            <p
+              className="text-balance text-sm text-muted-foreground"
+              style={{
+                color:
+                  confirmPassword === undefined
+                    ? "red"
+                    : confirmPassword === null
+                    ? "var(--muted-foreground)"
+                    : "green",
+              }}
+            >
+              {confirmPassword === undefined
+                ? "Confirm password is not the same as password"
+                : confirmPassword === null
+                ? "Confirm password must be the same as password"
+                : "Confirm password is the same as password"}
+            </p>
           </div>
           <Button type="button" className="w-full cursor-pointer">
             Sign up

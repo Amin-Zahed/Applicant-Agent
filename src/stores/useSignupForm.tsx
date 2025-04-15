@@ -16,7 +16,7 @@ interface PasswordRegexes {
 
 interface UseSignupForm {
   signupFormDatas: SignupFormDatas;
-  setSignupFormDatas: (data: SignupFormDatas) => void;
+  //   setSignupFormDatas: (data: SignupFormDatas) => void;
   signupFormInputsHandler: (
     e: ChangeEvent<HTMLInputElement>,
     regex: RegExp
@@ -27,6 +27,8 @@ interface UseSignupForm {
   passwordHasASpecialChar: boolean;
   passwordRegexes: PasswordRegexes;
   passwordInputChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  confirmPassword: string | null | undefined;
+  confirmPasswordInputHandler: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const initialSignupFormDatas: SignupFormDatas = {
@@ -45,7 +47,7 @@ const passwordRegexes: PasswordRegexes = {
 const useSignupForm = create<UseSignupForm>((set) => ({
   signupFormDatas: initialSignupFormDatas,
 
-  setSignupFormDatas: (data) => set(() => ({ signupFormDatas: data })),
+  //   setSignupFormDatas: (data) => set(() => ({ signupFormDatas: data })),
 
   signupFormInputsHandler: (e, regex) => {
     const { name, value } = e.target;
@@ -79,6 +81,21 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       passwordHasAUppercase: passwordRegexes.uppercase.test(value),
       passwordHasASpecialChar: passwordRegexes.specialChar.test(value),
     }));
+  },
+
+  confirmPassword: null,
+
+  confirmPasswordInputHandler: (e) => {
+    if (e.target.value === "") {
+      set(() => ({ confirmPassword: null }));
+    } else if (
+      typeof useSignupForm.getState().signupFormDatas.password === "string" &&
+      e.target.value === useSignupForm.getState().signupFormDatas.password
+    ) {
+      set(() => ({ confirmPassword: e.target.value }));
+    } else {
+      set(() => ({ confirmPassword: undefined }));
+    }
   },
 }));
 
