@@ -2,9 +2,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChangeEvent } from "react";
-// import { Eye } from "lucide-react";
-// import { EyeOff } from "lucide-react";
 import useSignupForm from "../stores/useSignupForm";
+import VisiblePasswordInput from "./visible-password-input";
 
 function SignupForm({
   className,
@@ -13,16 +12,14 @@ function SignupForm({
   const {
     signupFormDatas,
     signupFormInputsHandler,
-    passwordInputChangeHandler,
     passwordHasANumber,
     passwordHasALowercase,
     passwordHasAUppercase,
     passwordHasASpecialChar,
     confirmPassword,
+    passwordInputChangeHandler,
     confirmPasswordInputHandler,
   } = useSignupForm();
-
-  // const [showPassword, setShowPassword] = useState(false);
 
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props}>
@@ -98,31 +95,18 @@ function SignupForm({
             </p>
           </div>
           <div className="grid gap-2">
-            <Input
+            <VisiblePasswordInput
               id="password"
-              type="password"
               name="password"
-              maxLength={20}
-              minLength={3}
               placeholder="Password"
-              required
-              // className="w-[80%]"
               onInput={(e: ChangeEvent<HTMLInputElement>) =>
                 signupFormInputsHandler(
                   e,
-                  // /(?=(\S*[0-9]))((?=\S*[a-zA-Z0-9])(?=\S*[A-Z])(?=\S*[a-z]))^\S{4,}$/
                   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()[\]{}\-_=+|;:'",.<>/?\\`~])[\s\S]{4,}$/
                 )
               }
               onChange={passwordInputChangeHandler}
             />
-            {/* <span className="w-[10%] bg-amber-400">
-            {showPassword ? (
-              <Eye onClick={setShowPassword(false)} />
-            ) : (
-              <EyeOff onClick={setShowPassword(true)} />
-            )}
-          </span> */}
             <ol className="text-balance text-sm text-muted-foreground list-inside list-disc">
               <li
                 style={{
@@ -165,14 +149,10 @@ function SignupForm({
             </ol>
           </div>
           <div className="grid gap-2">
-            <Input
+            <VisiblePasswordInput
               id="confirmPassword"
-              type="password"
               name="confirmPassword"
-              maxLength={20}
-              minLength={3}
               placeholder="Confirm password"
-              required
               onInput={confirmPasswordInputHandler}
             />
             <p
