@@ -3,22 +3,23 @@ import image from "@/assets/images/a modern dashboard design with Reacts Logo on
 
 function Signup() {
   return (
-    // <div className="flex h-full w-full flex-col items-center justify-center">
-    <div className="grid h-full container lg:grid-cols-2 border-2 border-border rounded-2xl overflow-hidden m-4">
-      <div className="flex flex-col gap-4 p-6 md:p-10 lg:col-span-1 w-full h-full">
-        <div className="flex justify-center gap-2 md:justify-start"></div>
-        <div className="flex flex-1 items-center justify-center">
-          <div className="w-full max-w-sm lg:max-w-7xl space-y-8">
-            <SignupForm className="w-full h-full" />
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <div className="flex h-full w-full overflow-auto scroll-auto">
+        <div className="flex flex-col gap-4 p-6 md:p-10 lg:w-1/2 w-full h-full">
+          <div className="flex justify-center gap-2 md:justify-start"></div>
+          <div className="flex flex-1 items-center justify-center">
+            <div className="w-full max-w-sm lg:max-w-7xl space-y-8">
+              <SignupForm className="w-full h-full" />
+            </div>
           </div>
         </div>
-      </div>
-      <div className="relative hidden bg-muted lg:block lg:col-span-1">
-        <img
-          src={image}
-          alt="Image"
-          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-        />
+        <div className="relative hidden bg-muted lg:flex w-1/2">
+          <img
+            src={image}
+            alt="Image"
+            className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+          />
+        </div>
       </div>
     </div>
   );

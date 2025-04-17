@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { ChangeEvent } from "react";
 import useSignupForm from "../stores/useSignupForm";
 import VisiblePasswordInput from "./visible-password-input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Link } from "react-router-dom";
 
 function SignupForm({
   className,
@@ -19,6 +21,8 @@ function SignupForm({
     confirmPassword,
     passwordInputChangeHandler,
     confirmPasswordInputHandler,
+    checkboxChecked,
+    setCheckboxChecked,
   } = useSignupForm();
 
   return (
@@ -172,6 +176,22 @@ function SignupForm({
                 ? "Confirm password must be the same as password"
                 : "Confirm password is the same as password"}
             </p>
+          </div>
+          <div className="gap-2 flex items-center">
+            <Checkbox
+              className="cursor-pointer"
+              onClick={() =>
+                checkboxChecked === false
+                  ? setCheckboxChecked(true)
+                  : setCheckboxChecked(false)
+              }
+            />
+            <span>
+              Accept{" "}
+              <Link to="" className="border-b border-foreground">
+                {checkboxChecked ? "amin" : "terms and conditions"}
+              </Link>
+            </span>
           </div>
           <Button type="button" className="w-full cursor-pointer">
             Sign up

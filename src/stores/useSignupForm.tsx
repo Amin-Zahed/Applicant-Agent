@@ -29,6 +29,8 @@ interface UseSignupForm {
   confirmPassword: string | null | undefined;
   confirmPasswordInputHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   confirmPasswordInputValue: string | null;
+  checkboxChecked: boolean;
+  setCheckboxChecked: (checked: boolean) => void;
 }
 
 const initialSignupFormDatas: SignupFormDatas = {
@@ -106,6 +108,9 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       set(() => ({ confirmPassword: undefined }));
     }
   },
+
+  checkboxChecked: false,
+  setCheckboxChecked: (checked) => set(() => ({ checkboxChecked: checked })),
 }));
 
 export default useSignupForm;
