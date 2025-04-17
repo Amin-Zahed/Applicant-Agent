@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect } from "react";
 import useSignupForm from "../stores/useSignupForm";
 import VisiblePasswordInput from "./visible-password-input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -23,7 +23,13 @@ function SignupForm({
     confirmPasswordInputHandler,
     checkboxChecked,
     setCheckboxChecked,
+    signupButtonEnabled,
+    setSignupButtonEnabled,
   } = useSignupForm();
+
+  useEffect(() => {
+    setSignupButtonEnabled();
+  }, [signupFormDatas, confirmPassword, checkboxChecked]);
 
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props}>
@@ -195,12 +201,14 @@ function SignupForm({
           </div>
           <Button
             type="button"
-            disabled={true}
+            disabled={signupButtonEnabled ? false : true}
             title=""
-            className="w-full cursor-pointer"
+            className="w-full"
             style={{
-              backgroundColor: "var(--foreground)",
-              cursor: "not-allowed",
+              backgroundColor: signupButtonEnabled
+                ? "var(--primary)"
+                : "var(--foreground)",
+              cursor: signupButtonEnabled ? "pointer" : "not-allowed",
             }}
           >
             Sign up
