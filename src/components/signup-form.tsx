@@ -189,11 +189,20 @@ function SignupForm({
             <span>
               Accept{" "}
               <Link to="" className="border-b border-foreground">
-                {checkboxChecked ? "amin" : "terms and conditions"}
+                terms and conditions
               </Link>
             </span>
           </div>
-          <Button type="button" className="w-full cursor-pointer">
+          <Button
+            type="button"
+            disabled={true}
+            title=""
+            className="w-full cursor-pointer"
+            style={{
+              backgroundColor: "var(--foreground)",
+              cursor: "not-allowed",
+            }}
+          >
             Sign up
           </Button>
         </div>
