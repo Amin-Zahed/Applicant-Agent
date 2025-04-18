@@ -52,7 +52,6 @@ const passwordRegexes: PasswordRegexes = {
 
 const useSignupForm = create<UseSignupForm>((set) => ({
   signupFormDatas: initialSignupFormDatas,
-
   signupFormInputsHandler: (e, regex) => {
     const { name, value } = e.target;
     if (value === "") {
@@ -74,9 +73,7 @@ const useSignupForm = create<UseSignupForm>((set) => ({
   passwordHasALowercase: false,
   passwordHasAUppercase: false,
   passwordHasASpecialChar: false,
-
   passwordRegexes,
-
   passwordInputChangeHandler: (e) => {
     const { value } = e.target;
     set(() => ({
@@ -97,7 +94,6 @@ const useSignupForm = create<UseSignupForm>((set) => ({
 
   confirmPassword: null,
   confirmPasswordInputValue: null,
-
   confirmPasswordInputHandler: (e) => {
     const { value } = e.target;
     useSignupForm.getState().confirmPasswordInputValue = value;
@@ -117,7 +113,6 @@ const useSignupForm = create<UseSignupForm>((set) => ({
   setCheckboxChecked: (checked) => set(() => ({ checkboxChecked: checked })),
 
   signupButtonEnabled: false,
-
   setSignupButtonEnabled: () => {
     const state = useSignupForm.getState();
     const isFormValid =
@@ -126,12 +121,10 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       typeof state.signupFormDatas.password === "string" &&
       typeof state.confirmPassword === "string" &&
       state.checkboxChecked === true;
-
     set(() => ({ signupButtonEnabled: isFormValid }));
   },
 
   signupFormIsValid: false,
-
   setSignupFormIsValid: (isValid) => {
     if (useSignupForm.getState().signupButtonEnabled) {
       set(() => ({ signupFormIsValid: isValid }));
