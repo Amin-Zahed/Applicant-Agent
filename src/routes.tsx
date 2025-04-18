@@ -15,7 +15,7 @@ import ForgotPassword from "./Pages/signin/subPages/forgotPassword/ForgotPasswor
 const routes = [
   { path: "/", element: <Dashboard /> },
   {
-    path: "/signin",
+    path: "/signin/",
     element: <Signin />,
     children: [{ path: "forgot-password", element: <ForgotPassword /> }],
   },
