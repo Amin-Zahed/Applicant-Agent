@@ -25,6 +25,7 @@ function SignupForm({
     setCheckboxChecked,
     signupButtonEnabled,
     setSignupButtonEnabled,
+    setSignupFormIsValid,
   } = useSignupForm();
 
   useEffect(() => {
@@ -32,7 +33,7 @@ function SignupForm({
   }, [signupFormDatas, confirmPassword, checkboxChecked]);
 
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form className={cn("flex flex-col gap-6 pb-10", className)} {...props}>
       <fieldset
         id="main-signup-fieldset"
         className="flex flex-col gap-6 w-full h-full"
@@ -141,7 +142,7 @@ function SignupForm({
                       : passwordHasALowercase && passwordHasAUppercase
                       ? "green"
                       : passwordHasALowercase || passwordHasAUppercase
-                      ? "yellow"
+                      ? "orange"
                       : "red",
                 }}
               >
@@ -216,6 +217,7 @@ function SignupForm({
                 : "var(--foreground)",
               cursor: signupButtonEnabled ? "pointer" : "not-allowed",
             }}
+            onClick={() => setSignupFormIsValid(true)}
           >
             Sign up
           </Button>

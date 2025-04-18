@@ -33,6 +33,8 @@ interface UseSignupForm {
   setCheckboxChecked: (checked: boolean) => void;
   signupButtonEnabled: boolean;
   setSignupButtonEnabled: () => void;
+  signupFormIsValid: boolean;
+  setSignupFormIsValid: (isValid: boolean) => void;
 }
 
 const initialSignupFormDatas: SignupFormDatas = {
@@ -115,19 +117,6 @@ const useSignupForm = create<UseSignupForm>((set) => ({
   setCheckboxChecked: (checked) => set(() => ({ checkboxChecked: checked })),
 
   signupButtonEnabled: false,
-  // setSignupButtonEnabled: () => {
-  //   if (
-  //     typeof useSignupForm.getState().signupFormDatas.username === "string" &&
-  //     typeof useSignupForm.getState().signupFormDatas.email === "string" &&
-  //     typeof useSignupForm.getState().signupFormDatas.password === "string" &&
-  //     typeof useSignupForm.getState().confirmPassword === "string" &&
-  //     useSignupForm.getState().checkboxChecked === true
-  //   ) {
-  //     set(() => ({ signupButtonEnabled: true }));
-  //   } else {
-  //     set(() => ({ signupButtonEnabled: false }));
-  //   }
-  // },
 
   setSignupButtonEnabled: () => {
     const state = useSignupForm.getState();
@@ -139,6 +128,14 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       state.checkboxChecked === true;
 
     set(() => ({ signupButtonEnabled: isFormValid }));
+  },
+
+  signupFormIsValid: false,
+
+  setSignupFormIsValid: (isValid) => {
+    if (useSignupForm.getState().signupButtonEnabled) {
+      set(() => ({ signupFormIsValid: isValid }));
+    }
   },
 }));
 

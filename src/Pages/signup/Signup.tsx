@@ -13,7 +13,7 @@ function Signup() {
             </div>
           </div>
         </div>
-        <div className="relative hidden bg-muted lg:flex w-1/2">
+        <div className="relative hidden bg-muted lg:flex w-1/2 h-full">
           <img
             src={image}
             alt="Image"
