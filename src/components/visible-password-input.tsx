@@ -6,6 +6,7 @@ interface VisiblePasswordInputProps {
   id: string;
   name: string;
   placeholder: string;
+  value: string | undefined | null;
   onInput?: React.FormEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
@@ -26,6 +27,7 @@ const VisiblePasswordInput = (props: VisiblePasswordInputProps) => {
         className="w-[90%] border-none dark:bg-input/0"
         onInput={props.onInput}
         onChange={props.onChange}
+        value={props.value}
       />
 
       <span className="w-[10%] h-[100%] rounded-2xl flex items-center justify-center bg-transparent file:bg-transparent">
