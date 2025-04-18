@@ -209,7 +209,11 @@ function SignupForm({
           <Button
             type="button"
             disabled={signupButtonEnabled ? false : true}
-            title=""
+            title={
+              signupButtonEnabled
+                ? "Sign up"
+                : "Button is disabled, Please fill all the fields"
+            }
             className="w-full"
             style={{
               backgroundColor: signupButtonEnabled
