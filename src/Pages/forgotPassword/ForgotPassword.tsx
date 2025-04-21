@@ -12,41 +12,52 @@ const ForgotPassword = ({
     useSigninForm();
 
   return (
-    <form
-      className={cn("flex flex-col gap-6", className)}
-      {...props}
-      id="forgot-password-form"
-    >
-      <div className="flex flex-col items-center gap-4 text-center">
-        <h1 className="text-2xl font-bold">Forgot your Password</h1>
-        <p className="text-balance text-sm text-muted-foreground">
-          If you forgot your password, give us your username or email so we can
-          send you a verification code
-        </p>
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <div className="flex flex-col gap-4 p-6 md:p-10 border-2 border-border rounded-2xl m-4">
+        <div className="flex justify-center gap-2 md:justify-start "></div>
+        <div className="flex flex-1 items-center justify-center ">
+          <div className="w-full max-w-xs ">
+            <form
+              className={cn("flex flex-col gap-6", className)}
+              {...props}
+              id="forgot-password-form"
+            >
+              <div className="flex flex-col items-center gap-4 text-center">
+                <h1 className="text-2xl font-bold">Forgot your Password</h1>
+                <p className="text-balance text-sm text-muted-foreground">
+                  If you forgot your password, give us your username or email so
+                  we can send you a verification code
+                </p>
+              </div>
+              <div className="grid gap-6">
+                <Input
+                  type="email"
+                  id="email"
+                  placeholder="Email or Username"
+                  required
+                  value={forgotPasswordInputValue}
+                  onInput={(e) =>
+                    setForgotPasswordInputValue(
+                      (e.target as HTMLInputElement).value
+                    )
+                  }
+                />
+                <h3>
+                  Remembered my password,{" "}
+                  <Link
+                    className="italic border-b-2 border-accent-foreground"
+                    to="/signin"
+                  >
+                    Go back to login.
+                  </Link>
+                </h3>
+                <Button type="button">Send Verification Code</Button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <div className="grid gap-6">
-        <Input
-          type="email"
-          id="email"
-          placeholder="Email or Username"
-          required
-          value={forgotPasswordInputValue}
-          onInput={(e) =>
-            setForgotPasswordInputValue((e.target as HTMLInputElement).value)
-          }
-        />
-        <h3>
-          Remembered my password,{" "}
-          <Link
-            className="italic border-b-2 border-accent-foreground"
-            to="/signin"
-          >
-            Go back to login.
-          </Link>
-        </h3>
-        <Button type="button">Send Verification Code</Button>
-      </div>
-    </form>
+    </div>
   );
 };
 
