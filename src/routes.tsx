@@ -25,10 +25,9 @@ const routes = [
   { path: "/notifications", element: <Notifications /> },
   { path: "/add", element: <Add /> },
   {
-    path: "/profile/",
+    path: "/profile",
     element: <Profile />,
     children: [
-      { path: "application", element: <Application /> },
       { path: "info", element: <Info /> },
       { path: "chart", element: <Chart /> },
     ],

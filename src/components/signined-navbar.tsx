@@ -17,7 +17,7 @@ const SigninedNavbar = () => {
               <BellDot />
             </MenubarTrigger>
           </NavLink>
-          <NavLink to="/profile/application">
+          <NavLink to="/profile">
             <MenubarTrigger>
               {" "}
               <CircleUserRound />

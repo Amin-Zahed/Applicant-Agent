@@ -1,7 +1,16 @@
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
-
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import DataTable from "@/components/data-table";
+import { TabsContent } from "@/components/ui/tabs";
+import { Label } from "@/components/ui/label";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 function Profile() {
@@ -13,15 +22,13 @@ function Profile() {
         <AppSidebar />
         <main>
           <SidebarTrigger className="cursor-pointer md:bsolute md:hidden" />
-          <br />
-          <h1 className="text-center">Profile</h1>
-          <br />
           <Tabs
             defaultValue={
               location.pathname === "/profile/" ||
-              location.pathname === "/profile/application"
+              location.pathname === "/profile"
                 ? "application"
-                : location.pathname === "/profile/info"
+                : location.pathname === "/profile/info" ||
+                  location.pathname === "/profile/info/"
                 ? "info"
                 : "chart"
             }
@@ -33,7 +40,7 @@ function Profile() {
                   Info
                 </TabsTrigger>
               </Link>
-              <Link to="application">
+              <Link to="/profile">
                 <TabsTrigger
                   value="application"
                   className="cursor-pointer w-full"
@@ -47,6 +54,23 @@ function Profile() {
                 </TabsTrigger>
               </Link>
             </TabsList>
+            <TabsContent value="application">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Application</CardTitle>
+                  <CardDescription>
+                    Change your application here. After saving, you'll be logged
+                    out.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <div className="space-y-1">
+                    <Label>Data table</Label>
+                    <DataTable />
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
             <Outlet />
           </Tabs>
         </main>
