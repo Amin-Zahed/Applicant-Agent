@@ -6,7 +6,6 @@ import Profile from "./Pages/profile/Profile";
 import Notifications from "./Pages/notifications/Notifications";
 import Add from "./Pages/add/Add";
 import Info from "./Pages/profile/subPages/info/Info";
-import Application from "./Pages/profile/subPages/application/Application";
 import Chart from "./Pages/profile/subPages/chart/Chart";
 import Signin from "./Pages/signin/Signin";
 import Signup from "./Pages/signup/Signup";
