@@ -1,6 +1,7 @@
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ModeToggle } from "./mode-toggle";
+import { Button } from "./ui/button";
 
 const NotSigninedNavbar = () => {
   return (
@@ -17,12 +18,19 @@ const NotSigninedNavbar = () => {
           <MenubarTrigger>
             <ModeToggle />
           </MenubarTrigger>
-          <NavLink to="/signin">
-            <MenubarTrigger>Sign in</MenubarTrigger>
-          </NavLink>
-          <NavLink to="/signup">
-            <MenubarTrigger>Sign up</MenubarTrigger>
-          </NavLink>
+          <Button
+            variant={"secondary"}
+            className="border-2 border-primary hover:bg-primary w-1/3"
+          >
+            <Link to="/signin">
+              <MenubarTrigger>Sign in</MenubarTrigger>
+            </Link>
+          </Button>
+          <Button className="w-1/3">
+            <Link to="/signup">
+              <MenubarTrigger>Sign up</MenubarTrigger>
+            </Link>
+          </Button>
         </MenubarMenu>
       </div>
     </Menubar>

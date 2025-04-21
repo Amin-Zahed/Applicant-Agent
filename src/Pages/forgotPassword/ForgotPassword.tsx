@@ -8,11 +8,8 @@ const ForgotPassword = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) => {
-  const {
-    setForgotPassword,
-    forgotPasswordInputValue,
-    setForgotPasswordInputValue,
-  } = useSigninForm();
+  const { forgotPasswordInputValue, setForgotPasswordInputValue } =
+    useSigninForm();
 
   return (
     <form
@@ -43,7 +40,6 @@ const ForgotPassword = ({
           <Link
             className="italic border-b-2 border-accent-foreground"
             to="/signin"
-            onClick={() => setForgotPassword(false)}
           >
             Go back to login.
           </Link>

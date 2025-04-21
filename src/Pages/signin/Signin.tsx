@@ -1,6 +1,6 @@
 import SigninForm from "@/components/signin-form";
 import useSigninForm from "@/stores/useSigninForm";
-import ForgotPassword from "./subPages/forgotPassword/ForgotPassword";
+import ForgotPassword from "../forgotPassword/ForgotPassword";
 
 function Signin() {
   const { forgotPassword } = useSigninForm();

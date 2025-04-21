@@ -3,14 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
-import useSigninForm from "../stores/useSigninForm";
 
 function SigninForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
-  const { setForgotPassword } = useSigninForm();
-
   return (
     <form
       className={cn("flex flex-col gap-6", className)}
@@ -32,9 +29,8 @@ function SigninForm({
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
             <Link
-              to="forgot-password"
+              to="/forgot-password"
               className="ml-auto text-sm underline-offset-4 hover:underline"
-              onClick={() => setForgotPassword(true)}
             >
               Forgot your password?
             </Link>
