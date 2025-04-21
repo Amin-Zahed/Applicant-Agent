@@ -13,10 +13,7 @@ import ForgotPassword from "./Pages/forgotPassword/ForgotPassword";
 
 const routes = [
   { path: "/", element: <Dashboard /> },
-  {
-    path: "/signin/",
-    element: <Signin />,
-  },
+  { path: "/signin/", element: <Signin /> },
   { path: "/forgot-password", element: <ForgotPassword /> },
   { path: "/signup", element: <Signup /> },
   { path: "/list", element: <List /> },
