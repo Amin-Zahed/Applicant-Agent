@@ -20,7 +20,7 @@ const NotSigninedNavbar = () => {
           </MenubarTrigger>
           <Button
             variant={"secondary"}
-            className="border-2 border-primary hover:bg-primary w-1/3"
+            className="border-2 border-primary hover:bg-primary hover:text-white w-1/3"
           >
             <Link to="/signin">
               <MenubarTrigger>Sign in</MenubarTrigger>

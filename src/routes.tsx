@@ -1,6 +1,4 @@
-import List from "./Pages/list/List";
 import Dashboard from "./Pages/dashboard/Dashboard";
-import Log from "./Pages/log/Log";
 import NotFound from "./Pages/notFound/NotFound";
 import Profile from "./Pages/profile/Profile";
 import Notifications from "./Pages/notifications/Notifications";
@@ -16,8 +14,6 @@ const routes = [
   { path: "/signin/", element: <Signin /> },
   { path: "/forgot-password", element: <ForgotPassword /> },
   { path: "/signup", element: <Signup /> },
-  { path: "/list", element: <List /> },
-  { path: "/log", element: <Log /> },
   { path: "/notifications", element: <Notifications /> },
   { path: "/add", element: <Add /> },
   {
