@@ -214,13 +214,6 @@ function SignupForm({
                 ? "Sign up"
                 : "Button is disabled, Please fill all the fields"
             }
-            className="w-full"
-            style={{
-              backgroundColor: signupButtonEnabled
-                ? "var(--primary)"
-                : "var(--foreground)",
-              cursor: signupButtonEnabled ? "pointer" : "not-allowed",
-            }}
             onClick={() => setSignupFormIsValid(true)}
           >
             Sign up

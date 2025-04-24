@@ -3,9 +3,10 @@ import image from "@/assets/images/a modern dashboard design with Reacts Logo on
 import useSignupForm from "../../stores/useSignupForm";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 function Signup() {
-  const { signupFormIsValid } = useSignupForm();
+  const { signupFormIsValid, signupFormDatas } = useSignupForm();
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
@@ -36,19 +37,20 @@ function Signup() {
         style={{ display: signupFormIsValid ? "flex" : "none" }}
       >
         <div className="w-full max-w-sm lg:max-w-7xl space-y-8 p-16 flex items-center justify-center flex-col gap-4">
-          <h1 className="xl:text-xl 2xl:text-5xl font-bold">
-            Verification email has been sent to @Emails
+          <h1 className="xl:text-xl 2xl:text-5xl font-bold text-justify md:text-center">
+            Verification email has been sent to {signupFormDatas.email}
           </h1>
           <p>
             <Check size={200} strokeWidth={5} color="green" />
           </p>
-          <p>
+          <p className="text-justify">
             To confirm your email address, please follow the link provided in
             email message sent to you
           </p>
-          <p className="font-semibold text-2xl italic border-b-2 border-foreground">
+
+          <Button variant="link" className="text-xl">
             <Link to="/">Open Home Page</Link>
-          </p>
+          </Button>
         </div>
       </div>
     </div>
