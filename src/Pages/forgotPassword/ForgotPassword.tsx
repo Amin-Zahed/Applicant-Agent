@@ -24,7 +24,7 @@ const ForgotPassword = ({
             >
               <div className="flex flex-col items-center gap-4 text-center">
                 <h1 className="text-2xl font-bold">Forgot your Password</h1>
-                <p className="text-balance text-sm text-muted-foreground">
+                <p className="text-balance text-sm text-muted-foreground text-center">
                   If you forgot your password, give us your username or email so
                   we can send you a verification code
                 </p>
@@ -42,15 +42,12 @@ const ForgotPassword = ({
                     )
                   }
                 />
-                <h3>
-                  Remembered my password,{" "}
-                  <Link
-                    className="italic border-b-2 border-accent-foreground"
-                    to="/signin"
-                  >
-                    Go back to login.
-                  </Link>
-                </h3>
+                <p className="text-sm text-balance text-muted-foreground">
+                  Remembered my password,
+                  <Button variant="link" className="ml-auto text-sm">
+                    <Link to="/signin">Go back to login.</Link>
+                  </Button>
+                </p>
                 <Button type="button">Send Verification Code</Button>
               </div>
             </form>

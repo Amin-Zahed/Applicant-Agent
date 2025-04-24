@@ -4,16 +4,18 @@ import useSignupForm from "../../stores/useSignupForm";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import useLogin from "@/stores/useLogin";
 
 function Signup() {
-  const { signupFormIsValid, signupFormDatas } = useSignupForm();
+  const { signupFormDatas } = useSignupForm();
+  const { isLogin } = useLogin();
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
       <div
         id="signup-form-container"
         className="h-full w-full overflow-auto scroll-auto"
-        style={{ display: signupFormIsValid ? "none" : "flex" }}
+        style={{ display: isLogin ? "none" : "flex" }}
       >
         <div className="flex flex-col gap-4 p-6 md:p-10 lg:w-1/2 w-full h-full">
           <div className="flex justify-center gap-2 md:justify-start"></div>
@@ -34,7 +36,7 @@ function Signup() {
       <div
         id="signuped-card-container"
         className="h-full w-full overflow-auto scroll-auto items-center justify-center"
-        style={{ display: signupFormIsValid ? "flex" : "none" }}
+        style={{ display: isLogin ? "flex" : "none" }}
       >
         <div className="w-full max-w-sm lg:max-w-7xl space-y-8 p-16 flex items-center justify-center flex-col gap-4">
           <h1 className="xl:text-xl 2xl:text-5xl font-bold text-justify md:text-center">

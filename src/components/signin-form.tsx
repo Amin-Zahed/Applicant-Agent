@@ -28,12 +28,9 @@ function SigninForm({
         <div className="grid gap-2">
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
-            <Link
-              to="/forgot-password"
-              className="ml-auto text-sm underline-offset-4 hover:underline"
-            >
-              Forgot your password?
-            </Link>
+            <Button variant="link" className="ml-auto text-sm">
+              <Link to="/forgot-password">Forgot your password?</Link>
+            </Button>
           </div>
           <Input id="password" type="password" required />
         </div>
@@ -70,10 +67,10 @@ function SigninForm({
         </Button>
       </div>
       <div className="text-center text-sm">
-        Don&apos;t have an account?{" "}
-        <Link to="/signup" className="underline underline-offset-4">
-          Sign up
-        </Link>
+        Don&apos;t have an account?
+        <Button variant="link" className="text-sm">
+          <Link to="/signup">Sign up</Link>
+        </Button>
       </div>
     </form>
   );

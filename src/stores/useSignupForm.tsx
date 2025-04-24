@@ -33,8 +33,6 @@ interface UseSignupForm {
   setCheckboxChecked: (checked: boolean) => void;
   signupButtonEnabled: boolean;
   setSignupButtonEnabled: () => void;
-  signupFormIsValid: boolean;
-  setSignupFormIsValid: (isValid: boolean) => void;
 }
 
 const initialSignupFormDatas: SignupFormDatas = {
@@ -122,13 +120,6 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       typeof state.confirmPassword === "string" &&
       state.checkboxChecked === true;
     set(() => ({ signupButtonEnabled: isFormValid }));
-  },
-
-  signupFormIsValid: false,
-  setSignupFormIsValid: (isValid) => {
-    if (useSignupForm.getState().signupButtonEnabled) {
-      set(() => ({ signupFormIsValid: isValid }));
-    }
   },
 }));
 
