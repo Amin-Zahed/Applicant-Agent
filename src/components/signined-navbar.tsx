@@ -33,12 +33,6 @@ const SigninedNavbar = () => {
           <NavLink to="/add">
             <MenubarTrigger>Add</MenubarTrigger>
           </NavLink>
-          <NavLink to="/list">
-            <MenubarTrigger>List</MenubarTrigger>
-          </NavLink>
-          <NavLink to="/log">
-            <MenubarTrigger>Log</MenubarTrigger>
-          </NavLink>
         </MenubarMenu>
       </div>
     </Menubar>
