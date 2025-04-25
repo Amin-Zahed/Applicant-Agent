@@ -36,7 +36,7 @@ function SignupForm({
 
   return (
     <form
-      className={cn("flex flex-col gap-6 pb-10", className)}
+      className={cn("flex flex-col gap-6 pb-7", className)}
       {...props}
       id="signup-form"
     >

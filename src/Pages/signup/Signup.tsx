@@ -14,11 +14,11 @@ function Signup() {
     <div className="flex h-full w-full flex-col items-center justify-center">
       <div
         id="signup-form-container"
-        className="h-full w-full overflow-auto scroll-auto"
+        className="lg:h-full lg:w-full overflow-auto scroll-auto border-2 lg:border-0 border-border rounded-2xl lg:rounded-none m-4 lg:m-0"
         style={{ display: isLogin ? "none" : "flex" }}
       >
-        <div className="flex flex-col gap-4 p-6 md:p-10 lg:w-1/2 w-full h-full">
-          <div className="flex justify-center gap-2 md:justify-start"></div>
+        <div className="flex flex-col gap-4 lg:w-1/2 w-full h-full px-6 md:p-10">
+          <div className="flex justify-center gap-2 md:justify-start "></div>
           <div className="flex flex-1 items-center justify-center">
             <div className="w-full max-w-sm lg:max-w-7xl space-y-8">
               <SignupForm className="w-full h-full" />
@@ -29,7 +29,7 @@ function Signup() {
           <img
             src={image}
             alt="Image"
-            className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>
