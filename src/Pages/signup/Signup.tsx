@@ -35,7 +35,7 @@ function Signup() {
       </div>
       <div
         id="signuped-card-container"
-        className="h-full w-full overflow-auto scroll-auto items-center justify-center"
+        className="overflow-auto scroll-auto items-center justify-center border-2 lg:border-0 border-border rounded-2xl lg:rounded-none m-4 lg:m-0"
         style={{ display: isLogin ? "flex" : "none" }}
       >
         <div className="w-full max-w-sm lg:max-w-7xl space-y-8 p-16 flex items-center justify-center flex-col gap-4">
