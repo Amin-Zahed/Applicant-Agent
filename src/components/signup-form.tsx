@@ -168,7 +168,7 @@ function SignupForm({
           <VisiblePasswordInput
             id="confirmPassword"
             name="confirmPassword"
-            placeholder="Confirm password"
+            placeholder="Confirm Password"
             value={confirmPassword}
             onInput={confirmPasswordInputHandler}
           />

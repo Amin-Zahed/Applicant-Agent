@@ -9,6 +9,8 @@ interface UseForgotPassword {
   setSendRequestVerificationCode: (
     sendRequestVerificationCode: boolean
   ) => void;
+  sendVerifyCode: boolean;
+  setSendVerifyCode: (sendVerifyCode: boolean) => void;
 }
 
 const useSignupForm = create<UseForgotPassword>((set) => ({
@@ -19,6 +21,9 @@ const useSignupForm = create<UseForgotPassword>((set) => ({
   sendRequestVerificationCode: false,
   setSendRequestVerificationCode: (sendRequestVerificationCode) =>
     set({ sendRequestVerificationCode }),
+
+  sendVerifyCode: false,
+  setSendVerifyCode: (sendVerifyCode) => set({ sendVerifyCode }),
 }));
 
 export default useSignupForm;

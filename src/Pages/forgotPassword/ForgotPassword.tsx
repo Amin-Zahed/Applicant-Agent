@@ -1,6 +1,8 @@
+import { ChangeEvent } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import useForgotPassword from "@/stores/useForgotPassword";
+import useSignupForm from "@/stores/useSignupForm";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +11,8 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
+import VisiblePasswordInput from "@/components/visible-password-input";
+import useLogin from "@/stores/useLogin";
 
 const ForgotPassword = ({
   className,
@@ -19,7 +23,23 @@ const ForgotPassword = ({
     setForgotPasswordInputValue,
     sendRequestVerificationCode,
     setSendRequestVerificationCode,
+    sendVerifyCode,
+    setSendVerifyCode,
   } = useForgotPassword();
+
+  const {
+    signupFormDatas,
+    signupFormInputsHandler,
+    passwordInputChangeHandler,
+    passwordHasASpecialChar,
+    passwordHasANumber,
+    passwordHasALowercase,
+    passwordHasAUppercase,
+    confirmPassword,
+    confirmPasswordInputHandler,
+  } = useSignupForm();
+
+  const { setIsLogin } = useLogin();
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
@@ -67,7 +87,13 @@ const ForgotPassword = ({
             </form>
           </div>
           <div
-            style={{ display: sendRequestVerificationCode ? "block" : "none" }}
+            style={{
+              display:
+                sendRequestVerificationCode === false ||
+                (sendVerifyCode && sendRequestVerificationCode)
+                  ? "none"
+                  : "block",
+            }}
           >
             <form className={cn("flex flex-col gap-6", className)} {...props}>
               <div className="flex flex-col items-center gap-4 text-center">
@@ -88,7 +114,108 @@ const ForgotPassword = ({
                 </InputOTP>
               </div>
               <div className="grid gap-6">
-                <Button type="button">Verify</Button>
+                <Button type="button" onClick={() => setSendVerifyCode(true)}>
+                  Verify
+                </Button>
+              </div>
+            </form>
+          </div>
+          <div style={{ display: sendVerifyCode ? "block" : "none" }}>
+            <form className={cn("flex flex-col gap-6", className)} {...props}>
+              <div className="flex flex-col items-center gap-4 text-center">
+                <h1 className="text-2xl font-bold">Change Password</h1>
+              </div>
+              <div className="grid gap-2">
+                <VisiblePasswordInput
+                  id="newPassword"
+                  name="password"
+                  placeholder="New Password"
+                  value={signupFormDatas.password}
+                  onInput={(e: ChangeEvent<HTMLInputElement>) =>
+                    signupFormInputsHandler(
+                      e,
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()[\]{}\-_=+|;:'",.<>/?\\`~])[\s\S]{4,}$/
+                    )
+                  }
+                  onChange={passwordInputChangeHandler}
+                />
+                <ol className="text-balance text-sm text-muted-foreground list-inside list-disc">
+                  <li
+                    style={{
+                      color:
+                        signupFormDatas.password === null
+                          ? "var(--muted-foreground)"
+                          : passwordHasANumber
+                          ? "green"
+                          : "red",
+                    }}
+                  >
+                    At least one number.
+                  </li>
+                  <li
+                    style={{
+                      color:
+                        signupFormDatas.password === null
+                          ? "var(--muted-foreground)"
+                          : passwordHasALowercase && passwordHasAUppercase
+                          ? "green"
+                          : passwordHasALowercase || passwordHasAUppercase
+                          ? "orange"
+                          : "red",
+                    }}
+                  >
+                    Combination of upper and lower case letters.
+                  </li>
+                  <li
+                    style={{
+                      color:
+                        signupFormDatas.password === null
+                          ? "var(--muted-foreground)"
+                          : passwordHasASpecialChar
+                          ? "green"
+                          : "red",
+                    }}
+                  >
+                    At least one special charactor - [] , + = ? .{" "}
+                  </li>
+                </ol>
+              </div>
+              <div className="grid gap-2">
+                <VisiblePasswordInput
+                  id="confirmNewPassword"
+                  name="confirmPassword"
+                  placeholder="Confirm New Password"
+                  value={confirmPassword}
+                  onInput={confirmPasswordInputHandler}
+                />
+                <p
+                  className="text-balance text-sm text-muted-foreground"
+                  style={{
+                    color:
+                      confirmPassword === undefined
+                        ? "red"
+                        : confirmPassword === null
+                        ? "var(--muted-foreground)"
+                        : "green",
+                  }}
+                >
+                  {confirmPassword === undefined
+                    ? "Confirm password is not the same as password"
+                    : confirmPassword === null
+                    ? "Confirm password must be the same as password"
+                    : "Confirm password is the same as password"}
+                </p>
+              </div>
+              <div className="grid gap-6">
+                <Link to="/">
+                  <Button
+                    type="button"
+                    className="w-full"
+                    onClick={() => setIsLogin(true)}
+                  >
+                    Change Password
+                  </Button>
+                </Link>
               </div>
             </form>
           </div>
