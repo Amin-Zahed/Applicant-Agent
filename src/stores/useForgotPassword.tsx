@@ -11,6 +11,10 @@ interface UseForgotPassword {
   ) => void;
   sendVerifyCode: boolean;
   setSendVerifyCode: (sendVerifyCode: boolean) => void;
+  changePasswordButtonEnabled: boolean;
+  setChangePasswordButtonEnabled: (
+    changePasswordButtonEnabled: boolean
+  ) => void;
 }
 
 const useSignupForm = create<UseForgotPassword>((set) => ({
@@ -24,6 +28,10 @@ const useSignupForm = create<UseForgotPassword>((set) => ({
 
   sendVerifyCode: false,
   setSendVerifyCode: (sendVerifyCode) => set({ sendVerifyCode }),
+
+  changePasswordButtonEnabled: false,
+  setChangePasswordButtonEnabled: (changePasswordButtonEnabled) =>
+    set({ changePasswordButtonEnabled }),
 }));
 
 export default useSignupForm;

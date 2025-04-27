@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import useForgotPassword from "@/stores/useForgotPassword";
@@ -25,6 +25,8 @@ const ForgotPassword = ({
     setSendRequestVerificationCode,
     sendVerifyCode,
     setSendVerifyCode,
+    changePasswordButtonEnabled,
+    setChangePasswordButtonEnabled,
   } = useForgotPassword();
 
   const {
@@ -40,6 +42,17 @@ const ForgotPassword = ({
   } = useSignupForm();
 
   const { setIsLogin } = useLogin();
+
+  useEffect(() => {
+    if (
+      typeof signupFormDatas.password === "string" &&
+      typeof confirmPassword === "string"
+    ) {
+      setChangePasswordButtonEnabled(true);
+    } else {
+      setChangePasswordButtonEnabled(false);
+    }
+  }, [signupFormDatas, confirmPassword]);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
@@ -210,8 +223,11 @@ const ForgotPassword = ({
                 <Link to="/">
                   <Button
                     type="button"
+                    disabled={!changePasswordButtonEnabled}
                     className="w-full"
-                    onClick={() => setIsLogin(true)}
+                    onClick={() =>
+                      changePasswordButtonEnabled && setIsLogin(true)
+                    }
                   >
                     Change Password
                   </Button>
