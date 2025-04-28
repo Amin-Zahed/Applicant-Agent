@@ -17,7 +17,7 @@ interface UseForgotPassword {
   ) => void;
 }
 
-const useSignupForm = create<UseForgotPassword>((set) => ({
+const useForgotPassword = create<UseForgotPassword>((set) => ({
   forgotPasswordInputValue: null,
   setForgotPasswordInputValue: (forgotPasswordInputValue) =>
     set({ forgotPasswordInputValue }),
@@ -34,4 +34,4 @@ const useSignupForm = create<UseForgotPassword>((set) => ({
     set({ changePasswordButtonEnabled }),
 }));
 
-export default useSignupForm;
+export default useForgotPassword;
