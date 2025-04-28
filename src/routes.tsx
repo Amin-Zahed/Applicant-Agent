@@ -8,17 +8,36 @@ import Chart from "./Pages/profile/subPages/chart/Chart";
 import Signin from "./Pages/signin/Signin";
 import Signup from "./Pages/signup/Signup";
 import ForgotPassword from "./Pages/forgotPassword/ForgotPassword";
+import PrivateRoute from "./components/private-route";
 
 const routes = [
   { path: "/", element: <Dashboard /> },
   { path: "/signin/", element: <Signin /> },
   { path: "/forgot-password", element: <ForgotPassword /> },
   { path: "/signup", element: <Signup /> },
-  { path: "/notifications", element: <Notifications /> },
-  { path: "/add", element: <Add /> },
+  {
+    path: "/notifications",
+    element: (
+      <PrivateRoute>
+        <Notifications />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/add",
+    element: (
+      <PrivateRoute>
+        <Add />{" "}
+      </PrivateRoute>
+    ),
+  },
   {
     path: "/profile",
-    element: <Profile />,
+    element: (
+      <PrivateRoute>
+        <Profile />
+      </PrivateRoute>
+    ),
     children: [
       { path: "info", element: <Info /> },
       { path: "chart", element: <Chart /> },

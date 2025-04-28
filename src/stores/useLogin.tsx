@@ -8,7 +8,6 @@ interface UseLogin {
 const useLogin = create<UseLogin>((set) => ({
   isLogin: false,
   setIsLogin: (isLogin) => {
-    //   if (useSignupForm.getState().signupButtonEnabled)
     {
       set(() => ({ isLogin: isLogin }));
     }
