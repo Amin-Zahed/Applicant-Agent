@@ -36,7 +36,7 @@ function Profile() {
                 ? "info"
                 : "chart"
             }
-            className="w-dvw"
+            className="p-4"
             style={{
               width: isMobile
                 ? "100dvw"
