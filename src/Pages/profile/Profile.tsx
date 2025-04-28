@@ -12,16 +12,20 @@ import DataTable from "@/components/data-table";
 import { TabsContent } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import useSidebar from "@/stores/useSidebar";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 function Profile() {
   const location = useLocation();
+  const { sidebarIsOpen } = useSidebar();
+  const isMobile = useIsMobile();
 
   return (
     <div id="profile" className="w-full h-full flex flex-col overflow-auto">
       <SidebarProvider className=" w-full min-h-0 h-full">
         <AppSidebar />
         <main>
-          <SidebarTrigger className="cursor-pointer md:bsolute md:hidden" />
+          <SidebarTrigger className="cursor-pointer md:absolute md:hidden" />
           <Tabs
             defaultValue={
               location.pathname === "/profile/" ||
@@ -32,7 +36,14 @@ function Profile() {
                 ? "info"
                 : "chart"
             }
-            className="w-dvw md:w-[calc(100vw-16rem)]"
+            className="w-dvw"
+            style={{
+              width: isMobile
+                ? "100dvw"
+                : isMobile === false && sidebarIsOpen
+                ? "calc(100vw - (var(--sidebar-width-icon)))"
+                : "calc(100vw - (var(--sidebar-width)))",
+            }}
           >
             <TabsList className="grid w-full grid-cols-3">
               <Link to="info" className="">

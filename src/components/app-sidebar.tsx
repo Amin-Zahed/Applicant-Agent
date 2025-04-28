@@ -1,26 +1,3 @@
-// import {
-//   Sidebar,
-//   SidebarContent,
-//   SidebarFooter,
-//   SidebarGroup,
-//   SidebarHeader,
-//   SidebarTrigger,
-// } from "@/components/ui/sidebar";
-
-// export function AppSidebar() {
-//   return (
-//     <Sidebar className="h-full flex flex-col items-center">
-//       <SidebarTrigger className="cursor-pointer absolute top-0 right-0" />
-//       <SidebarHeader />
-//       <SidebarContent>
-//         <SidebarGroup />
-//         <SidebarGroup />
-//       </SidebarContent>
-//       <SidebarFooter />
-//     </Sidebar>
-//   );
-// }
-
 import * as React from "react";
 import {
   AudioWaveform,
@@ -46,6 +23,8 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import useSidebar from "@/stores/useSidebar";
+
 // This is sample data.
 const data = {
   user: {
@@ -176,13 +155,18 @@ const data = {
   ],
 };
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { toggleSidebar } = useSidebar();
+
   return (
     <Sidebar
       collapsible="icon"
       className="h-full flex flex-col items-center"
       {...props}
     >
-      <SidebarTrigger className="cursor-pointer absolute top-0 right-0" />{" "}
+      <SidebarTrigger
+        className="cursor-pointer absolute top-0 right-0"
+        onClick={toggleSidebar}
+      />{" "}
       <br />
       <br />
       <SidebarHeader>
