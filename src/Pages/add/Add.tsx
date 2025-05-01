@@ -7,6 +7,9 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import ComboboxPopover from "@/components/comboboxPopover";
 
 const Add = () => {
   const { sidebarIsOpen } = useAppSidebar();
@@ -33,13 +36,19 @@ const Add = () => {
             }}
           >
             <ResizablePanel defaultSize={25}>
-              <div className="flex flex-col h-full p-6">
-                <div className="flex flex-col items-center gap-2 text-center">
-                  <h1 className="text-2xl font-bold">Add new tasks</h1>
-                  <p className="text-balance text-sm text-muted-foreground">
+              <div className="flex flex-col h-full p-6 gap-6">
+                <h1 className="text-2xl font-bold text-center">
+                  Add New Tasks
+                </h1>
+                <form className="flex flex-col gap-2">
+                  <p className="text-balance text-lg text-muted-foreground text-center">
                     Base info
                   </p>
-                </div>
+                  <Label htmlFor="jobPostingUrl">Job posting URL</Label>
+                  <Input id="jobPostingUrl" type="url"></Input>
+                  <Label>Base resume</Label>
+                  <ComboboxPopover></ComboboxPopover>
+                </form>
               </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
