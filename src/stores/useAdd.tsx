@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
-interface UseAppSidebar {
+interface UseAdd {
   sidebarIsOpen: boolean;
   toggleAppSidebar: () => void;
   //   closeSidebar: () => void;
   //   openSidebar: () => void;
 }
 
-const useAppSidebar = create<UseAppSidebar>((set) => ({
+const useAdd = create<UseAdd>((set) => ({
   sidebarIsOpen: false,
   toggleAppSidebar: () =>
     set((state) => ({ sidebarIsOpen: !state.sidebarIsOpen })),
@@ -15,4 +15,4 @@ const useAppSidebar = create<UseAppSidebar>((set) => ({
   //   openSidebar: () => set({ sidebarIsOpen: true }),
 }));
 
-export default useAppSidebar;
+export default useAdd;
