@@ -33,8 +33,13 @@ const Add = () => {
             }}
           >
             <ResizablePanel defaultSize={25}>
-              <div className="flex h-full items-center justify-center p-6">
-                <span className="font-semibold">Sidebar</span>
+              <div className="flex flex-col h-full p-6">
+                <div className="flex flex-col items-center gap-2 text-center">
+                  <h1 className="text-2xl font-bold">Add new tasks</h1>
+                  <p className="text-balance text-sm text-muted-foreground">
+                    Base info
+                  </p>
+                </div>
               </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
