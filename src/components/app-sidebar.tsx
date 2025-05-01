@@ -20,7 +20,7 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarRail,
+  // SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import useSidebar from "@/stores/useAppSidebar";

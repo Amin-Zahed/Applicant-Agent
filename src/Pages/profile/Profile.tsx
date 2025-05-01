@@ -12,12 +12,12 @@ import DataTable from "@/components/data-table";
 import { TabsContent } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import useSidebar from "@/stores/useAppSidebar";
+import useAppSidebar from "@/stores/useAppSidebar";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 function Profile() {
   const location = useLocation();
-  const { sidebarIsOpen } = useSidebar();
+  const { sidebarIsOpen } = useAppSidebar();
   const isMobile = useIsMobile();
 
   return (
