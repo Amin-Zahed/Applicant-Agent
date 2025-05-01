@@ -25,8 +25,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
+  // AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { CloudUpload } from "lucide-react";
 
 type Status = {
   value: string;
@@ -108,22 +109,37 @@ export function ComboboxPopover() {
         defaultOpen={false}
         open={selectedStatus?.value === "upload" ? true : false}
       >
-        <AlertDialogTrigger asChild>
+        {/* <AlertDialogTrigger asChild>
           <Button variant="ghost">Show Dialog</Button>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+        </AlertDialogTrigger> */}
+        <AlertDialogContent className="flex flex-col items-center">
+          <AlertDialogHeader className="flex flex-col items-center">
+            <AlertDialogTitle className="">Upload Resume</AlertDialogTitle>
+            <br />
+            <div className="flex flex-col items-center">
+              <CloudUpload
+                size={200}
+                strokeWidth={3}
+                className="cursor-pointer"
+              />
+              <AlertDialogDescription>
+                Choose a resume file from this device
+              </AlertDialogDescription>
+            </div>
+            <br />
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+              acceptable formats are : pdf, tex, md, odt, text, txt, docx.
             </AlertDialogDescription>
+            <br />
+            <Button variant="link" size="icon" className="text-2xl">
+              Select a file from this device
+            </Button>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel onClick={() => setSelectedStatus(null)}>
               Cancel
             </AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
+            <AlertDialogAction>Add +</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
