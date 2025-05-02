@@ -10,11 +10,15 @@ interface UseAdd {
   baseResumeSelectedStatus: Status | null;
   fileInputValue: string | null;
   urlInputValue: string | null | undefined;
+  instructionStatuses: Status[];
+  instructionSelectedStatus: Status | null;
   setBaseResumeStatuses: (statuses: Status[]) => void;
   setBaseResumeSelectedStatus: (value: string) => void;
   setFileInputValue: (value: string) => void;
   baseResumeAddStatus: () => void;
   setUrlInputValue: (value: string) => void;
+  setInstructionStatuses: (statuses: Status[]) => void;
+  setInstructionSelectedStatus: (value: string) => void;
 }
 
 const urlRegex =
@@ -25,6 +29,8 @@ export const useAdd = create<UseAdd>((set, get) => ({
   baseResumeSelectedStatus: null,
   fileInputValue: null,
   urlInputValue: null,
+  instructionStatuses: [],
+  instructionSelectedStatus: null,
 
   setBaseResumeStatuses: (baseResumeStatuses) => set({ baseResumeStatuses }),
   baseResumeAddStatus: () => {
@@ -49,6 +55,12 @@ export const useAdd = create<UseAdd>((set, get) => ({
     } else {
       set({ urlInputValue: undefined });
     }
+  },
+  setInstructionStatuses: (instructionStatuses) => set({ instructionStatuses }),
+  setInstructionSelectedStatus: (value) => {
+    const status =
+      get().instructionStatuses.find((s) => s.value === value) || null;
+    set({ instructionSelectedStatus: status });
   },
 }));
 
