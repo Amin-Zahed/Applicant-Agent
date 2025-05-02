@@ -34,7 +34,15 @@ import { Input } from "./ui/input";
 
 export function ComboboxPopover() {
   const [open, setOpen] = React.useState(false);
-  const { statuses, selectedStatus, setStatuses, setSelectedStatus } = useAdd();
+  const {
+    statuses,
+    selectedStatus,
+    fileInputValue,
+    setFileInputValue,
+    setStatuses,
+    setSelectedStatus,
+    addStatus,
+  } = useAdd();
 
   React.useEffect(() => {
     setStatuses([
@@ -117,12 +125,16 @@ export function ComboboxPopover() {
                   type="file"
                   accept=".pdf, .tex, .md, .odt, .text, .txt, .docx"
                   className="w-0 h-0 opacity-0"
+                  onInput={(e) =>
+                    setFileInputValue((e.target as HTMLInputElement).value)
+                  }
                 ></Input>
                 <span className="items-center">
                   <CloudUpload
                     size={200}
                     strokeWidth={3}
                     className="cursor-pointer"
+                    style={{ color: fileInputValue ? "green" : undefined }}
                   />
                 </span>
               </Label>
@@ -143,7 +155,15 @@ export function ComboboxPopover() {
             <AlertDialogCancel onClick={() => setSelectedStatus(null!)}>
               Cancel
             </AlertDialogCancel>
-            <AlertDialogAction>Finish</AlertDialogAction>
+            <AlertDialogAction
+              disabled={fileInputValue ? false : true}
+              onClick={() => {
+                addStatus();
+                setSelectedStatus(statuses[0].value);
+              }}
+            >
+              Finish
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
