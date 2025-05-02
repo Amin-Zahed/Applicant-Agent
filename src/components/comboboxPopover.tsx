@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import {
   Command,
   CommandEmpty,
@@ -28,47 +29,44 @@ import {
   // AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { CloudUpload } from "lucide-react";
-// import useAdd from "@/stores/useAdd";
-
-type Status = {
-  value: string;
-  label: string;
-};
-
-const statuses: Status[] = [
-  {
-    value: "backlog",
-    label: "Backlog",
-  },
-  {
-    value: "todo",
-    label: "Todo",
-  },
-  {
-    value: "in progress",
-    label: "In Progress",
-  },
-  {
-    value: "done",
-    label: "Done",
-  },
-  {
-    value: "canceled",
-    label: "Canceled",
-  },
-  {
-    value: "upload",
-    label: "Upload New Resume ...",
-  },
-];
+import useAdd from "@/stores/useAdd";
 
 export function ComboboxPopover() {
   const [open, setOpen] = React.useState(false);
-  const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
-    null
-  );
+  // const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
+  //   null
+  // );
 
-  // const { selectedStatus, setSelectedStatus } = useAdd();
+  const { statuses, selectedStatus, setStatuses, setSelectedStatus } = useAdd();
+
+  React.useEffect(() => {
+    setStatuses([
+      {
+        value: "backlog",
+        label: "Backlog",
+      },
+      {
+        value: "todo",
+        label: "Todo",
+      },
+      {
+        value: "in progress",
+        label: "In Progress",
+      },
+      {
+        value: "done",
+        label: "Done",
+      },
+      {
+        value: "canceled",
+        label: "Canceled",
+      },
+      {
+        value: "upload",
+        label: "Upload New Resume ...",
+      },
+    ]);
+  }, []);
 
   return (
     <div className="flex items-center space-x-4">
@@ -93,10 +91,7 @@ export function ComboboxPopover() {
                     key={status.value}
                     value={status.value}
                     onSelect={(value) => {
-                      setSelectedStatus(
-                        statuses.find((priority) => priority.value === value) ||
-                          null
-                      );
+                      setSelectedStatus(value);
                       setOpen(false);
                     }}
                   >
@@ -120,11 +115,13 @@ export function ComboboxPopover() {
             <AlertDialogTitle className="">Upload Resume</AlertDialogTitle>
             <br />
             <div className="flex flex-col items-center">
-              <CloudUpload
-                size={200}
-                strokeWidth={3}
-                className="cursor-pointer"
-              />
+              <Label>
+                <CloudUpload
+                  size={200}
+                  strokeWidth={3}
+                  className="cursor-pointer"
+                />
+              </Label>
               <AlertDialogDescription>
                 Choose a resume file from this device
               </AlertDialogDescription>
@@ -139,10 +136,10 @@ export function ComboboxPopover() {
             </Button>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => setSelectedStatus(null)}>
+            <AlertDialogCancel onClick={() => setSelectedStatus(null!)}>
               Cancel
             </AlertDialogCancel>
-            <AlertDialogAction>Add +</AlertDialogAction>
+            <AlertDialogAction>Finish</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

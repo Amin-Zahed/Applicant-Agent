@@ -1,18 +1,27 @@
-// import { create } from "zustand";
+import { create } from "zustand";
 
-// type Status = {
-//   value: string;
-//   label: string;
-// };
+type Status = {
+  label: string;
+  value: string;
+};
 
-// interface UseAdd {
-//   selectedStatus: Status | null;
-//   setSelectedStatus: (value: string | null) => void;
-// }
+interface UseAdd {
+  statuses: Status[];
+  selectedStatus: Status | null;
+  setStatuses: (statuses: Status[]) => void;
+  setSelectedStatus: (value: string) => void;
+}
 
-// const useAdd = create<UseAdd>((set) => ({
+export const useAdd = create<UseAdd>((set, get) => ({
+  statuses: [],
+  selectedStatus: null,
 
-//     })),
-// }));
+  setStatuses: (statuses) => set({ statuses }),
 
-// export default useAdd;
+  setSelectedStatus: (value) => {
+    const status = get().statuses.find((s) => s.value === value) || null;
+    set({ selectedStatus: status });
+  },
+}));
+
+export default useAdd;
