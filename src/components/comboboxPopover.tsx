@@ -44,6 +44,8 @@ export function ComboboxPopover() {
     addStatus,
   } = useAdd();
 
+  const inputRef = React.useRef<HTMLInputElement | null>(null);
+
   React.useEffect(() => {
     setStatuses([
       {
@@ -125,6 +127,7 @@ export function ComboboxPopover() {
                   type="file"
                   accept=".pdf, .tex, .md, .odt, .text, .txt, .docx"
                   className="w-0 h-0 opacity-0"
+                  ref={inputRef}
                   onInput={(e) =>
                     setFileInputValue((e.target as HTMLInputElement).value)
                   }
@@ -147,7 +150,12 @@ export function ComboboxPopover() {
               acceptable formats are : pdf, tex, md, odt, text, txt, docx.
             </AlertDialogDescription>
             <br />
-            <Button variant="link" size="icon" className="text-2xl">
+            <Button
+              variant="link"
+              size="icon"
+              className="text-2xl"
+              onClick={() => inputRef.current?.click()}
+            >
               Select a file from this device
             </Button>
           </AlertDialogHeader>
