@@ -1,7 +1,4 @@
-"use client";
-
 import * as React from "react";
-
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -26,7 +23,6 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  // AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { CloudUpload } from "lucide-react";
 import useAdd from "@/stores/useAdd";
@@ -114,9 +110,6 @@ export function ComboboxPopover() {
         defaultOpen={false}
         open={selectedStatus?.value === "upload" ? true : false}
       >
-        {/* <AlertDialogTrigger asChild>
-          <Button variant="ghost">Show Dialog</Button>
-        </AlertDialogTrigger> */}
         <AlertDialogContent className="flex flex-col items-center justify-center overflow-auto scroll-auto">
           <AlertDialogHeader className="flex flex-col items-center">
             <AlertDialogTitle className="">Upload Resume</AlertDialogTitle>
