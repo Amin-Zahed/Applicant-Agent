@@ -28,22 +28,22 @@ import { CloudUpload } from "lucide-react";
 import useAdd from "@/stores/useAdd";
 import { Input } from "./ui/input";
 
-export function ComboboxPopover() {
+function ComboBoxBaseResume() {
   const [open, setOpen] = React.useState(false);
   const {
-    statuses,
-    selectedStatus,
+    baseResumeStatuses,
+    baseResumeSelectedStatus,
     fileInputValue,
     setFileInputValue,
-    setStatuses,
-    setSelectedStatus,
-    addStatus,
+    setBaseResumeStatuses,
+    baseResumeAddStatus,
+    setBaseResumeSelectedStatus,
   } = useAdd();
 
   const inputRef = React.useRef<HTMLInputElement | null>(null);
 
   React.useEffect(() => {
-    setStatuses([
+    setBaseResumeStatuses([
       {
         value: "backlog",
         label: "Backlog",
@@ -76,8 +76,8 @@ export function ComboboxPopover() {
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button variant="outline" className="w-full justify-start">
-            {selectedStatus ? (
-              <>{selectedStatus.label}</>
+            {baseResumeSelectedStatus ? (
+              <>{baseResumeSelectedStatus.label}</>
             ) : (
               <>+ Add a file ...</>
             )}
@@ -89,12 +89,12 @@ export function ComboboxPopover() {
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
               <CommandGroup>
-                {statuses.map((status) => (
+                {baseResumeStatuses.map((status) => (
                   <CommandItem
                     key={status.value}
                     value={status.value}
                     onSelect={(value) => {
-                      setSelectedStatus(value);
+                      setBaseResumeSelectedStatus(value);
                       setOpen(false);
                     }}
                   >
@@ -108,7 +108,7 @@ export function ComboboxPopover() {
       </Popover>
       <AlertDialog
         defaultOpen={false}
-        open={selectedStatus?.value === "upload" ? true : false}
+        open={baseResumeSelectedStatus?.value === "upload" ? true : false}
       >
         <AlertDialogContent className="flex flex-col items-center justify-center overflow-auto scroll-auto">
           <AlertDialogHeader className="flex flex-col items-center">
@@ -153,14 +153,16 @@ export function ComboboxPopover() {
             </Button>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => setSelectedStatus(null!)}>
+            <AlertDialogCancel
+              onClick={() => setBaseResumeSelectedStatus(null!)}
+            >
               Cancel
             </AlertDialogCancel>
             <AlertDialogAction
               disabled={fileInputValue ? false : true}
               onClick={() => {
-                addStatus();
-                setSelectedStatus(statuses[0].value);
+                baseResumeAddStatus();
+                setBaseResumeSelectedStatus(baseResumeStatuses[0].value);
               }}
             >
               Finish
@@ -172,4 +174,4 @@ export function ComboboxPopover() {
   );
 }
 
-export default ComboboxPopover;
+export default ComboBoxBaseResume;

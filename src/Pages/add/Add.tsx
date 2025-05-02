@@ -9,11 +9,17 @@ import {
 } from "@/components/ui/resizable";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import ComboboxPopover from "@/components/comboboxPopover";
+import ComboBoxBaseResume from "@/components/comboBoxBaseResume";
+// import ComboBoxInstruction from "@/components/comboBoxInstruction";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import useAdd from "@/stores/useAdd";
 
 const Add = () => {
   const { sidebarIsOpen } = useAppSidebar();
   const isMobile = useIsMobile();
+  const { baseResumeSelectedStatus, urlInputValue, setUrlInputValue } =
+    useAdd();
 
   return (
     <div
@@ -51,10 +57,35 @@ const Add = () => {
                     Base info
                   </p>
                   <Label htmlFor="jobPostingUrl">Job posting URL</Label>
-                  <Input id="jobPostingUrl" type="url"></Input>
+                  <Input
+                    id="jobPostingUrl"
+                    type="url"
+                    onInput={(e) =>
+                      setUrlInputValue((e.target as HTMLInputElement).value)
+                    }
+                  ></Input>
                   <Label>Base resume</Label>
-                  <ComboboxPopover></ComboboxPopover>
+                  <ComboBoxBaseResume></ComboBoxBaseResume>
                 </form>
+                <form className="flex flex-col gap-2">
+                  <p className="text-balance text-lg text-muted-foreground text-center">
+                    Instructions
+                  </p>
+                  <Label htmlFor="jobPostingUrl">Add instruction</Label>
+                  {/* <ComboBoxInstruction></ComboBoxInstruction> */}
+                  <Label>Instructions</Label>
+                  <Textarea></Textarea>
+                </form>
+                <Button
+                  disabled={
+                    baseResumeSelectedStatus === null ||
+                    typeof urlInputValue !== "string"
+                      ? true
+                      : false
+                  }
+                >
+                  Add To Draft
+                </Button>
               </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
