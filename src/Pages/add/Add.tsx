@@ -10,7 +10,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import ComboBoxBaseResume from "@/components/comboBoxBaseResume";
-// import ComboBoxInstruction from "@/components/comboBoxInstruction";
+import ComboBoxInstruction from "@/components/comboBoxInstruction";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import useAdd from "@/stores/useAdd";
@@ -72,7 +72,7 @@ const Add = () => {
                     Instructions
                   </p>
                   <Label htmlFor="jobPostingUrl">Add instruction</Label>
-                  {/* <ComboBoxInstruction></ComboBoxInstruction> */}
+                  <ComboBoxInstruction></ComboBoxInstruction>
                   <Label>Instructions</Label>
                   <Textarea></Textarea>
                 </form>
