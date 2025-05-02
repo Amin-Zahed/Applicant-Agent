@@ -30,13 +30,10 @@ import {
 } from "@/components/ui/alert-dialog";
 import { CloudUpload } from "lucide-react";
 import useAdd from "@/stores/useAdd";
+import { Input } from "./ui/input";
 
 export function ComboboxPopover() {
   const [open, setOpen] = React.useState(false);
-  // const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
-  //   null
-  // );
-
   const { statuses, selectedStatus, setStatuses, setSelectedStatus } = useAdd();
 
   React.useEffect(() => {
@@ -115,12 +112,19 @@ export function ComboboxPopover() {
             <AlertDialogTitle className="">Upload Resume</AlertDialogTitle>
             <br />
             <div className="flex flex-col items-center">
-              <Label>
-                <CloudUpload
-                  size={200}
-                  strokeWidth={3}
-                  className="cursor-pointer"
-                />
+              <Label className="flex flex-col items-center">
+                <Input
+                  type="file"
+                  accept=".pdf, .tex, .md, .odt, .text, .txt, .docx"
+                  className="w-0 h-0 opacity-0"
+                ></Input>
+                <span className="items-center">
+                  <CloudUpload
+                    size={200}
+                    strokeWidth={3}
+                    className="cursor-pointer"
+                  />
+                </span>
               </Label>
               <AlertDialogDescription>
                 Choose a resume file from this device
