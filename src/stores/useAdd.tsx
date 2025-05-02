@@ -1,18 +1,18 @@
-import { create } from "zustand";
+// import { create } from "zustand";
 
-interface UseAdd {
-  sidebarIsOpen: boolean;
-  toggleAppSidebar: () => void;
-  //   closeSidebar: () => void;
-  //   openSidebar: () => void;
-}
+// type Status = {
+//   value: string;
+//   label: string;
+// };
 
-const useAdd = create<UseAdd>((set) => ({
-  sidebarIsOpen: false,
-  toggleAppSidebar: () =>
-    set((state) => ({ sidebarIsOpen: !state.sidebarIsOpen })),
-  //   closeSidebar: () => set({ sidebarIsOpen: false }),
-  //   openSidebar: () => set({ sidebarIsOpen: true }),
-}));
+// interface UseAdd {
+//   selectedStatus: Status | null;
+//   setSelectedStatus: (value: string | null) => void;
+// }
 
-export default useAdd;
+// const useAdd = create<UseAdd>((set) => ({
+
+//     })),
+// }));
+
+// export default useAdd;

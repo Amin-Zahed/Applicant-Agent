@@ -28,6 +28,7 @@ import {
   // AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { CloudUpload } from "lucide-react";
+// import useAdd from "@/stores/useAdd";
 
 type Status = {
   value: string;
@@ -66,6 +67,8 @@ export function ComboboxPopover() {
   const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
     null
   );
+
+  // const { selectedStatus, setSelectedStatus } = useAdd();
 
   return (
     <div className="flex items-center space-x-4">
@@ -112,7 +115,7 @@ export function ComboboxPopover() {
         {/* <AlertDialogTrigger asChild>
           <Button variant="ghost">Show Dialog</Button>
         </AlertDialogTrigger> */}
-        <AlertDialogContent className="flex flex-col items-center">
+        <AlertDialogContent className="flex flex-col items-center justify-center overflow-auto scroll-auto">
           <AlertDialogHeader className="flex flex-col items-center">
             <AlertDialogTitle className="">Upload Resume</AlertDialogTitle>
             <br />

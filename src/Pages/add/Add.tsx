@@ -16,7 +16,10 @@ const Add = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div id="profile" className="w-full h-full flex flex-col overflow-auto">
+    <div
+      id="AddPage"
+      className="w-full h-full flex flex-col overflow-auto scroll-auto"
+    >
       <SidebarProvider className=" w-full min-h-0 h-full">
         <AppSidebar />
         <main>
@@ -35,7 +38,10 @@ const Add = () => {
                 : "calc(100vw - (var(--sidebar-width)))",
             }}
           >
-            <ResizablePanel defaultSize={25}>
+            <ResizablePanel
+              defaultSize={25}
+              className="overflow-auto scroll-auto"
+            >
               <div className="flex flex-col h-full p-6 gap-6">
                 <h1 className="text-2xl font-bold text-center">
                   Add New Tasks
@@ -52,7 +58,10 @@ const Add = () => {
               </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
-            <ResizablePanel defaultSize={75}>
+            <ResizablePanel
+              defaultSize={75}
+              className="overflow-auto scroll-auto"
+            >
               <div className="flex h-full items-center justify-center p-6">
                 <span className="font-semibold">Content</span>
               </div>
