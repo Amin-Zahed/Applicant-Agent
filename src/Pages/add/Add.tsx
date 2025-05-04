@@ -10,15 +10,10 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import ComboBoxBaseResume from "@/components/comboBoxBaseResume";
-<<<<<<< HEAD
 import ComboBoxInstruction from "@/components/comboBoxInstruction";
-=======
-// import ComboBoxInstruction from "@/components/comboBoxInstruction";
 import { Textarea } from "@/components/ui/textarea";
->>>>>>> parent of 3f6ed51 (feat: integrate ComboBoxInstruction component into Add page for instruction input)
 import { Button } from "@/components/ui/button";
 import useAdd from "@/stores/useAdd";
-import EditorPage from "@/components/editor-page";
 
 const Add = () => {
   const { sidebarIsOpen } = useAppSidebar();
@@ -77,9 +72,9 @@ const Add = () => {
                     Instructions
                   </p>
                   <Label htmlFor="jobPostingUrl">Add instruction</Label>
-                  {/* <ComboBoxInstruction></ComboBoxInstruction> */}
+                  <ComboBoxInstruction></ComboBoxInstruction>
                   <Label>Instructions</Label>
-                  <EditorPage></EditorPage>
+                  <Textarea></Textarea>
                 </form>
                 <Button
                   disabled={
