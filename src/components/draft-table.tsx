@@ -7,15 +7,15 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import useAdd from "@/stores/useAdd";
-import { useEffect } from "react";
-
-const { drafts, setDrafts } = useAdd();
-
-useEffect(() => {
-  setDrafts([]);
-}, [drafts]);
+// import { useEffect } from "react";
 
 function DraftTable() {
+  const { drafts } = useAdd();
+
+  //   useEffect(() => {
+  //     setDrafts([]);
+  //   }, []);
+
   return (
     <Table>
       <TableHeader>
@@ -26,11 +26,11 @@ function DraftTable() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {drafts.map((d) => (
-          <TableRow key={String(d.baseResume)}>
-            <TableCell className="font-medium">{d.url}</TableCell>
-            <TableCell>{d.baseResume ? String(d.baseResume) : "N/A"}</TableCell>
-            <TableCell className="text-right">{d.instruction}</TableCell>
+        {drafts.map((draft) => (
+          <TableRow key={draft.resume}>
+            <TableCell className="font-medium">{draft.url}</TableCell>
+            <TableCell>{draft.resume}</TableCell>
+            <TableCell className="text-right">{draft.instruction}</TableCell>
           </TableRow>
         ))}
       </TableBody>

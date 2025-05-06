@@ -7,8 +7,8 @@ type Status = {
 
 type Drafts = {
   url: string | null | undefined;
-  baseResume: Status | null;
-  instruction: string | readonly string[] | number | undefined;
+  resume: null | string;
+  instruction: string | string[] | number | undefined;
 };
 
 interface UseAdd {
@@ -18,7 +18,7 @@ interface UseAdd {
   urlInputValue: string | null | undefined;
   instructionStatuses: Status[];
   instructionSelectedStatus: Status | null;
-  textAreaValue: string | readonly string[] | number | undefined;
+  textAreaValue: string | string[] | number | undefined;
   drafts: Drafts[];
   setBaseResumeStatuses: (statuses: Status[]) => void;
   setBaseResumeSelectedStatus: (value: string) => void;
@@ -28,9 +28,7 @@ interface UseAdd {
   setInstructionStatuses: (statuses: Status[]) => void;
   setInstructionSelectedStatus: (value: string) => void;
   addInstructionStatus: () => void;
-  setTextAreaValue: (
-    value: string | readonly string[] | number | undefined
-  ) => void;
+  setTextAreaValue: (value: string | string[] | number | undefined) => void;
   addDraft: () => void;
   setDrafts: (drafts: Drafts[]) => void;
 }
@@ -94,7 +92,7 @@ export const useAdd = create<UseAdd>((set, get) => ({
   addDraft: () => {
     get().drafts.unshift({
       url: get().urlInputValue!,
-      baseResume: get().baseResumeSelectedStatus || null,
+      resume: get().baseResumeSelectedStatus!.value,
       instruction: get().textAreaValue!,
     });
   },
