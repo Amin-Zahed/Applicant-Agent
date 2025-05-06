@@ -30,7 +30,7 @@ interface UseAdd {
   addInstructionStatus: () => void;
   setTextAreaValue: (value: string | string[] | number | undefined) => void;
   addDraft: () => void;
-  setDrafts: (drafts: Drafts[]) => void;
+  // setDrafts: (drafts: Drafts[]) => void;
 }
 
 const urlRegex =
@@ -96,7 +96,7 @@ export const useAdd = create<UseAdd>((set, get) => ({
       instruction: get().textAreaValue!,
     });
   },
-  setDrafts: (drafts) => set({ drafts }),
+  // setDrafts: (drafts) => set({ drafts }),
 }));
 
 export default useAdd;

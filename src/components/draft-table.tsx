@@ -13,8 +13,8 @@ function DraftTable() {
   const { drafts } = useAdd();
 
   //   useEffect(() => {
-  //     setDrafts([]);
-  //   }, []);
+  //     setDrafts(drafts);
+  //   }, [drafts]);
 
   return (
     <Table>
