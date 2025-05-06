@@ -5,6 +5,12 @@ type Status = {
   value: string;
 };
 
+type Drafts = {
+  url: string | null | undefined;
+  baseResume: Status | null;
+  instruction: string | readonly string[] | number | undefined;
+};
+
 interface UseAdd {
   baseResumeStatuses: Status[];
   baseResumeSelectedStatus: Status | null;
@@ -13,6 +19,7 @@ interface UseAdd {
   instructionStatuses: Status[];
   instructionSelectedStatus: Status | null;
   textAreaValue: string | readonly string[] | number | undefined;
+  drafts: Drafts[];
   setBaseResumeStatuses: (statuses: Status[]) => void;
   setBaseResumeSelectedStatus: (value: string) => void;
   setFileInputValue: (value: string) => void;
@@ -24,6 +31,8 @@ interface UseAdd {
   setTextAreaValue: (
     value: string | readonly string[] | number | undefined
   ) => void;
+  addDraft: () => void;
+  setDrafts: (drafts: Drafts[]) => void;
 }
 
 const urlRegex =
@@ -37,6 +46,7 @@ export const useAdd = create<UseAdd>((set, get) => ({
   instructionStatuses: [],
   instructionSelectedStatus: null,
   textAreaValue: "",
+  drafts: [],
 
   setBaseResumeStatuses: (baseResumeStatuses) => set({ baseResumeStatuses }),
   baseResumeAddStatus: () => {
@@ -81,6 +91,14 @@ export const useAdd = create<UseAdd>((set, get) => ({
           }`,
         }),
   setTextAreaValue: (value) => set({ textAreaValue: value }),
+  addDraft: () => {
+    get().drafts.unshift({
+      url: get().urlInputValue!,
+      baseResume: get().baseResumeSelectedStatus || null,
+      instruction: get().textAreaValue!,
+    });
+  },
+  setDrafts: (drafts) => set({ drafts }),
 }));
 
 export default useAdd;

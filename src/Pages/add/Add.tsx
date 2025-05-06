@@ -14,6 +14,7 @@ import ComboBoxInstruction from "@/components/comboBoxInstruction";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import useAdd from "@/stores/useAdd";
+import DraftTable from "@/components/draft-table";
 
 const Add = () => {
   const { sidebarIsOpen } = useAppSidebar();
@@ -24,6 +25,7 @@ const Add = () => {
     textAreaValue,
     setUrlInputValue,
     setTextAreaValue,
+    addDraft,
   } = useAdd();
 
   return (
@@ -91,6 +93,7 @@ const Add = () => {
                       ? true
                       : false
                   }
+                  onClick={addDraft}
                 >
                   Add To Draft
                 </Button>
@@ -101,8 +104,11 @@ const Add = () => {
               defaultSize={75}
               className="overflow-auto scroll-auto"
             >
-              <div className="flex h-full items-center justify-center p-6">
-                <span className="font-semibold">Content</span>
+              <div className="flex flex-col h-full p-6 gap-6 items-center">
+                <h1 className="text-2xl font-bold text-center">Draft</h1>
+                <div id="table-container" className="w-[500px]">
+                  <DraftTable></DraftTable>
+                </div>
               </div>
             </ResizablePanel>
           </ResizablePanelGroup>
