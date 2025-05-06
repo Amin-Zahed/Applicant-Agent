@@ -20,7 +20,6 @@ function ComboBoxInstruction() {
   const {
     instructionStatuses,
     instructionSelectedStatus,
-    textAreaValue,
     setInstructionStatuses,
     setInstructionSelectedStatus,
     addInstructionStatus,
