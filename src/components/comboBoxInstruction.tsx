@@ -20,8 +20,10 @@ function ComboBoxInstruction() {
   const {
     instructionStatuses,
     instructionSelectedStatus,
+    textAreaValue,
     setInstructionStatuses,
     setInstructionSelectedStatus,
+    addInstructionStatus,
   } = useAdd();
 
   React.useEffect(() => {
@@ -74,6 +76,7 @@ function ComboBoxInstruction() {
                     onSelect={(value) => {
                       setInstructionSelectedStatus(value);
                       setOpen(false);
+                      addInstructionStatus();
                     }}
                   >
                     {status.label}

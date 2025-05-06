@@ -12,6 +12,7 @@ interface UseAdd {
   urlInputValue: string | null | undefined;
   instructionStatuses: Status[];
   instructionSelectedStatus: Status | null;
+  textAreaValue: string | readonly string[] | number | undefined;
   setBaseResumeStatuses: (statuses: Status[]) => void;
   setBaseResumeSelectedStatus: (value: string) => void;
   setFileInputValue: (value: string) => void;
@@ -19,6 +20,10 @@ interface UseAdd {
   setUrlInputValue: (value: string) => void;
   setInstructionStatuses: (statuses: Status[]) => void;
   setInstructionSelectedStatus: (value: string) => void;
+  addInstructionStatus: () => void;
+  setTextAreaValue: (
+    value: string | readonly string[] | number | undefined
+  ) => void;
 }
 
 const urlRegex =
@@ -31,6 +36,7 @@ export const useAdd = create<UseAdd>((set, get) => ({
   urlInputValue: null,
   instructionStatuses: [],
   instructionSelectedStatus: null,
+  textAreaValue: "",
 
   setBaseResumeStatuses: (baseResumeStatuses) => set({ baseResumeStatuses }),
   baseResumeAddStatus: () => {
@@ -62,6 +68,19 @@ export const useAdd = create<UseAdd>((set, get) => ({
       get().instructionStatuses.find((s) => s.value === value) || null;
     set({ instructionSelectedStatus: status });
   },
+  addInstructionStatus: () =>
+    get().textAreaValue !== ""
+      ? set({
+          textAreaValue: `${get().textAreaValue} \n -${
+            get().instructionSelectedStatus?.value
+          }`,
+        })
+      : set({
+          textAreaValue: `${get().textAreaValue}-${
+            get().instructionSelectedStatus?.value
+          }`,
+        }),
+  setTextAreaValue: (value) => set({ textAreaValue: value }),
 }));
 
 export default useAdd;

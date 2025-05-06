@@ -18,8 +18,13 @@ import useAdd from "@/stores/useAdd";
 const Add = () => {
   const { sidebarIsOpen } = useAppSidebar();
   const isMobile = useIsMobile();
-  const { baseResumeSelectedStatus, urlInputValue, setUrlInputValue } =
-    useAdd();
+  const {
+    baseResumeSelectedStatus,
+    urlInputValue,
+    textAreaValue,
+    setUrlInputValue,
+    setTextAreaValue,
+  } = useAdd();
 
   return (
     <div
@@ -74,7 +79,10 @@ const Add = () => {
                   <Label htmlFor="jobPostingUrl">Add instruction</Label>
                   <ComboBoxInstruction></ComboBoxInstruction>
                   <Label>Instructions</Label>
-                  <Textarea></Textarea>
+                  <Textarea
+                    onChange={(e) => setTextAreaValue(e.target.value)}
+                    value={textAreaValue}
+                  ></Textarea>
                 </form>
                 <Button
                   disabled={
