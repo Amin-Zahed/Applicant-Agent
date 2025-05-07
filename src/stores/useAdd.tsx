@@ -30,7 +30,6 @@ interface UseAdd {
   addInstructionStatus: () => void;
   setTextAreaValue: (value: string | string[] | number | undefined) => void;
   addDraft: () => void;
-  // setDrafts: (drafts: Drafts[]) => void;
 }
 
 const urlRegex =
@@ -90,13 +89,13 @@ export const useAdd = create<UseAdd>((set, get) => ({
         }),
   setTextAreaValue: (value) => set({ textAreaValue: value }),
   addDraft: () => {
-    get().drafts.unshift({
+    const newDraft: Drafts = {
       url: get().urlInputValue!,
       resume: get().baseResumeSelectedStatus!.value,
       instruction: get().textAreaValue!,
-    });
+    };
+    set({ drafts: [newDraft, ...get().drafts] });
   },
-  // setDrafts: (drafts) => set({ drafts }),
 }));
 
 export default useAdd;

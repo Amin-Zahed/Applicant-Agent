@@ -7,14 +7,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import useAdd from "@/stores/useAdd";
-// import { useEffect } from "react";
 
 function DraftTable() {
   const { drafts } = useAdd();
-
-  //   useEffect(() => {
-  //     setDrafts(drafts);
-  //   }, [drafts]);
 
   return (
     <Table>
