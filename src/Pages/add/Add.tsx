@@ -26,6 +26,8 @@ const Add = () => {
     setUrlInputValue,
     setTextAreaValue,
     addDraft,
+    setBaseResumeSelectedStatus,
+    setInstructionSelectedStatus,
   } = useAdd();
 
   return (
@@ -67,6 +69,7 @@ const Add = () => {
                   <Input
                     id="jobPostingUrl"
                     type="url"
+                    value={urlInputValue ?? ""}
                     onInput={(e) =>
                       setUrlInputValue((e.target as HTMLInputElement).value)
                     }
@@ -93,7 +96,13 @@ const Add = () => {
                       ? true
                       : false
                   }
-                  onClick={addDraft}
+                  onClick={() => {
+                    addDraft();
+                    setBaseResumeSelectedStatus(null!);
+                    setUrlInputValue(null!);
+                    setInstructionSelectedStatus(null!);
+                    setTextAreaValue("");
+                  }}
                 >
                   Add To Draft
                 </Button>
