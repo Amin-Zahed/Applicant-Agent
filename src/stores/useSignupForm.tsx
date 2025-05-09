@@ -16,22 +16,22 @@ interface PasswordRegexes {
 
 interface UseSignupForm {
   signupFormDatas: SignupFormDatas;
-  signupFormInputsHandler: (
-    e: ChangeEvent<HTMLInputElement>,
-    regex: RegExp
-  ) => void;
+  confirmPassword: string | null | undefined;
+  confirmPasswordInputValue: string | null;
   passwordHasANumber: boolean;
   passwordHasALowercase: boolean;
   passwordHasAUppercase: boolean;
   passwordHasASpecialChar: boolean;
   passwordRegexes: PasswordRegexes;
-  passwordInputChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
-  confirmPassword: string | null | undefined;
-  confirmPasswordInputHandler: (e: ChangeEvent<HTMLInputElement>) => void;
-  confirmPasswordInputValue: string | null;
   checkboxChecked: boolean;
-  setCheckboxChecked: (checked: boolean) => void;
   signupButtonEnabled: boolean;
+  signupFormInputsHandler: (
+    e: ChangeEvent<HTMLInputElement>,
+    regex: RegExp
+  ) => void;
+  passwordInputChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  confirmPasswordInputHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+  setCheckboxChecked: (checked: boolean) => void;
   setSignupButtonEnabled: () => void;
 }
 
@@ -50,6 +50,16 @@ const passwordRegexes: PasswordRegexes = {
 
 const useSignupForm = create<UseSignupForm>((set) => ({
   signupFormDatas: initialSignupFormDatas,
+  passwordHasANumber: false,
+  passwordHasALowercase: false,
+  passwordHasAUppercase: false,
+  passwordHasASpecialChar: false,
+  passwordRegexes,
+  confirmPassword: null,
+  confirmPasswordInputValue: null,
+  checkboxChecked: false,
+  signupButtonEnabled: false,
+
   signupFormInputsHandler: (e, regex) => {
     const { name, value } = e.target;
     if (value === "") {
@@ -66,12 +76,6 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       }));
     }
   },
-
-  passwordHasANumber: false,
-  passwordHasALowercase: false,
-  passwordHasAUppercase: false,
-  passwordHasASpecialChar: false,
-  passwordRegexes,
   passwordInputChangeHandler: (e) => {
     const { value } = e.target;
     set(() => ({
@@ -89,9 +93,6 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       set(() => ({ confirmPassword: value }));
     }
   },
-
-  confirmPassword: null,
-  confirmPasswordInputValue: null,
   confirmPasswordInputHandler: (e) => {
     const { value } = e.target;
     useSignupForm.getState().confirmPasswordInputValue = value;
@@ -106,11 +107,7 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       set(() => ({ confirmPassword: undefined }));
     }
   },
-
-  checkboxChecked: false,
   setCheckboxChecked: (checked) => set(() => ({ checkboxChecked: checked })),
-
-  signupButtonEnabled: false,
   setSignupButtonEnabled: () => {
     const state = useSignupForm.getState();
     const isFormValid =
