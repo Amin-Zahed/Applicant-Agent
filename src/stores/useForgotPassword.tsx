@@ -2,16 +2,16 @@ import { create } from "zustand";
 
 interface UseForgotPassword {
   forgotPasswordInputValue: string | null;
+  sendRequestVerificationCode: boolean;
+  sendVerifyCode: boolean;
+  changePasswordButtonEnabled: boolean;
   setForgotPasswordInputValue: (
     forgotPasswordInputValue: string | null
   ) => void;
-  sendRequestVerificationCode: boolean;
   setSendRequestVerificationCode: (
     sendRequestVerificationCode: boolean
   ) => void;
-  sendVerifyCode: boolean;
   setSendVerifyCode: (sendVerifyCode: boolean) => void;
-  changePasswordButtonEnabled: boolean;
   setChangePasswordButtonEnabled: (
     changePasswordButtonEnabled: boolean
   ) => void;
@@ -19,17 +19,15 @@ interface UseForgotPassword {
 
 const useForgotPassword = create<UseForgotPassword>((set) => ({
   forgotPasswordInputValue: null,
+  sendRequestVerificationCode: false,
+  sendVerifyCode: false,
+  changePasswordButtonEnabled: false,
+
   setForgotPasswordInputValue: (forgotPasswordInputValue) =>
     set({ forgotPasswordInputValue }),
-
-  sendRequestVerificationCode: false,
   setSendRequestVerificationCode: (sendRequestVerificationCode) =>
     set({ sendRequestVerificationCode }),
-
-  sendVerifyCode: false,
   setSendVerifyCode: (sendVerifyCode) => set({ sendVerifyCode }),
-
-  changePasswordButtonEnabled: false,
   setChangePasswordButtonEnabled: (changePasswordButtonEnabled) =>
     set({ changePasswordButtonEnabled }),
 }));
