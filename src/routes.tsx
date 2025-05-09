@@ -16,7 +16,7 @@ const routes = [
     path: "/",
     element: (
       <PersonalRoute>
-        <LandingPage />{" "}
+        <LandingPage />
       </PersonalRoute>
     ),
   },
@@ -32,7 +32,7 @@ const routes = [
     path: "/forgot-password",
     element: (
       <PersonalRoute>
-        <ForgotPassword />{" "}
+        <ForgotPassword />
       </PersonalRoute>
     ),
   },
@@ -56,7 +56,7 @@ const routes = [
     path: "/add",
     element: (
       <PrivateRoute>
-        <Add />{" "}
+        <Add />
       </PrivateRoute>
     ),
   },
