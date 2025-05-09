@@ -8,13 +8,42 @@ import Signin from "./Pages/signin/Signin";
 import Signup from "./Pages/signup/Signup";
 import ForgotPassword from "./Pages/forgotPassword/ForgotPassword";
 import PrivateRoute from "./components/private-route";
+import PersonalRoute from "./components/personal-route";
 import Dashboard from "./Pages/profile/Profile";
 
 const routes = [
-  { path: "/", element: <LandingPage /> },
-  { path: "/signin", element: <Signin /> },
-  { path: "/forgot-password", element: <ForgotPassword /> },
-  { path: "/signup", element: <Signup /> },
+  {
+    path: "/",
+    element: (
+      <PersonalRoute>
+        <LandingPage />{" "}
+      </PersonalRoute>
+    ),
+  },
+  {
+    path: "/signin",
+    element: (
+      <PersonalRoute>
+        <Signin />
+      </PersonalRoute>
+    ),
+  },
+  {
+    path: "/forgot-password",
+    element: (
+      <PersonalRoute>
+        <ForgotPassword />{" "}
+      </PersonalRoute>
+    ),
+  },
+  {
+    path: "/signup",
+    element: (
+      <PersonalRoute>
+        <Signup />
+      </PersonalRoute>
+    ),
+  },
   {
     path: "/notifications",
     element: (
