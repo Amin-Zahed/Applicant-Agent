@@ -216,7 +216,12 @@ function SignupForm({
               ? "Sign up"
               : "Button is disabled, Please fill all the fields"
           }
-          onClick={() => signupButtonEnabled && setIsLogin(true)}
+          onClick={() => {
+            setIsLogin(true);
+            sessionStorage.setItem("username", signupFormDatas.username!);
+            sessionStorage.setItem("password", signupFormDatas.password!);
+            sessionStorage.setItem("email", signupFormDatas.email!);
+          }}
         >
           Sign up
         </Button>
