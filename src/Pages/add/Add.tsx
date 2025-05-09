@@ -69,7 +69,7 @@ const Add = () => {
                   <Input
                     id="jobPostingUrl"
                     type="url"
-                    value={urlInputValue ?? ""}
+                    value={urlInputValue === null ? "" : urlInputValue}
                     onInput={(e) =>
                       setUrlInputValue((e.target as HTMLInputElement).value)
                     }
@@ -99,7 +99,7 @@ const Add = () => {
                   onClick={() => {
                     addDraft();
                     setBaseResumeSelectedStatus(null!);
-                    setUrlInputValue(null!);
+                    setUrlInputValue("");
                     setInstructionSelectedStatus(null!);
                     setTextAreaValue("");
                   }}
