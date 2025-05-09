@@ -1,6 +1,6 @@
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
 import { Link, NavLink } from "react-router-dom";
-import { CircleUserRound, BellDot } from "lucide-react";
+import { BellDot } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 import useLogin from "@/stores/useLogin";
 import { Button } from "./ui/button";
@@ -9,44 +9,36 @@ const Navbar = () => {
   const { isLogin } = useLogin();
 
   return (
-    <Menubar className="flex flex-nowrap justify-between w-full h-full items-center">
-      {isLogin ? (
-        <div className="flex md:w-1/3 xl:w-1/6 w-1/2 justify-between items-center">
-          <MenubarMenu>
-            <Link to="/">
-              <MenubarTrigger>Logo</MenubarTrigger>
-            </Link>
-            <NavLink to="/notifications">
-              <MenubarTrigger>
-                {" "}
-                <BellDot />
-              </MenubarTrigger>
-            </NavLink>
-            <NavLink to="/profile">
-              <MenubarTrigger>
-                {" "}
-                <CircleUserRound />
-              </MenubarTrigger>
-            </NavLink>
-          </MenubarMenu>
-        </div>
-      ) : (
-        <div className="flex md:w-1/3 xl:w-1/6 w-1/2 justify-between items-center">
-          <MenubarMenu>
-            <Link to="/">
-              <MenubarTrigger>Logo</MenubarTrigger>
-            </Link>
-          </MenubarMenu>
-        </div>
-      )}
+    <Menubar className="flex flex-nowrap justify-between w-full h-full items-center px-10">
+      <div className="flex md:w-1/3 xl:w-1/6 w-1/2 justify-between items-center">
+        <MenubarMenu>
+          <Link to={isLogin ? "/dashboard" : "/"}>
+            <MenubarTrigger>Logo</MenubarTrigger>
+          </Link>
+        </MenubarMenu>
+      </div>
+
       {isLogin ? (
         <div className=" flex flex-nowrap justify-between md:w-1/3 xl:w-1/6 w-1/2 items-center">
           <MenubarMenu>
             <MenubarTrigger>
               <ModeToggle />
             </MenubarTrigger>
+            <NavLink to="/notifications">
+              <MenubarTrigger>
+                {" "}
+                <BellDot />
+              </MenubarTrigger>
+            </NavLink>
+            <NavLink to="/dashboard">
+              <MenubarTrigger>
+                {" "}
+                {/* <CircleUserRound /> */}
+                Dashboard
+              </MenubarTrigger>
+            </NavLink>
             <NavLink to="/add">
-              <MenubarTrigger>Add</MenubarTrigger>
+              <MenubarTrigger>Add +</MenubarTrigger>
             </NavLink>
           </MenubarMenu>
         </div>

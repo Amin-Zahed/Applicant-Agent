@@ -1,6 +1,5 @@
-import Dashboard from "./Pages/dashboard/Dashboard";
+import LandingPage from "./Pages/landingPage/LandingPage";
 import NotFound from "./Pages/notFound/NotFound";
-import Profile from "./Pages/profile/Profile";
 import Notifications from "./Pages/notifications/Notifications";
 import Add from "./Pages/add/Add";
 import Info from "./Pages/profile/subPages/info/Info";
@@ -9,10 +8,11 @@ import Signin from "./Pages/signin/Signin";
 import Signup from "./Pages/signup/Signup";
 import ForgotPassword from "./Pages/forgotPassword/ForgotPassword";
 import PrivateRoute from "./components/private-route";
+import Dashboard from "./Pages/profile/Profile";
 
 const routes = [
-  { path: "/", element: <Dashboard /> },
-  { path: "/signin/", element: <Signin /> },
+  { path: "/", element: <LandingPage /> },
+  { path: "/signin", element: <Signin /> },
   { path: "/forgot-password", element: <ForgotPassword /> },
   { path: "/signup", element: <Signup /> },
   {
@@ -32,10 +32,10 @@ const routes = [
     ),
   },
   {
-    path: "/profile",
+    path: "/dashboard",
     element: (
       <PrivateRoute>
-        <Profile />
+        <Dashboard />
       </PrivateRoute>
     ),
     children: [

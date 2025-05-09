@@ -15,24 +15,24 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import useAppSidebar from "@/stores/useAppSidebar";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-function Profile() {
+function Dashboard() {
   const location = useLocation();
   const { sidebarIsOpen } = useAppSidebar();
   const isMobile = useIsMobile();
 
   return (
-    <div id="profile" className="w-full h-full flex flex-col overflow-auto">
+    <div id="dashboard" className="w-full h-full flex flex-col overflow-auto">
       <SidebarProvider className=" w-full min-h-0 h-full">
         <AppSidebar />
         <main>
           <SidebarTrigger className="cursor-pointer md:absolute md:hidden" />
           <Tabs
             defaultValue={
-              location.pathname === "/profile/" ||
-              location.pathname === "/profile"
+              location.pathname === "/dashboard/" ||
+              location.pathname === "/dashboard"
                 ? "application"
-                : location.pathname === "/profile/info" ||
-                  location.pathname === "/profile/info/"
+                : location.pathname === "/dashboard/info" ||
+                  location.pathname === "/dashboard/info/"
                 ? "info"
                 : "chart"
             }
@@ -51,7 +51,7 @@ function Profile() {
                   Info
                 </TabsTrigger>
               </Link>
-              <Link to="/profile">
+              <Link to="/dashboard">
                 <TabsTrigger
                   value="application"
                   className="cursor-pointer w-full"
@@ -91,4 +91,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Dashboard;
