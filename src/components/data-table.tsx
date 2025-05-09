@@ -35,13 +35,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Label } from "@/components/ui/label";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Textarea } from "./ui/textarea";
+import { Link } from "react-router-dom";
 
 const data: Payment[] = [
   {
@@ -342,51 +336,9 @@ function DataTable() {
           </Button>
         </div>
       </div>
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button variant="outline">Add +</Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-80">
-          <div className="grid gap-4">
-            <div className="space-y-2">
-              <h4 className="font-medium leading-none">Dimensions</h4>
-              <p className="text-sm text-muted-foreground">
-                Set the dimensions for the layer.
-              </p>
-            </div>
-            <div className="grid gap-2">
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Label htmlFor="url">Url</Label>
-                <Textarea
-                  id="url"
-                  placeholder="url ..."
-                  className="col-span-2 h-8"
-                />
-              </div>
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Label htmlFor="baseResume">Base resume</Label>
-                <Input
-                  id="baseResume"
-                  type="file"
-                  accept=".pdf"
-                  className="col-span-2 h-8"
-                />
-              </div>
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Label htmlFor="instruction">Instruction</Label>
-                <Textarea
-                  id="instruction"
-                  placeholder="instruction ..."
-                  className="col-span-2 h-8"
-                />
-              </div>
-              <div className="grid grid-cols-3 items-center gap-4">
-                <Button>save</Button>
-              </div>
-            </div>
-          </div>
-        </PopoverContent>
-      </Popover>
+      <Link to="/add">
+        <Button variant="outline">Add +</Button>
+      </Link>
     </div>
   );
 }
