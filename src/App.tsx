@@ -2,9 +2,24 @@ import routes from "./routes";
 import { useRoutes } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "./components/navbar";
+import { useEffect } from "react";
+import useLogin from "./stores/useLogin";
 
 function App() {
   let router = useRoutes(routes);
+  const { setIsLogin } = useLogin();
+
+  useEffect(() => {
+    if (
+      sessionStorage.getItem("username") &&
+      sessionStorage.getItem("password") &&
+      sessionStorage.getItem("email")
+    ) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  }, []);
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
