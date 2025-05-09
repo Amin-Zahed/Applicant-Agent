@@ -17,15 +17,19 @@ function DraftTable() {
         <TableRow>
           <TableHead className="w-[100px]">URL</TableHead>
           <TableHead>Base Resume</TableHead>
-          <TableHead className="text-right">Instructions</TableHead>
+          <TableHead className="text-left">Instructions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {drafts.map((draft) => (
           <TableRow key={draft.resume}>
-            <TableCell className="font-medium">{draft.url}</TableCell>
-            <TableCell>{draft.resume}</TableCell>
-            <TableCell className="text-right">{draft.instruction}</TableCell>
+            <TableCell className="font-medium" title={draft.url!}>
+              {draft.url}
+            </TableCell>
+            <TableCell title={draft.resume!}>{draft.resume}</TableCell>
+            <TableCell className="text-left" title={String(draft.instruction!)}>
+              {draft.instruction}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
