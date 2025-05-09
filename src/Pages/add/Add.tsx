@@ -23,6 +23,7 @@ const Add = () => {
     baseResumeSelectedStatus,
     urlInputValue,
     textAreaValue,
+    drafts,
     setUrlInputValue,
     setTextAreaValue,
     addDraft,
@@ -118,6 +119,12 @@ const Add = () => {
                 <div id="table-container" className="w-full">
                   <DraftTable></DraftTable>
                 </div>
+                <Button
+                  className="self-start"
+                  disabled={drafts.length === 0 ? true : false}
+                >
+                  Submit
+                </Button>
               </div>
             </ResizablePanel>
           </ResizablePanelGroup>

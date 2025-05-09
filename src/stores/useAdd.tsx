@@ -78,9 +78,9 @@ export const useAdd = create<UseAdd>((set, get) => ({
   addInstructionStatus: () =>
     get().textAreaValue !== ""
       ? set({
-          textAreaValue: `${get().textAreaValue} \n -${
+          textAreaValue: `${get().textAreaValue} \n - ${
             get().instructionSelectedStatus?.value
-          }`,
+          } `,
         })
       : set({
           textAreaValue: `${get().textAreaValue}-${

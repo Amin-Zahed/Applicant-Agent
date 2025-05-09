@@ -27,8 +27,13 @@ function DraftTable() {
               {draft.url}
             </TableCell>
             <TableCell title={draft.resume!}>{draft.resume}</TableCell>
-            <TableCell className="text-left" title={String(draft.instruction!)}>
-              {draft.instruction}
+            <TableCell
+              className="text-left"
+              title={
+                draft.instruction !== "" ? String(draft.instruction) : "N/A"
+              }
+            >
+              {draft.instruction !== "" ? draft.instruction : "N/A"}
             </TableCell>
           </TableRow>
         ))}
