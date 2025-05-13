@@ -82,7 +82,7 @@ const Add = () => {
                   <p className="text-balance text-lg text-muted-foreground text-center">
                     Instructions
                   </p>
-                  <Label htmlFor="jobPostingUrl">Add instruction</Label>
+                  <Label>Add instruction</Label>
                   <ComboBoxInstruction></ComboBoxInstruction>
                   <Label>Instructions</Label>
                   <Textarea

@@ -5,7 +5,7 @@ type Status = {
   value: string;
 };
 
-type Drafts = {
+export type Drafts = {
   url: string | null | undefined;
   resume: null | string;
   instruction: string | string[] | number | undefined;

@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import useAdd from "@/stores/useAdd";
+import useAdd, { Drafts } from "@/stores/useAdd";
 import { Pencil, Trash2 } from "lucide-react";
 import {
   AlertDialog,
@@ -24,9 +24,11 @@ import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import ComboBoxBaseResume from "./comboBoxBaseResume";
 import ComboBoxInstruction from "./comboBoxInstruction";
+// import { useRef } from "react";
 
 function DraftTable() {
   const { drafts } = useAdd();
+  // const draftEditedRef = useRef<Drafts | null>(null);
 
   return (
     <Table>
@@ -66,23 +68,23 @@ function DraftTable() {
                     </AlertDialogDescription>
                     <br />
                     <form className="flex flex-col gap-2">
-                      <Label htmlFor="jobPostingUrl">Job posting URL</Label>
+                      <Label htmlFor="jobPostingUrl2">Job posting URL</Label>
                       <Input
-                      // id="jobPostingUrl"
-                      // type="url"
-                      // value={urlInputValue === null ? "" : urlInputValue}
-                      // onInput={(e) =>
-                      //   setUrlInputValue((e.target as HTMLInputElement).value)
-                      // }
+                        id="jobPostingUrl2"
+                        type="url"
+                        value={draft.url}
+                        onInput={(e) => {
+                          draft.url = (e.target as HTMLInputElement).value;
+                        }}
                       ></Input>
                       <Label>Base resume</Label>
                       <ComboBoxBaseResume></ComboBoxBaseResume>
-                      <Label htmlFor="jobPostingUrl">Add instruction</Label>
+                      <Label>Add instruction</Label>
                       <ComboBoxInstruction></ComboBoxInstruction>
                       <Label>Instructions</Label>
                       <Textarea
-                      // onChange={(e) => setTextAreaValue(e.target.value)}
-                      // value={textAreaValue}
+                        onChange={(e) => (draft.instruction = e.target.value)}
+                        value={draft.instruction}
                       ></Textarea>
                     </form>
                     <br />
