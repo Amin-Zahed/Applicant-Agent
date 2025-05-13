@@ -24,11 +24,15 @@ import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import ComboBoxBaseResume from "./comboBoxBaseResume";
 import ComboBoxInstruction from "./comboBoxInstruction";
-// import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 function DraftTable() {
   const { drafts } = useAdd();
-  // const draftEditedRef = useRef<Drafts | null>(null);
+  const draftEditedRef = useRef<Drafts[]>([]);
+
+  useEffect(() => {
+    draftEditedRef.current = drafts;
+  }, [drafts]);
 
   return (
     <Table>
@@ -78,7 +82,12 @@ function DraftTable() {
                         }}
                       ></Input>
                       <Label>Base resume</Label>
-                      <ComboBoxBaseResume></ComboBoxBaseResume>
+                      <ComboBoxBaseResume
+                      // value={{ label: draft.resume, value: draft.resume }}
+                      // onSelect={(selected) => {
+                      //   draft.resume = selected.value;
+                      // }}
+                      ></ComboBoxBaseResume>
                       <Label>Add instruction</Label>
                       <ComboBoxInstruction></ComboBoxInstruction>
                       <Label>Instructions</Label>
