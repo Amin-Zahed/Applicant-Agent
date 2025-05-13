@@ -7,6 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import useAdd from "@/stores/useAdd";
+import { Pencil, Trash2 } from "lucide-react";
 
 function DraftTable() {
   const { drafts } = useAdd();
@@ -34,6 +35,12 @@ function DraftTable() {
               }
             >
               {draft.instruction !== "" ? draft.instruction : "N/A"}
+            </TableCell>
+            <TableCell>
+              <Pencil />
+            </TableCell>
+            <TableCell>
+              <Trash2 />
             </TableCell>
           </TableRow>
         ))}
