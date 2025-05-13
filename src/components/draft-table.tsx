@@ -8,6 +8,22 @@ import {
 } from "@/components/ui/table";
 import useAdd from "@/stores/useAdd";
 import { Pencil, Trash2 } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { Textarea } from "./ui/textarea";
+import ComboBoxBaseResume from "./comboBoxBaseResume";
+import ComboBoxInstruction from "./comboBoxInstruction";
 
 function DraftTable() {
   const { drafts } = useAdd();
@@ -37,10 +53,49 @@ function DraftTable() {
               {draft.instruction !== "" ? draft.instruction : "N/A"}
             </TableCell>
             <TableCell>
-              <Pencil />
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Pencil className="cursor-pointer" />
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Edit task</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Make changes to it task here. Click Save changes when
+                      you're done.
+                    </AlertDialogDescription>
+                    <br />
+                    <form className="flex flex-col gap-2">
+                      <Label htmlFor="jobPostingUrl">Job posting URL</Label>
+                      <Input
+                      // id="jobPostingUrl"
+                      // type="url"
+                      // value={urlInputValue === null ? "" : urlInputValue}
+                      // onInput={(e) =>
+                      //   setUrlInputValue((e.target as HTMLInputElement).value)
+                      // }
+                      ></Input>
+                      <Label>Base resume</Label>
+                      <ComboBoxBaseResume></ComboBoxBaseResume>
+                      <Label htmlFor="jobPostingUrl">Add instruction</Label>
+                      <ComboBoxInstruction></ComboBoxInstruction>
+                      <Label>Instructions</Label>
+                      <Textarea
+                      // onChange={(e) => setTextAreaValue(e.target.value)}
+                      // value={textAreaValue}
+                      ></Textarea>
+                    </form>
+                    <br />
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction>Save changes</AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </TableCell>
             <TableCell>
-              <Trash2 />
+              <Trash2 className="cursor-pointer" />
             </TableCell>
           </TableRow>
         ))}
