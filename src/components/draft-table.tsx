@@ -45,7 +45,7 @@ function DraftTable() {
       </TableHeader>
       <TableBody>
         {drafts.map((draft) => (
-          <TableRow key={draft.resume}>
+          <TableRow key={draft.id}>
             <TableCell className="font-medium" title={draft.url!}>
               {draft.url}
             </TableCell>
