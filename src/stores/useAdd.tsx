@@ -35,6 +35,7 @@ interface UseAdd {
   draftIdIncrese: () => void;
   addDraft: () => void;
   setDrafts: (index: number, newValue: Drafts) => void;
+  setCloneDrafts: (index: number, newValue: Drafts) => void;
 }
 
 const urlRegex =
@@ -110,6 +111,12 @@ export const useAdd = create<UseAdd>((set, get) => ({
   setDrafts: (index, newValue) =>
     set({
       drafts: get().drafts.map((draft, i) => (i === index ? newValue : draft)),
+    }),
+  setCloneDrafts: (index, newValue) =>
+    set({
+      cloneDrafts: get().cloneDrafts.map((draft, i) =>
+        i === index ? newValue : draft
+      ),
     }),
 }));
 

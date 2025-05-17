@@ -26,7 +26,7 @@ import ComboBoxBaseResume from "./comboBoxBaseResume";
 import ComboBoxInstruction from "./comboBoxInstruction";
 
 function DraftTable() {
-  const { drafts, setDrafts } = useAdd();
+  const { drafts, cloneDrafts, setDrafts, setCloneDrafts } = useAdd();
 
   return (
     <Table>
@@ -106,8 +106,16 @@ function DraftTable() {
                       <br />
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction>Save changes</AlertDialogAction>
+                      <AlertDialogCancel
+                        onClick={() => setDrafts(index, cloneDrafts[index])}
+                      >
+                        Cancel
+                      </AlertDialogCancel>
+                      <AlertDialogAction
+                        onClick={() => setCloneDrafts(index, drafts[index])}
+                      >
+                        Save changes
+                      </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
