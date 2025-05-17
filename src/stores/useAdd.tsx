@@ -34,6 +34,7 @@ interface UseAdd {
   setTextAreaValue: (value: string | string[] | number | undefined) => void;
   draftIdIncrese: () => void;
   addDraft: () => void;
+  setDrafts: (index: number, newValue: Drafts) => void;
 }
 
 const urlRegex =
@@ -106,6 +107,10 @@ export const useAdd = create<UseAdd>((set, get) => ({
     set({ drafts: [newDraft, ...get().drafts] });
     set({ cloneDrafts: [newDraft, ...get().cloneDrafts] });
   },
+  setDrafts: (index, newValue) =>
+    set({
+      drafts: get().drafts.map((draft, i) => (i === index ? newValue : draft)),
+    }),
 }));
 
 export default useAdd;
