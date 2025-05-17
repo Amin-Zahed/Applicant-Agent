@@ -29,6 +29,7 @@ const Add = () => {
     addDraft,
     setBaseResumeSelectedStatus,
     setInstructionSelectedStatus,
+    draftIdIncrese,
   } = useAdd();
 
   return (
@@ -103,6 +104,7 @@ const Add = () => {
                     setUrlInputValue("");
                     setInstructionSelectedStatus(null!);
                     setTextAreaValue("");
+                    draftIdIncrese();
                   }}
                 >
                   Add To Draft

@@ -6,6 +6,7 @@ type Status = {
 };
 
 export type Drafts = {
+  id: number;
   url: string | null | undefined;
   resume: null | string;
   instruction: string | string[] | number | undefined;
@@ -19,6 +20,7 @@ interface UseAdd {
   instructionStatuses: Status[];
   instructionSelectedStatus: Status | null;
   textAreaValue: string | string[] | number | undefined;
+  draftId: number;
   drafts: Drafts[];
   setBaseResumeStatuses: (statuses: Status[]) => void;
   setBaseResumeSelectedStatus: (value: string) => void;
@@ -29,11 +31,13 @@ interface UseAdd {
   setInstructionSelectedStatus: (value: string) => void;
   addInstructionStatus: () => void;
   setTextAreaValue: (value: string | string[] | number | undefined) => void;
+  draftIdIncrese: () => void;
   addDraft: () => void;
 }
 
 const urlRegex =
   /^(https?:\/\/)?(www\.)?([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}(:\d+)?(\/[^\s]*)?$/;
+const INITIAL_DRAFT_ID = 1;
 
 export const useAdd = create<UseAdd>((set, get) => ({
   baseResumeStatuses: [],
@@ -43,6 +47,7 @@ export const useAdd = create<UseAdd>((set, get) => ({
   instructionStatuses: [],
   instructionSelectedStatus: null,
   textAreaValue: "",
+  draftId: INITIAL_DRAFT_ID,
   drafts: [],
 
   setBaseResumeStatuses: (baseResumeStatuses) => set({ baseResumeStatuses }),
@@ -88,8 +93,10 @@ export const useAdd = create<UseAdd>((set, get) => ({
           }`,
         }),
   setTextAreaValue: (value) => set({ textAreaValue: value }),
+  draftIdIncrese: () => set({ draftId: get().draftId + 1 }),
   addDraft: () => {
     const newDraft: Drafts = {
+      id: get().draftId,
       url: get().urlInputValue!,
       resume: get().baseResumeSelectedStatus!.value,
       instruction: get().textAreaValue!,
