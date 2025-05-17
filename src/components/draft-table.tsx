@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import useAdd, { Drafts } from "@/stores/useAdd";
+import useAdd from "@/stores/useAdd";
 import { Pencil, Trash2 } from "lucide-react";
 import {
   AlertDialog,
@@ -24,15 +24,9 @@ import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import ComboBoxBaseResume from "./comboBoxBaseResume";
 import ComboBoxInstruction from "./comboBoxInstruction";
-import { useEffect, useRef } from "react";
 
 function DraftTable() {
   const { drafts } = useAdd();
-  const draftEditedRef = useRef<Drafts[]>([]);
-
-  useEffect(() => {
-    draftEditedRef.current = drafts;
-  }, [drafts]);
 
   return (
     <Table>

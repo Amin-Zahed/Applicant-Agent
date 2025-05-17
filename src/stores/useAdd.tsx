@@ -22,6 +22,7 @@ interface UseAdd {
   textAreaValue: string | string[] | number | undefined;
   draftId: number;
   drafts: Drafts[];
+  cloneDrafts: Drafts[];
   setBaseResumeStatuses: (statuses: Status[]) => void;
   setBaseResumeSelectedStatus: (value: string) => void;
   setFileInputValue: (value: string) => void;
@@ -49,6 +50,7 @@ export const useAdd = create<UseAdd>((set, get) => ({
   textAreaValue: "",
   draftId: INITIAL_DRAFT_ID,
   drafts: [],
+  cloneDrafts: [],
 
   setBaseResumeStatuses: (baseResumeStatuses) => set({ baseResumeStatuses }),
   baseResumeAddStatus: () => {
@@ -102,6 +104,7 @@ export const useAdd = create<UseAdd>((set, get) => ({
       instruction: get().textAreaValue!,
     };
     set({ drafts: [newDraft, ...get().drafts] });
+    set({ cloneDrafts: [newDraft, ...get().cloneDrafts] });
   },
 }));
 
