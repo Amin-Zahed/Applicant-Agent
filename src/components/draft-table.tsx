@@ -101,6 +101,13 @@ function DraftTable() {
                         Cancel
                       </AlertDialogCancel>
                       <AlertDialogAction
+                        disabled={
+                          drafts[index].url !== cloneDrafts[index].url ||
+                          drafts[index].instruction !==
+                            cloneDrafts[index].instruction
+                            ? false
+                            : true
+                        }
                         onClick={() => setCloneDrafts(index, drafts[index])}
                       >
                         Save changes
