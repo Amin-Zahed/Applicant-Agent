@@ -22,8 +22,6 @@ import {
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
-import ComboBoxBaseResume from "./comboBoxBaseResume";
-import ComboBoxInstruction from "./comboBoxInstruction";
 
 function DraftTable() {
   const { drafts, cloneDrafts, setDrafts, setCloneDrafts } = useAdd();
@@ -81,25 +79,16 @@ function DraftTable() {
                             });
                           }}
                         ></Input>
-                        <Label>Base resume</Label>
-                        <ComboBoxBaseResume
-                        // value={{ label: draft.resume, value: draft.resume }}
-                        // onSelect={(selected) => {
-                        //   draft.resume = selected.value;
-                        // }}
-                        ></ComboBoxBaseResume>
-                        <Label>Add instruction</Label>
-                        <ComboBoxInstruction></ComboBoxInstruction>
                         <Label>Instructions</Label>
                         <Textarea
                           onChange={(
                             e: React.ChangeEvent<HTMLTextAreaElement>
-                          ) =>
+                          ) => {
                             setDrafts(index, {
                               ...drafts[index],
                               instruction: e.target.value,
-                            })
-                          }
+                            });
+                          }}
                           value={drafts[index].instruction}
                         ></Textarea>
                       </form>
