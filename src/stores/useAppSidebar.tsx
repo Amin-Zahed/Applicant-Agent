@@ -1,16 +1,21 @@
 import { create } from "zustand";
 
 interface UseAppSidebar {
-  sidebarIsOpen: boolean;
-  toggleAppSidebar: () => void;
+  addSidebarIsOpen: boolean;
+  dashboardSidebarIsOpen: boolean;
+  addToggleAppSidebar: () => void;
+  dashboardToggleAppSidebar: () => void;
   //   closeSidebar: () => void;
   //   openSidebar: () => void;
 }
 
 const useAppSidebar = create<UseAppSidebar>((set) => ({
-  sidebarIsOpen: false,
-  toggleAppSidebar: () =>
-    set((state) => ({ sidebarIsOpen: !state.sidebarIsOpen })),
+  addSidebarIsOpen: false,
+  dashboardSidebarIsOpen: true,
+  addToggleAppSidebar: () =>
+    set((state) => ({ addSidebarIsOpen: !state.addSidebarIsOpen })),
+  dashboardToggleAppSidebar: () =>
+    set((state) => ({ dashboardSidebarIsOpen: !state.dashboardSidebarIsOpen })),
   //   closeSidebar: () => set({ sidebarIsOpen: false }),
   //   openSidebar: () => set({ sidebarIsOpen: true }),
 }));

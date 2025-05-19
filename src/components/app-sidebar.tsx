@@ -23,7 +23,7 @@ import {
   // SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import useSidebar from "@/stores/useAppSidebar";
+// import useSidebar from "@/stores/useAppSidebar";
 
 // This is sample data.
 const data = {
@@ -155,7 +155,7 @@ const data = {
   ],
 };
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { toggleAppSidebar } = useSidebar();
+  // const { toggleAppSidebar } = useSidebar();
 
   return (
     <Sidebar
@@ -165,7 +165,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     >
       <SidebarTrigger
         className="cursor-pointer absolute top-0 right-0"
-        onClick={toggleAppSidebar}
+        // onClick={toggleAppSidebar}
       />{" "}
       <br />
       <br />

@@ -17,7 +17,7 @@ import useAdd from "@/stores/useAdd";
 import DraftTable from "@/components/draft-table";
 
 const Add = () => {
-  const { sidebarIsOpen } = useAppSidebar();
+  const { addSidebarIsOpen, addToggleAppSidebar } = useAppSidebar();
   const isMobile = useIsMobile();
   const {
     baseResumeSelectedStatus,
@@ -46,7 +46,10 @@ const Add = () => {
       >
         <AppSidebar />
         <main>
-          <SidebarTrigger className="cursor-pointer md:absolute md:hidden" />
+          <SidebarTrigger
+            className="cursor-pointer md:absolute md:hidden"
+            // onClick={addToggleAppSidebar}
+          />
           {/* <div
             className="p-4"
           ></div> */}
@@ -56,7 +59,7 @@ const Add = () => {
             style={{
               width: isMobile
                 ? "100dvw"
-                : isMobile === false && sidebarIsOpen === false
+                : isMobile === false && addSidebarIsOpen === false
                 ? "calc(100vw - (var(--sidebar-width-icon)))"
                 : "calc(100vw - (var(--sidebar-width)))",
             }}
