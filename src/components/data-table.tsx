@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import {
   ColumnDef,
@@ -13,10 +11,18 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import {
+  ArrowUpDown,
+  ChevronDown,
+  CircleCheck,
+  CircleX,
+  Download,
+  Loader,
+  MoreHorizontal,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+// import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -36,6 +42,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Link } from "react-router-dom";
+import { Pencil, Trash2 } from "lucide-react";
 
 const data: Payment[] = [
   {
@@ -91,24 +98,30 @@ export type Payment = {
 
 export const columns: ColumnDef<Payment>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
-    ),
+    id: "state_icon",
+    // header: ({ table }) => (
+    //   <Checkbox
+    //     checked={
+    //       table.getIsAllPageRowsSelected() ||
+    //       (table.getIsSomePageRowsSelected() && "indeterminate")
+    //     }
+    //     onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+    //     aria-label="Select all"
+    //   />
+    // ),
+    cell: ({ row }) =>
+      // <Checkbox
+      //   checked={row.getIsSelected()}
+      //   onCheckedChange={(value) => row.toggleSelected(!!value)}
+      //   aria-label="Select row"
+      // />
+      row.original.status === "pending" ? (
+        <Loader color="gray" />
+      ) : row.original.status === "interview" ? (
+        <CircleCheck color="green" />
+      ) : (
+        <CircleX color="red" />
+      ),
     enableSorting: false,
     enableHiding: false,
   },
@@ -180,13 +193,19 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+            // onClick={() => navigator.clipboard.writeText(payment.id)}
             >
-              Copy payment ID
+              <Trash2 /> Delete
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Pencil />
+              Edit
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Download />
+              Download changed resume
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
