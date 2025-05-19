@@ -39,7 +39,11 @@ const Add = () => {
       id="AddPage"
       className="w-full h-full flex flex-col overflow-auto scroll-auto"
     >
-      <SidebarProvider className=" w-full min-h-0 h-full">
+      <SidebarProvider
+        defaultOpen={false}
+        className=" w-full min-h-0 h-full"
+        // onOpenChange
+      >
         <AppSidebar />
         <main>
           <SidebarTrigger className="cursor-pointer md:absolute md:hidden" />
@@ -52,7 +56,7 @@ const Add = () => {
             style={{
               width: isMobile
                 ? "100dvw"
-                : isMobile === false && sidebarIsOpen
+                : isMobile === false && sidebarIsOpen === false
                 ? "calc(100vw - (var(--sidebar-width-icon)))"
                 : "calc(100vw - (var(--sidebar-width)))",
             }}
