@@ -43,58 +43,16 @@ import {
 } from "@/components/ui/table";
 import { Link } from "react-router-dom";
 import { Pencil, Trash2 } from "lucide-react";
+import useApplication, { Payment } from "@/stores/useApplication";
 
-const data: Payment[] = [
-  {
-    id: "m5gr84i9",
-    time: 316,
-    status: "pending",
-    employee: "ken99@example.com",
-    baseResume: "ewtretyryuy",
-    changedResume: "sdgfdhfgjhj",
-  },
-  {
-    id: "3u1reuv4",
-    time: 242,
-    status: "interview",
-    employee: "Abe45@example.com",
-    baseResume: "ewtretyryuy",
-    changedResume: "sdgfdhfgjhj",
-  },
-  {
-    id: "derv1ws0",
-    time: 837,
-    status: "pending",
-    employee: "Monserrat44@example.com",
-    baseResume: "ewtretyryuy",
-    changedResume: "sdgfdhfgjhj",
-  },
-  {
-    id: "5kma53ae",
-    time: 874,
-    status: "interview",
-    employee: "Silas22@example.com",
-    baseResume: "ewtretyryuy",
-    changedResume: "sdgfdhfgjhj",
-  },
-  {
-    id: "bhqecj4p",
-    time: 721,
-    status: "rejected",
-    employee: "carmella@example.com",
-    baseResume: "ewtretyryuy",
-    changedResume: "sdgfdhfgjhj",
-  },
-];
-
-export type Payment = {
-  id: string;
-  status: "pending" | "rejected" | "interview";
-  employee: string;
-  baseResume: string;
-  changedResume: string;
-  time: number;
-};
+// export type Payment = {
+//   id: string;
+//   status: "pending" | "rejected" | "interview";
+//   employee: string;
+//   baseResume: string;
+//   changedResume: string;
+//   time: number;
+// };
 
 export const columns: ColumnDef<Payment>[] = [
   {
@@ -214,6 +172,124 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 function DataTable() {
+  const { data, updateData } = useApplication();
+  React.useEffect(() => {
+    updateData([
+      {
+        id: "m5gr84i9",
+        time: 316,
+        status: "pending",
+        employee: "ken99@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "3u1reuv4",
+        time: 242,
+        status: "interview",
+        employee: "Abe45@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "derv1ws0",
+        time: 837,
+        status: "pending",
+        employee: "Monserrat44@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "5kma53ae",
+        time: 874,
+        status: "interview",
+        employee: "Silas22@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+      {
+        id: "bhqecj4p",
+        time: 721,
+        status: "rejected",
+        employee: "carmella@example.com",
+        baseResume: "ewtretyryuy",
+        changedResume: "sdgfdhfgjhj",
+      },
+    ]);
+  }, []);
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -333,8 +409,9 @@ function DataTable() {
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+          {/* {table.getFilteredSelectedRowModel().rows.length} of{" "} */}
+          {table.getFilteredRowModel().rows.length} row(s)
+          {/* selected. */}
         </div>
         <div className="space-x-2">
           <Button

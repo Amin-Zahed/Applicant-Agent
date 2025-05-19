@@ -12,6 +12,15 @@ export type Drafts = {
   instruction: string | string[] | number | undefined;
 };
 
+type UsableData = {
+  id: string;
+  time: number;
+  status: string;
+  employee: string | null | undefined;
+  baseResume: string | null;
+  changedResume: string | null;
+};
+
 interface UseAdd {
   baseResumeStatuses: Status[];
   baseResumeSelectedStatus: Status | null;
@@ -23,6 +32,7 @@ interface UseAdd {
   draftId: number;
   drafts: Drafts[];
   cloneDrafts: Drafts[];
+  usableData: UsableData[];
   setBaseResumeStatuses: (statuses: Status[]) => void;
   setBaseResumeSelectedStatus: (value: string) => void;
   setFileInputValue: (value: string) => void;
@@ -37,6 +47,8 @@ interface UseAdd {
   setDrafts: (index: number, newValue: Drafts) => void;
   setCloneDrafts: (index: number, newValue: Drafts) => void;
   deleteDraft: (index: number) => void;
+  makingUsableData: () => void;
+  removeDrafts: () => void;
 }
 
 const urlRegex =
@@ -54,6 +66,7 @@ const useAdd = create<UseAdd>((set, get) => ({
   draftId: INITIAL_DRAFT_ID,
   drafts: [],
   cloneDrafts: [],
+  usableData: [],
 
   setBaseResumeStatuses: (baseResumeStatuses) => set({ baseResumeStatuses }),
   baseResumeAddStatus: () => {
@@ -124,6 +137,21 @@ const useAdd = create<UseAdd>((set, get) => ({
     const allDrafts = get().drafts;
     set({ drafts: allDrafts });
     set({ cloneDrafts: allDrafts });
+  },
+  makingUsableData: () => {
+    const makeData = get().drafts.map((draft) => ({
+      id: String(Math.floor(Math.random() * 1000000)),
+      time: Math.floor(Math.random() * 1000),
+      status: "pending",
+      employee: draft.url,
+      baseResume: draft.resume,
+      changedResume: draft.resume,
+    }));
+    set({ usableData: makeData });
+  },
+  removeDrafts: () => {
+    set({ drafts: [] });
+    set({ cloneDrafts: [] });
   },
 }));
 

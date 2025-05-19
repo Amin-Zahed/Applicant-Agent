@@ -30,6 +30,8 @@ const Add = () => {
     setBaseResumeSelectedStatus,
     setInstructionSelectedStatus,
     draftIdIncrese,
+    makingUsableData,
+    removeDrafts,
   } = useAdd();
 
   return (
@@ -124,6 +126,10 @@ const Add = () => {
                 <Button
                   className="self-start"
                   disabled={drafts.length === 0 ? true : false}
+                  onClick={() => {
+                    makingUsableData();
+                    removeDrafts();
+                  }}
                 >
                   Submit
                 </Button>
