@@ -177,48 +177,50 @@ function DataTable() {
   const { usableData, removeUsableData } = useAdd();
 
   React.useEffect(() => {
-    updateData([
-      {
-        id: "m5gr84i9",
-        time: 316,
-        status: "pending",
-        employee: "ken99@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "3u1reuv4",
-        time: 242,
-        status: "interview",
-        employee: "Abe45@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "derv1ws0",
-        time: 837,
-        status: "pending",
-        employee: "Monserrat44@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "5kma53ae",
-        time: 874,
-        status: "interview",
-        employee: "Silas22@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-    ]);
+    if (data.length <= 5) {
+      updateData([
+        {
+          id: "m5gr84i9",
+          time: 316,
+          status: "pending",
+          employee: "ken99@example.com",
+          baseResume: "ewtretyryuy",
+          changedResume: "sdgfdhfgjhj",
+        },
+        {
+          id: "3u1reuv4",
+          time: 242,
+          status: "interview",
+          employee: "Abe45@example.com",
+          baseResume: "ewtretyryuy",
+          changedResume: "sdgfdhfgjhj",
+        },
+        {
+          id: "derv1ws0",
+          time: 837,
+          status: "pending",
+          employee: "Monserrat44@example.com",
+          baseResume: "ewtretyryuy",
+          changedResume: "sdgfdhfgjhj",
+        },
+        {
+          id: "5kma53ae",
+          time: 874,
+          status: "interview",
+          employee: "Silas22@example.com",
+          baseResume: "ewtretyryuy",
+          changedResume: "sdgfdhfgjhj",
+        },
+        {
+          id: "bhqecj4p",
+          time: 721,
+          status: "rejected",
+          employee: "carmella@example.com",
+          baseResume: "ewtretyryuy",
+          changedResume: "sdgfdhfgjhj",
+        },
+      ]);
+    }
   }, []);
 
   React.useEffect(() => {
