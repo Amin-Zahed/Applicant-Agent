@@ -43,7 +43,7 @@ const urlRegex =
   /^(https?:\/\/)?(www\.)?([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}(:\d+)?(\/[^\s]*)?$/;
 const INITIAL_DRAFT_ID = 1;
 
-export const useAdd = create<UseAdd>((set, get) => ({
+const useAdd = create<UseAdd>((set, get) => ({
   baseResumeStatuses: [],
   baseResumeSelectedStatus: null,
   fileInputValue: null,
