@@ -47,8 +47,9 @@ interface UseAdd {
   setDrafts: (index: number, newValue: Drafts) => void;
   setCloneDrafts: (index: number, newValue: Drafts) => void;
   deleteDraft: (index: number) => void;
-  makingUsableData: () => void;
   removeDrafts: () => void;
+  makingUsableData: () => void;
+  removeUsableData: () => void;
 }
 
 const urlRegex =
@@ -138,9 +139,13 @@ const useAdd = create<UseAdd>((set, get) => ({
     set({ drafts: allDrafts });
     set({ cloneDrafts: allDrafts });
   },
+  removeDrafts: () => {
+    set({ drafts: [] });
+    set({ cloneDrafts: [] });
+  },
   makingUsableData: () => {
     const makeData = get().drafts.map((draft) => ({
-      id: String(Math.floor(Math.random() * 1000000)),
+      id: String(Math.floor(Math.random() * 100000000)),
       time: Math.floor(Math.random() * 1000),
       status: "pending",
       employee: draft.url,
@@ -149,10 +154,7 @@ const useAdd = create<UseAdd>((set, get) => ({
     }));
     set({ usableData: makeData });
   },
-  removeDrafts: () => {
-    set({ drafts: [] });
-    set({ cloneDrafts: [] });
-  },
+  removeUsableData: () => set({ usableData: [] }),
 }));
 
 export default useAdd;

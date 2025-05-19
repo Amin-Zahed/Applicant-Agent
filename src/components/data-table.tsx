@@ -44,6 +44,7 @@ import {
 import { Link } from "react-router-dom";
 import { Pencil, Trash2 } from "lucide-react";
 import useApplication, { Payment } from "@/stores/useApplication";
+import useAdd from "@/stores/useAdd";
 
 // export type Payment = {
 //   id: string;
@@ -173,6 +174,8 @@ export const columns: ColumnDef<Payment>[] = [
 
 function DataTable() {
   const { data, updateData } = useApplication();
+  const { usableData, removeUsableData } = useAdd();
+
   React.useEffect(() => {
     updateData([
       {
@@ -215,80 +218,19 @@ function DataTable() {
         baseResume: "ewtretyryuy",
         changedResume: "sdgfdhfgjhj",
       },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
-      {
-        id: "bhqecj4p",
-        time: 721,
-        status: "rejected",
-        employee: "carmella@example.com",
-        baseResume: "ewtretyryuy",
-        changedResume: "sdgfdhfgjhj",
-      },
     ]);
   }, []);
+
+  React.useEffect(() => {
+    if (usableData.length !== 0) {
+      const datas: Payment[] = usableData;
+      updateData([...datas, ...data]);
+    }
+  }, [usableData]);
+
+  React.useEffect(() => {
+    if (usableData.length !== 0) removeUsableData();
+  }, [data]);
 
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
