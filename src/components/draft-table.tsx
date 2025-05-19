@@ -24,7 +24,8 @@ import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 
 function DraftTable() {
-  const { drafts, cloneDrafts, setDrafts, setCloneDrafts } = useAdd();
+  const { drafts, cloneDrafts, setDrafts, setCloneDrafts, deleteDraft } =
+    useAdd();
 
   return (
     <Table>
@@ -117,7 +118,10 @@ function DraftTable() {
                 </AlertDialog>
               </TableCell>
               <TableCell>
-                <Trash2 className="cursor-pointer" />
+                <Trash2
+                  className="cursor-pointer"
+                  onClick={() => deleteDraft(index)}
+                />
               </TableCell>
             </TableRow>
           );
