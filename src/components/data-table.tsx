@@ -55,6 +55,8 @@ import useAdd from "@/stores/useAdd";
 //   time: number;
 // };
 
+// const { data, deleteData } = useApplication();
+
 export const columns: ColumnDef<Payment>[] = [
   {
     id: "state_icon",
@@ -140,6 +142,8 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
     cell: ({ row }) => {
       const payment = row.original;
+      // const index = data.findIndex((Data) => Data.id === payment.id);
+      // console.log(payment);
 
       return (
         <DropdownMenu>
@@ -152,7 +156,7 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-            // onClick={() => navigator.clipboard.writeText(payment.id)}
+            // onClick={() => deleteData(index)}
             >
               <Trash2 /> Delete
             </DropdownMenuItem>
