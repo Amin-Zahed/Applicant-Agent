@@ -17,12 +17,15 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 function Dashboard() {
   const location = useLocation();
-  const { dashboardSidebarIsOpen, dashboardToggleAppSidebar } = useAppSidebar();
+  const { sidebarIsOpen } = useAppSidebar();
   const isMobile = useIsMobile();
 
   return (
     <div id="dashboard" className="w-full h-full flex flex-col overflow-auto">
-      <SidebarProvider className=" w-full min-h-0 h-full">
+      <SidebarProvider
+        className=" w-full min-h-0 h-full"
+        defaultOpen={sidebarIsOpen ? true : false}
+      >
         <AppSidebar />
         <main>
           <SidebarTrigger
@@ -43,7 +46,7 @@ function Dashboard() {
             style={{
               width: isMobile
                 ? "100dvw"
-                : isMobile === false && dashboardSidebarIsOpen
+                : isMobile === false && sidebarIsOpen === false
                 ? "calc(100vw - (var(--sidebar-width-icon)))"
                 : "calc(100vw - (var(--sidebar-width)))",
             }}

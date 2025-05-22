@@ -17,7 +17,7 @@ import useAdd from "@/stores/useAdd";
 import DraftTable from "@/components/draft-table";
 
 const Add = () => {
-  const { addSidebarIsOpen, addToggleAppSidebar } = useAppSidebar();
+  const { sidebarIsOpen } = useAppSidebar();
   const isMobile = useIsMobile();
   const {
     baseResumeSelectedStatus,
@@ -40,7 +40,7 @@ const Add = () => {
       className="w-full h-full flex flex-col overflow-auto scroll-auto"
     >
       <SidebarProvider
-        defaultOpen={false}
+        defaultOpen={sidebarIsOpen ? true : false}
         className=" w-full min-h-0 h-full"
         // onOpenChange
       >
@@ -59,7 +59,7 @@ const Add = () => {
             style={{
               width: isMobile
                 ? "100dvw"
-                : isMobile === false && addSidebarIsOpen === false
+                : isMobile === false && sidebarIsOpen === false
                 ? "calc(100vw - (var(--sidebar-width-icon)))"
                 : "calc(100vw - (var(--sidebar-width)))",
             }}
