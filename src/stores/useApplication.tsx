@@ -1,17 +1,17 @@
 import { create } from "zustand";
 
-export type Payment = {
+export type Data = {
   id: string;
   status: "pending" | "rejected" | "interview";
-  employee: string;
+  employer: string;
   baseResume: string;
   changedResume: string;
-  time: number;
+  // time: number;
 };
 
 interface UseApplication {
-  data: Payment[];
-  updateData: (datas: Payment[]) => void;
+  data: Data[];
+  updateData: (datas: Data[]) => void;
   deleteData: (index: number) => void;
 }
 

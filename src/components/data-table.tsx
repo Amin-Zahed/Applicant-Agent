@@ -43,7 +43,7 @@ import {
 } from "@/components/ui/table";
 import { Link } from "react-router-dom";
 import { Pencil, Trash2 } from "lucide-react";
-import useApplication, { Payment } from "@/stores/useApplication";
+import useApplication, { Data } from "@/stores/useApplication";
 import useAdd from "@/stores/useAdd";
 
 // export type Payment = {
@@ -57,7 +57,7 @@ import useAdd from "@/stores/useAdd";
 
 // const { data, deleteData } = useApplication();
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Data>[] = [
   // {
   // id: "state_icon",
   // header: ({ table }) => (
@@ -119,20 +119,20 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "employee",
+    accessorKey: "employer",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Employee
+          Employer
           <ArrowUpDown />
         </Button>
       );
     },
     cell: ({ row }) => (
-      <div className="lowercase">{row.getValue("employee")}</div>
+      <div className="lowercase">{row.getValue("employer")}</div>
     ),
   },
   // {
@@ -196,41 +196,41 @@ function DataTable() {
       updateData([
         {
           id: "m5gr84i9",
-          time: 316,
+          // time: 316,
           status: "pending",
-          employee: "ken99@example.com",
+          employer: "ken99@example.com",
           baseResume: "ewtretyryuy",
           changedResume: "sdgfdhfgjhj",
         },
         {
           id: "3u1reuv4",
-          time: 242,
+          // time: 242,
           status: "interview",
-          employee: "Abe45@example.com",
+          employer: "Abe45@example.com",
           baseResume: "ewtretyryuy",
           changedResume: "sdgfdhfgjhj",
         },
         {
           id: "derv1ws0",
-          time: 837,
+          // time: 837,
           status: "pending",
-          employee: "Monserrat44@example.com",
+          employer: "Monserrat44@example.com",
           baseResume: "ewtretyryuy",
           changedResume: "sdgfdhfgjhj",
         },
         {
           id: "5kma53ae",
-          time: 874,
+          // time: 874,
           status: "interview",
-          employee: "Silas22@example.com",
+          employer: "Silas22@example.com",
           baseResume: "ewtretyryuy",
           changedResume: "sdgfdhfgjhj",
         },
         {
           id: "bhqecj4p",
-          time: 721,
+          // time: 721,
           status: "rejected",
-          employee: "carmella@example.com",
+          employer: "carmella@example.com",
           baseResume: "ewtretyryuy",
           changedResume: "sdgfdhfgjhj",
         },
@@ -240,7 +240,7 @@ function DataTable() {
 
   React.useEffect(() => {
     if (usableData.length !== 0) {
-      const datas: Payment[] = usableData;
+      const datas: Data[] = usableData;
       updateData([...datas, ...data]);
     }
   }, [usableData]);
