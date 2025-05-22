@@ -16,7 +16,7 @@ type UsableData = {
   id: string;
   // time: number;
   status: string;
-  employee: string | null | undefined;
+  employer: string | null | undefined;
   baseResume: string | null;
   changedResume: string | null;
 };
@@ -148,7 +148,7 @@ const useAdd = create<UseAdd>((set, get) => ({
       id: String(Math.floor(Math.random() * 100000000)),
       // time: Math.floor(Math.random() * 1000),
       status: "pending",
-      employee: draft.url,
+      employer: draft.url,
       baseResume: draft.resume,
       changedResume: draft.resume,
     }));
