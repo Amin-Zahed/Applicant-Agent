@@ -280,7 +280,7 @@ function DataTable() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter employees..."
+          placeholder="Filter employers..."
           value={
             (table.getColumn("employee")?.getFilterValue() as string) ?? ""
           }
