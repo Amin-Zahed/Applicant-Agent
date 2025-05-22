@@ -58,39 +58,50 @@ import useAdd from "@/stores/useAdd";
 // const { data, deleteData } = useApplication();
 
 export const columns: ColumnDef<Payment>[] = [
-  {
-    id: "state_icon",
-    // header: ({ table }) => (
-    //   <Checkbox
-    //     checked={
-    //       table.getIsAllPageRowsSelected() ||
-    //       (table.getIsSomePageRowsSelected() && "indeterminate")
-    //     }
-    //     onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-    //     aria-label="Select all"
-    //   />
-    // ),
-    cell: ({ row }) =>
-      // <Checkbox
-      //   checked={row.getIsSelected()}
-      //   onCheckedChange={(value) => row.toggleSelected(!!value)}
-      //   aria-label="Select row"
-      // />
-      row.original.status === "pending" ? (
-        <Loader color="gray" />
-      ) : row.original.status === "interview" ? (
-        <CircleCheck color="green" />
-      ) : (
-        <CircleX color="red" />
-      ),
-    enableSorting: false,
-    enableHiding: false,
-  },
+  // {
+  // id: "state_icon",
+  // header: ({ table }) => (
+  //   <Checkbox
+  //     checked={
+  //       table.getIsAllPageRowsSelected() ||
+  //       (table.getIsSomePageRowsSelected() && "indeterminate")
+  //     }
+  //     onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+  //     aria-label="Select all"
+  //   />
+  // ),
+  // cell: ({ row }) =>
+  // <Checkbox
+  //   checked={row.getIsSelected()}
+  //   onCheckedChange={(value) => row.toggleSelected(!!value)}
+  //   aria-label="Select row"
+  // />
+  // row.original.status === "pending" ? (
+  //   <Loader color="gray" />
+  // ) : row.original.status === "interview" ? (
+  //   <CircleCheck color="green" />
+  // ) : (
+  //   <CircleX color="red" />
+  // ),
+  // enableSorting: false,
+  // enableHiding: false,
+  // },
   {
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
+      <div className="capitalize flex flex-row flex-nowrap items-center">
+        <span>
+          {row.getValue("status") === "pending" ? (
+            <Loader color="gray" />
+          ) : row.getValue("status") === "interview" ? (
+            <CircleCheck color="green" />
+          ) : (
+            <CircleX color="red" />
+          )}
+        </span>
+        <span>{row.getValue("status")}</span>
+      </div>
     ),
   },
   {
