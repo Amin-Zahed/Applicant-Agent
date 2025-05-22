@@ -14,7 +14,7 @@ export type Drafts = {
 
 type UsableData = {
   id: string;
-  time: number;
+  // time: number;
   status: string;
   employee: string | null | undefined;
   baseResume: string | null;
@@ -146,7 +146,7 @@ const useAdd = create<UseAdd>((set, get) => ({
   makingUsableData: () => {
     const makeData = get().drafts.map((draft) => ({
       id: String(Math.floor(Math.random() * 100000000)),
-      time: Math.floor(Math.random() * 1000),
+      // time: Math.floor(Math.random() * 1000),
       status: "pending",
       employee: draft.url,
       baseResume: draft.resume,

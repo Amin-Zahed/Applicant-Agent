@@ -135,19 +135,19 @@ export const columns: ColumnDef<Payment>[] = [
       <div className="lowercase">{row.getValue("employee")}</div>
     ),
   },
-  {
-    accessorKey: "time",
-    header: "Time",
-    cell: ({ row }) => <div className="capitalize">{row.getValue("time")}</div>,
+  // {
+  //   accessorKey: "time",
+  //   header: "Time",
+  //   cell: ({ row }) => <div className="capitalize">{row.getValue("time")}</div>,
 
-    // Format the amount as a dollar amount
-    // const formatted = new Intl.NumberFormat("en-US", {
-    //   style: "currency",
-    //   currency: "USD",
-    // }).format(time);
+  // Format the amount as a dollar amount
+  // const formatted = new Intl.NumberFormat("en-US", {
+  //   style: "currency",
+  //   currency: "USD",
+  // }).format(time);
 
-    // return <div className="text-right font-medium">{formatted}</div>;
-  },
+  // return <div className="text-right font-medium">{formatted}</div>;
+  // },
   {
     id: "actions",
     enableHiding: false,
