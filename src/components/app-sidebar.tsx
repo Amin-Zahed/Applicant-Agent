@@ -1,5 +1,11 @@
 import * as React from "react";
-import { BookOpen, Bot, SquareTerminal } from "lucide-react";
+import {
+  BookOpen,
+  Bot,
+  SquareTerminal,
+  ChartArea,
+  SquarePlus,
+} from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import {
   Sidebar,
@@ -18,32 +24,32 @@ const data = {
       url: "/dashboard",
       id: 1,
       icon: SquareTerminal,
-      isActive: true,
+      // isActive: true,
     },
     {
       title: "Bio",
       url: "/dashboard/info",
-      id: 1,
-      icon: SquareTerminal,
-      isActive: true,
+      id: 2,
+      icon: Bot,
+      // isActive: true,
     },
     {
       title: "Info chart",
       url: "/dashboard/chart",
-      id: 1,
-      icon: SquareTerminal,
+      id: 3,
+      icon: ChartArea,
       // isActive: true,
     },
     {
       title: "Add +",
       url: "/add",
-      id: 2,
-      icon: Bot,
+      id: 4,
+      icon: SquarePlus,
     },
     {
       title: "Notifications",
       url: "/notifications",
-      id: 3,
+      id: 5,
       icon: BookOpen,
     },
   ],
