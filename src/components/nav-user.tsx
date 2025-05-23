@@ -34,7 +34,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import useLogin from "@/stores/useLogin";
 
 export function NavUser({
   user,
@@ -46,6 +46,7 @@ export function NavUser({
   };
 }) {
   const { isMobile } = useSidebar();
+  const { setIsLogin } = useLogin();
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -83,11 +84,15 @@ export function NavUser({
                   </AlertDialogHeader>
                   <AlertDialogFooter>
                     <AlertDialogCancel>No</AlertDialogCancel>
-                    <Link to="/">
-                      <AlertDialogAction onClick={() => sessionStorage.clear()}>
-                        Yes
-                      </AlertDialogAction>
-                    </Link>
+                    <AlertDialogAction
+                      onClick={() => {
+                        sessionStorage.clear();
+                        setIsLogin(false);
+                        window.location.reload();
+                      }}
+                    >
+                      Yes
+                    </AlertDialogAction>
                   </AlertDialogFooter>
                 </AlertDialogContent>
               </AlertDialog>
