@@ -21,6 +21,20 @@ const data = {
       isActive: true,
     },
     {
+      title: "Bio",
+      url: "/dashboard/info",
+      id: 1,
+      icon: SquareTerminal,
+      isActive: true,
+    },
+    {
+      title: "Info chart",
+      url: "/dashboard/chart",
+      id: 1,
+      icon: SquareTerminal,
+      // isActive: true,
+    },
+    {
       title: "Add +",
       url: "/add",
       id: 2,

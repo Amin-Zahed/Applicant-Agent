@@ -42,6 +42,15 @@ function Dashboard() {
                 ? "info"
                 : "chart"
             }
+            value={
+              location.pathname === "/dashboard/info" ||
+              location.pathname === "/dashboard/info/"
+                ? "info"
+                : location.pathname === "/dashboard/chart" ||
+                  location.pathname === "/dashboard/chart/"
+                ? "chart"
+                : "application"
+            }
             className="p-4"
             style={{
               width: isMobile
