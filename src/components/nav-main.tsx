@@ -36,12 +36,12 @@ export function NavMain({
       <SidebarGroupLabel>Sidebar Menu</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
-          <Link to={item.url}>
+          <Link to={item.url} className="cursor-pointer">
             <Collapsible
               key={item.id}
               asChild
               defaultOpen={item.isActive}
-              className="group/collapsible cursor-pointer"
+              className="group/collapsible"
             >
               <SidebarMenuItem>
                 <CollapsibleTrigger asChild>

@@ -16,6 +16,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import useAppSidebar from "@/stores/useAppSidebar";
+import { NavUser } from "./nav-user";
 
 const data = {
   navMain: [
@@ -53,6 +54,12 @@ const data = {
       icon: BookOpen,
     },
   ],
+  user: {
+    name: sessionStorage.getItem("username") ?? "",
+    email: sessionStorage.getItem("email") ?? "",
+    avatar: "",
+    // avatar: "https://avatars.githubusercontent.com/u/166227862?v=4",
+  },
 };
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { toggleAppSidebar } = useAppSidebar();
@@ -76,8 +83,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader></SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
+        <NavUser user={data.user} />
       </SidebarContent>
-      <SidebarFooter>{/* <NavUser user={data.user} /> */}</SidebarFooter>
+      <SidebarFooter></SidebarFooter>
     </Sidebar>
   );
 }
