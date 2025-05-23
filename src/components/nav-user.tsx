@@ -1,7 +1,7 @@
 import {
   // BadgeCheck,
   // Bell,
-  ChevronsUpDown,
+  // ChevronsUpDown,
   // CreditCard,
   LogOut,
   // Sparkles,
@@ -9,11 +9,11 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
-  DropdownMenuContent,
+  // DropdownMenuContent,
   // DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
+  // DropdownMenuItem,
+  // DropdownMenuLabel,
+  // DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -22,6 +22,20 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
 export function NavUser({
   user,
 }: {
@@ -50,8 +64,33 @@ export function NavUser({
                 <span className="truncate text-xs">{user.email}</span>
               </div>
               {/* <ChevronsUpDown className="ml-auto size-4" /> */}
-              <LogOut />
-              Sign out
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button variant="outline">
+                    <LogOut />
+                    Sign out
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      Are you absolutely sure to sign out?
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This action cannot be undone. This will permanently delete
+                      your account and remove your data from our servers.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>No</AlertDialogCancel>
+                    <Link to="/">
+                      <AlertDialogAction onClick={() => sessionStorage.clear()}>
+                        Yes
+                      </AlertDialogAction>
+                    </Link>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           {/* <DropdownMenuContent
