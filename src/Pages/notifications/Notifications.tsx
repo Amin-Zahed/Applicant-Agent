@@ -26,7 +26,7 @@ const Notifications = () => {
       >
         <AppSidebar />
         <main
-          className="grid justify-center h-full"
+          className="grid justify-center h-full overflow-y-auto"
           style={{
             width: isMobile
               ? "100dvw"
@@ -38,7 +38,7 @@ const Notifications = () => {
           <SidebarTrigger className="cursor-pointer md:absolute md:hidden" />
           <div
             id="notifications-container"
-            className="h-full overflow-y-auto"
+            className="h-full py-6"
             style={{
               width: isMobile
                 ? "100dvw"
@@ -62,6 +62,55 @@ const Notifications = () => {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It's animated by default, but you can disable it if you
+                  prefer.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It's animated by default, but you can disable it if you
+                  prefer.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-5">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It's animated by default, but you can disable it if you
+                  prefer.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-6">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It's animated by default, but you can disable it if you
+                  prefer.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-7">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It's animated by default, but you can disable it if you
+                  prefer.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-8">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It's animated by default, but you can disable it if you
+                  prefer.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-9">
+                <AccordionTrigger>Is it animated?</AccordionTrigger>
+                <AccordionContent>
+                  Yes. It's animated by default, but you can disable it if you
+                  prefer.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-10">
                 <AccordionTrigger>Is it animated?</AccordionTrigger>
                 <AccordionContent>
                   Yes. It's animated by default, but you can disable it if you
