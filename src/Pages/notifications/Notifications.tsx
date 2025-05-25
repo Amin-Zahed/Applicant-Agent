@@ -38,7 +38,7 @@ const Notifications = () => {
           <SidebarTrigger className="cursor-pointer md:absolute md:hidden" />
           <div
             id="notifications-container"
-            className="h-full py-6"
+            className="h-full py-6 px-3 md:px-0"
             style={{
               width: isMobile
                 ? "100dvw"
