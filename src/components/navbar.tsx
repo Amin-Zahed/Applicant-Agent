@@ -25,17 +25,16 @@ const Navbar = () => {
               <ModeToggle />
             </MenubarTrigger>
             <NavLink to="/notifications">
-              <MenubarTrigger>
+              <MenubarTrigger className="relative">
                 {" "}
                 <BellDot />
+                <span className="w-4 h-4 bg-red-600 rounded-full absolute top-0 right-1 text-balance text-white text-xs flex items-center justify-center border border-border">
+                  10
+                </span>
               </MenubarTrigger>
             </NavLink>
             <NavLink to="/dashboard">
-              <MenubarTrigger>
-                {" "}
-                {/* <CircleUserRound /> */}
-                Dashboard
-              </MenubarTrigger>
+              <MenubarTrigger> Dashboard</MenubarTrigger>
             </NavLink>
             <NavLink to="/add">
               <MenubarTrigger>Add +</MenubarTrigger>
