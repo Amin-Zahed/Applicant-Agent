@@ -39,7 +39,6 @@ function DraftTable() {
       <TableBody>
         {drafts.map((draft) => {
           const index = drafts.findIndex((Draft) => Draft.id === draft.id);
-          // console.log(index);
           return (
             <TableRow key={draft.id}>
               <TableCell className="font-medium" title={draft.url!}>

@@ -128,7 +128,7 @@ const Add = () => {
               <div className="flex flex-col h-full p-6 gap-6 items-center">
                 <h1 className="text-2xl font-bold text-center">Draft</h1>
                 <div id="table-container" className="w-full">
-                  <DraftTable></DraftTable>
+                  <DraftTable />
                 </div>
                 <Button
                   className="self-start"

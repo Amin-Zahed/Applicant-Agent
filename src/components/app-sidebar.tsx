@@ -57,7 +57,7 @@ const data = {
   user: {
     name: sessionStorage.getItem("username")!,
     email: sessionStorage.getItem("email")!,
-    avatar: "",
+    avatar: "https://github.com/shadcn.png",
     // avatar: "https://avatars.githubusercontent.com/u/166227862?v=4",
   },
 };
