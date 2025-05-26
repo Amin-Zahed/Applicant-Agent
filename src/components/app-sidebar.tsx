@@ -81,23 +81,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <br />
       <br />
       <SidebarHeader></SidebarHeader>
-      <SidebarContent>
-        <NavMain items={data.navMain} />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+      <SidebarContent className="flex flex-col justify-around">
+        <div>
+          <NavMain items={data.navMain} />
+        </div>
 
-        <NavUser user={data.user} />
+        <div>
+          <NavUser user={data.user} />
+        </div>
       </SidebarContent>
       <SidebarFooter></SidebarFooter>
     </Sidebar>

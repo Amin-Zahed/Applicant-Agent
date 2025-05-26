@@ -101,7 +101,6 @@ function Dashboard() {
           </Tabs>
         </main>
       </SidebarProvider>
-      <br />
     </div>
   );
 }
