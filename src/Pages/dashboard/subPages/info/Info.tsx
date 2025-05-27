@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { TabsContent } from "@/components/ui/tabs";
-// import { CloudUpload } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Info = () => {
@@ -49,12 +48,6 @@ const Info = () => {
                   />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                {/* <CloudUpload
-                  size={200}
-                  strokeWidth={3}
-                  className="cursor-pointer"
-                  style={{ color: fileInputValue ? "green" : undefined }}
-                /> */}
               </span>
             </Label>
           </CardContent>
