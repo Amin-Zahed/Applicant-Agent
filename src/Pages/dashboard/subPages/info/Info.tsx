@@ -73,7 +73,11 @@ const Info = () => {
             </div>
             <div className="space-y-1">
               <Label htmlFor="resume">Resume</Label>
-              <Input id="resume" type="file" accept=".pdf" />
+              <Input
+                id="resume"
+                type="file"
+                accept=".pdf, .tex, .md, .odt, .text, .txt, .docx"
+              />
             </div>
           </CardContent>
         </div>
