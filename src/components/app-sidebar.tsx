@@ -17,53 +17,56 @@ import {
 } from "@/components/ui/sidebar";
 import useAppSidebar from "@/stores/useAppSidebar";
 import { NavUser } from "./nav-user";
+import useInfo from "@/stores/useInfo";
 
-const data = {
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "/dashboard",
-      id: 1,
-      icon: SquareTerminal,
-      // isActive: true,
-    },
-    {
-      title: "Bio",
-      url: "/dashboard/info",
-      id: 2,
-      icon: Bot,
-      // isActive: true,
-    },
-    {
-      title: "Info chart",
-      url: "/dashboard/chart",
-      id: 3,
-      icon: ChartArea,
-      // isActive: true,
-    },
-    {
-      title: "Add +",
-      url: "/add",
-      id: 4,
-      icon: SquarePlus,
-    },
-    {
-      title: "Notifications",
-      url: "/notifications",
-      id: 5,
-      icon: BookOpen,
-    },
-  ],
-  user: {
-    name: sessionStorage.getItem("username")!,
-    email: sessionStorage.getItem("email")!,
-    avatar: "https://github.com/shadcn.png",
-    // avatar: "https://avatars.githubusercontent.com/u/166227862?v=4",
-  },
-};
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { toggleAppSidebar } = useAppSidebar();
   const { toggleSidebar } = useSidebar();
+  const { portraitURL } = useInfo();
+
+  const data = {
+    navMain: [
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+        id: 1,
+        icon: SquareTerminal,
+        // isActive: true,
+      },
+      {
+        title: "Bio",
+        url: "/dashboard/info",
+        id: 2,
+        icon: Bot,
+        // isActive: true,
+      },
+      {
+        title: "Info chart",
+        url: "/dashboard/chart",
+        id: 3,
+        icon: ChartArea,
+        // isActive: true,
+      },
+      {
+        title: "Add +",
+        url: "/add",
+        id: 4,
+        icon: SquarePlus,
+      },
+      {
+        title: "Notifications",
+        url: "/notifications",
+        id: 5,
+        icon: BookOpen,
+      },
+    ],
+    user: {
+      name: sessionStorage.getItem("username")!,
+      email: sessionStorage.getItem("email")!,
+      avatar: portraitURL ? portraitURL : "https://github.com/shadcn.png",
+      // avatar: "https://avatars.githubusercontent.com/u/166227862?v=4",
+    },
+  };
 
   return (
     <Sidebar

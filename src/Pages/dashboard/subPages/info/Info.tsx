@@ -13,8 +13,11 @@ import {
 import { Label } from "@/components/ui/label";
 import { TabsContent } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import useInfo from "@/stores/useInfo";
 
 const Info = () => {
+  const { portraitURL, setPortraitFile, setPortraitUrl } = useInfo();
+
   return (
     <TabsContent value="info">
       <Card>
@@ -33,9 +36,10 @@ const Info = () => {
                 accept=".png, .jpeg, .svg, .jpg"
                 className="w-0 h-0 opacity-0"
                 id="portrait"
-                // onInput={(e) =>
-                //   setFileInputValue((e.target as HTMLInputElement).value)
-                // }
+                onInput={(e) => {
+                  setPortraitFile((e.target as HTMLInputElement).files?.[0]!);
+                  setPortraitUrl();
+                }}
               ></Input>
               <span className="items-center">
                 <Avatar
@@ -43,7 +47,11 @@ const Info = () => {
                   title="Click to upload your portrait"
                 >
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
+                    src={
+                      portraitURL
+                        ? portraitURL
+                        : "https://github.com/shadcn.png"
+                    }
                     alt="@shadcn"
                   />
                   <AvatarFallback>CN</AvatarFallback>

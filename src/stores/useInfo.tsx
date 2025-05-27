@@ -1,30 +1,23 @@
-// import { create } from "zustand";
+import { create } from "zustand";
 
-// // export type Data = {
-// //   id: string;
-// //   status: "pending" | "rejected" | "interview";
-// //   employer: string;
-// //   baseResume: string;
-// //   changedResume: string;
-//   // time: number;
-// // };
+interface UseInfo {
+  portraitFile: File | null;
+  portraitURL: string | null;
+  setPortraitFile: (file: File | null) => void;
+  setPortraitUrl: () => void;
+}
 
-// interface UseInfo {
-// //   data: Data[];
-// //   updateData: (datas: Data[]) => void;
-// //   deleteData: (index: number) => void;
-// }
+const useInfo = create<UseInfo>((set, get) => ({
+  portraitFile: null,
+  portraitURL: null,
 
-// const useInfo = create<UseInfo>((set, get) => ({
-// //   data: [],
+  setPortraitFile: (file: File | null) => {
+    set({ portraitFile: file });
+  },
+  setPortraitUrl: () => {
+    const url = URL.createObjectURL(get().portraitFile!);
+    set({ portraitURL: url });
+  },
+}));
 
-// //   updateData: (datas) => set({ data: datas }),
-// //   deleteData: (index) => {
-// //     get().data.splice(index, 1);
-// //     const allDatas = get().data;
-// //     set({ data: allDatas });
-//     // set({ cloneDrafts: allDrafts });
-//   },
-// }));
-
-// export default useInfo;
+export default useInfo;
