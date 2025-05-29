@@ -84,7 +84,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <br />
       <br />
       <SidebarHeader></SidebarHeader>
-      <SidebarContent className="flex flex-col justify-around">
+      <SidebarContent className="flex flex-col justify-between">
         <div>
           <NavMain items={data.navMain} />
         </div>
@@ -92,6 +92,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <div>
           <NavUser user={data.user} />
         </div>
+        <div></div>
       </SidebarContent>
       <SidebarFooter></SidebarFooter>
     </Sidebar>

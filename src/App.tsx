@@ -26,7 +26,7 @@ function App() {
       <div id="App" className=" w-dvw h-dvh grid grid-cols-12 grid-rows-12">
         <header
           id="header"
-          className="col-start-1 col-end-13 row-start-1 row-end-2 min-h-10"
+          className="col-start-1 col-end-13 row-start-1 row-end-2 min-h-12"
         >
           <Navbar />
         </header>
