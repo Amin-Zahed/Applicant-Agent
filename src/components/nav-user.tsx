@@ -53,7 +53,7 @@ export function NavUser({
 
   return (
     <SidebarMenu>
-      <SidebarMenuItem>
+      <SidebarMenuItem className="p-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Link to="/dashboard/info">
@@ -84,17 +84,16 @@ export function NavUser({
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>
-                Are you absolutely sure to sign out?
-              </AlertDialogTitle>
-              <AlertDialogDescription>
+              <AlertDialogTitle>Are you sure to sign out?</AlertDialogTitle>
+              {/* <AlertDialogDescription>
                 This action cannot be undone. This will permanently delete your
                 account and remove your data from our servers.
-              </AlertDialogDescription>
+              </AlertDialogDescription> */}
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>No</AlertDialogCancel>
               <AlertDialogAction
+                className="bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60"
                 onClick={() => {
                   sessionStorage.clear();
                   setIsLogin(false);
