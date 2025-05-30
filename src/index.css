@@ -159,3 +159,14 @@
     --chart-5: 340 75% 55%;
   }
 } */
+
+textarea {
+  resize: none;
+  height: 8em;
+}
+.lucide-chevron-right,
+.lucide-chevron-down,
+[data-lucide="chevron-right"],
+[data-lucide="chevron-down"] {
+  display: none !important;
+}
