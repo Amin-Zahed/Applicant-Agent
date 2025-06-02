@@ -96,7 +96,7 @@ function SigninForm({
         <Button variant="outline" className="w-full flex items-center gap-2">
           {/* <svg
             viewBox="-2.4 -2.4 28.80 28.80"
-            fill="background"
+            fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5"
           >
