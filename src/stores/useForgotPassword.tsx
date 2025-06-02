@@ -1,4 +1,3 @@
-import ForgotPassword from "@/Pages/forgotPassword/ForgotPassword";
 import { create } from "zustand";
 
 interface UseForgotPassword {
