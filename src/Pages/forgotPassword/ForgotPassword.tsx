@@ -92,6 +92,7 @@ const ForgotPassword = ({
                 </p>
                 <Button
                   type="button"
+                  disabled={typeof forgotPasswordInputValue !== "string"}
                   onClick={() => setSendRequestVerificationCode(true)}
                 >
                   Send Verification Code
@@ -220,14 +221,23 @@ const ForgotPassword = ({
                 </p>
               </div>
               <div className="grid gap-6">
-                <Link to="/">
+                <Link to="/dashboard">
                   <Button
                     type="button"
                     disabled={!changePasswordButtonEnabled}
                     className="w-full"
-                    onClick={() =>
-                      changePasswordButtonEnabled && setIsLogin(true)
-                    }
+                    onClick={() => {
+                      setIsLogin(true);
+                      sessionStorage.setItem(
+                        "username",
+                        signupFormDatas.username!
+                      );
+                      sessionStorage.setItem(
+                        "password",
+                        signupFormDatas.password!
+                      );
+                      sessionStorage.setItem("email", signupFormDatas.email!);
+                    }}
                   >
                     Change Password
                   </Button>
