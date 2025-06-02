@@ -3,11 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
+import useSigninForm from "@/stores/useSigninForm";
+import useLogin from "@/stores/useLogin";
 
 function SigninForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
+  const {
+    usernameInputValue,
+    passwordInputValue,
+    setUsernameInputValue,
+    setPasswordInputValue,
+  } = useSigninForm();
+
+  const { isLogin, setIsLogin } = useLogin();
+
   return (
     <form
       className={cn("flex flex-col gap-6", className)}
@@ -23,7 +34,14 @@ function SigninForm({
       <div className="grid gap-6">
         <div className="grid gap-2">
           <Label htmlFor="username">User name</Label>
-          <Input id="username" type="username" placeholder="" required />
+          <Input
+            id="username"
+            type="username"
+            placeholder=""
+            onInput={(e) => {
+              setUsernameInputValue((e.target as HTMLInputElement).value);
+            }}
+          />
         </div>
         <div className="grid gap-2">
           <div className="flex items-center">
@@ -32,11 +50,33 @@ function SigninForm({
               <Link to="/forgot-password">Forgot your password?</Link>
             </Button>
           </div>
-          <Input id="password" type="password" required />
+          <Input
+            id="password"
+            type="password"
+            placeholder=""
+            onInput={(e) => {
+              setPasswordInputValue((e.target as HTMLInputElement).value);
+            }}
+          />
         </div>
-        <Button type="button" className="w-full">
-          Signin
-        </Button>
+        <Link to={isLogin ? "/dashboard" : ""}>
+          <Button
+            type="button"
+            disabled={
+              typeof usernameInputValue !== "string" ||
+              typeof passwordInputValue !== "string"
+            }
+            className="w-full"
+            onClick={() => {
+              usernameInputValue === sessionStorage.getItem("username") &&
+              passwordInputValue === sessionStorage.getItem("password")
+                ? setIsLogin(true)
+                : setIsLogin(false);
+            }}
+          >
+            Signin
+          </Button>
+        </Link>
         <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
           <span className="relative z-10 bg-background px-2 text-muted-foreground">
             Or continue with
