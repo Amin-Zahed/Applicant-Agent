@@ -244,13 +244,16 @@ const ForgotPassword = ({
                       setIsLogin(true);
                       sessionStorage.setItem(
                         "username",
-                        signupFormDatas.username!
+                        forgotPasswordInputValue!
                       );
                       sessionStorage.setItem(
                         "password",
                         signupFormDatas.password!
                       );
-                      sessionStorage.setItem("email", signupFormDatas.email!);
+                      sessionStorage.setItem(
+                        "email",
+                        forgotPasswordInputValue!
+                      );
                     }}
                   >
                     Change Password
