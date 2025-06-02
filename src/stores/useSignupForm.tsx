@@ -25,6 +25,7 @@ interface UseSignupForm {
   passwordRegexes: PasswordRegexes;
   checkboxChecked: boolean;
   signupButtonEnabled: boolean;
+  signupFormIsSubmit: boolean;
   signupFormInputsHandler: (
     e: ChangeEvent<HTMLInputElement>,
     regex: RegExp
@@ -33,6 +34,7 @@ interface UseSignupForm {
   confirmPasswordInputHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   setCheckboxChecked: (checked: boolean) => void;
   setSignupButtonEnabled: () => void;
+  setSignupFormIsSubmit: (value: boolean) => void;
 }
 
 const initialSignupFormDatas: SignupFormDatas = {
@@ -59,6 +61,7 @@ const useSignupForm = create<UseSignupForm>((set) => ({
   confirmPasswordInputValue: null,
   checkboxChecked: false,
   signupButtonEnabled: false,
+  signupFormIsSubmit: false,
 
   signupFormInputsHandler: (e, regex) => {
     const { name, value } = e.target;
@@ -118,6 +121,7 @@ const useSignupForm = create<UseSignupForm>((set) => ({
       state.checkboxChecked === true;
     set(() => ({ signupButtonEnabled: isFormValid }));
   },
+  setSignupFormIsSubmit: (value) => set(() => ({ signupFormIsSubmit: value })),
 }));
 
 export default useSignupForm;

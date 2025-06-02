@@ -7,15 +7,15 @@ import { Button } from "@/components/ui/button";
 import useLogin from "@/stores/useLogin";
 
 function Signup() {
-  const { signupFormDatas } = useSignupForm();
-  const { isLogin } = useLogin();
+  const { signupFormDatas, signupFormIsSubmit } = useSignupForm();
+  const { setIsLogin } = useLogin();
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
       <div
         id="signup-form-container"
         className="lg:h-full lg:w-full overflow-auto scroll-auto border-2 lg:border-0 border-border rounded-2xl lg:rounded-none m-4 lg:m-0"
-        style={{ display: isLogin ? "none" : "flex" }}
+        style={{ display: signupFormIsSubmit ? "none" : "flex" }}
       >
         <div className="flex flex-col gap-4 lg:w-1/2 w-full h-full px-6 md:p-10">
           <div className="flex justify-center gap-2 md:justify-start "></div>
@@ -36,7 +36,7 @@ function Signup() {
       <div
         id="signuped-card-container"
         className="overflow-auto scroll-auto items-center justify-center border-2 lg:border-0 border-border rounded-2xl lg:rounded-none m-4 lg:m-0"
-        style={{ display: isLogin ? "flex" : "none" }}
+        style={{ display: signupFormIsSubmit ? "flex" : "none" }}
       >
         <div className="w-full max-w-sm lg:max-w-7xl space-y-8 p-16 flex items-center justify-center flex-col gap-4">
           <h1 className="xl:text-xl 2xl:text-5xl font-bold text-justify md:text-center">
@@ -50,8 +50,17 @@ function Signup() {
             email message sent to you
           </p>
 
-          <Button variant="link" className="text-xl">
-            <Link to="/">Open Home Page</Link>
+          <Button
+            variant="link"
+            className="text-xl"
+            onClick={() => {
+              setIsLogin(true);
+              sessionStorage.setItem("username", signupFormDatas.username!);
+              sessionStorage.setItem("password", signupFormDatas.password!);
+              sessionStorage.setItem("email", signupFormDatas.email!);
+            }}
+          >
+            <Link to="/dashboard">Open Home Page</Link>
           </Button>
         </div>
       </div>

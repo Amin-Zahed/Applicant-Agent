@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChangeEvent, useEffect } from "react";
 import useSignupForm from "../stores/useSignupForm";
-import useLogin from "../stores/useLogin";
+// import useLogin from "../stores/useLogin";
 import VisiblePasswordInput from "./visible-password-input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "react-router-dom";
@@ -26,9 +26,10 @@ function SignupForm({
     setCheckboxChecked,
     signupButtonEnabled,
     setSignupButtonEnabled,
+    setSignupFormIsSubmit,
   } = useSignupForm();
 
-  const { setIsLogin } = useLogin();
+  // const { setIsLogin } = useLogin();
 
   useEffect(() => {
     setSignupButtonEnabled();
@@ -216,12 +217,7 @@ function SignupForm({
               ? "Sign up"
               : "Button is disabled, Please fill all the fields"
           }
-          onClick={() => {
-            setIsLogin(true);
-            sessionStorage.setItem("username", signupFormDatas.username!);
-            sessionStorage.setItem("password", signupFormDatas.password!);
-            sessionStorage.setItem("email", signupFormDatas.email!);
-          }}
+          onClick={() => setSignupFormIsSubmit(true)}
         >
           Sign up
         </Button>
