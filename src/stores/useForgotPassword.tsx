@@ -4,12 +4,14 @@ import { create } from "zustand";
 interface UseForgotPassword {
   forgotPasswordInputValue: string | null | undefined;
   sendRequestVerificationCode: boolean;
+  inputOptIsValid: boolean;
   sendVerifyCode: boolean;
   changePasswordButtonEnabled: boolean;
   setForgotPasswordInputValue: (value: string | null | undefined) => void;
   setSendRequestVerificationCode: (
     sendRequestVerificationCode: boolean
   ) => void;
+  setInputOptIsValid: (value: boolean) => void;
   setSendVerifyCode: (sendVerifyCode: boolean) => void;
   setChangePasswordButtonEnabled: (
     changePasswordButtonEnabled: boolean
@@ -23,6 +25,7 @@ const emailRegex: RegExp =
 const useForgotPassword = create<UseForgotPassword>((set) => ({
   forgotPasswordInputValue: null,
   sendRequestVerificationCode: false,
+  inputOptIsValid: false,
   sendVerifyCode: false,
   changePasswordButtonEnabled: false,
 
@@ -37,6 +40,7 @@ const useForgotPassword = create<UseForgotPassword>((set) => ({
   },
   setSendRequestVerificationCode: (sendRequestVerificationCode) =>
     set({ sendRequestVerificationCode }),
+  setInputOptIsValid: (value) => set(() => ({ inputOptIsValid: value })),
   setSendVerifyCode: (sendVerifyCode) => set({ sendVerifyCode }),
   setChangePasswordButtonEnabled: (changePasswordButtonEnabled) =>
     set({ changePasswordButtonEnabled }),

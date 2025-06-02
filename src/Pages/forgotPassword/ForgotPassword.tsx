@@ -23,6 +23,8 @@ const ForgotPassword = ({
     setForgotPasswordInputValue,
     sendRequestVerificationCode,
     setSendRequestVerificationCode,
+    inputOptIsValid,
+    setInputOptIsValid,
     sendVerifyCode,
     setSendVerifyCode,
     changePasswordButtonEnabled,
@@ -116,7 +118,15 @@ const ForgotPassword = ({
                 </h1>
               </div>
               <div className="grid gap-6 mb-5">
-                <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
+                <InputOTP
+                  maxLength={6}
+                  pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
+                  onInput={(e) => {
+                    (e.target as HTMLInputElement).value.length === 6
+                      ? setInputOptIsValid(true)
+                      : setInputOptIsValid(false);
+                  }}
+                >
                   <InputOTPGroup>
                     <InputOTPSlot index={0} />
                     <InputOTPSlot index={1} />
@@ -128,7 +138,11 @@ const ForgotPassword = ({
                 </InputOTP>
               </div>
               <div className="grid gap-6">
-                <Button type="button" onClick={() => setSendVerifyCode(true)}>
+                <Button
+                  type="button"
+                  disabled={!inputOptIsValid}
+                  onClick={() => setSendVerifyCode(true)}
+                >
                   Verify
                 </Button>
               </div>
