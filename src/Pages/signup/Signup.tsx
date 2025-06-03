@@ -14,7 +14,7 @@ function Signup() {
     <div className="flex h-full w-full flex-col items-center justify-center">
       <div
         id="signup-form-container"
-        className="lg:h-full lg:w-full overflow-auto scroll-auto border-2 lg:border-0 border-border rounded-2xl lg:rounded-none m-4 lg:m-0"
+        className="lg:h-full lg:w-full border-2 lg:border-0 border-border rounded-2xl lg:rounded-none m-4 lg:m-0"
         style={{ display: signupFormIsSubmit ? "none" : "flex" }}
       >
         <div className="flex flex-col gap-4 lg:w-1/2 w-full h-full px-6 md:p-10">
