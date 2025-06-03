@@ -15,11 +15,11 @@ import { TabsContent } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import useInfo from "@/stores/useInfo";
 
-const Info = () => {
+const Bio = () => {
   const { portraitURL, setPortraitFile, setPortraitUrl } = useInfo();
 
   return (
-    <TabsContent value="info">
+    <TabsContent value="bio">
       <Card>
         <CardHeader>
           <CardTitle>Info</CardTitle>
@@ -98,4 +98,4 @@ const Info = () => {
   );
 };
 
-export default Info;
+export default Bio;

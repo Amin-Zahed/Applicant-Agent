@@ -10,9 +10,9 @@ import {
 import Piechart from "@/components/pie-chart";
 import { TabsContent } from "@/components/ui/tabs";
 
-const Chart = () => {
+const Analysis = () => {
   return (
-    <TabsContent value="chart">
+    <TabsContent value="analysis">
       <Card>
         <CardHeader>
           <CardTitle>Chart</CardTitle>
@@ -31,4 +31,4 @@ const Chart = () => {
   );
 };
 
-export default Chart;
+export default Analysis;

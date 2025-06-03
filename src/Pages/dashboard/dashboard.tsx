@@ -37,18 +37,18 @@ function Dashboard() {
               location.pathname === "/dashboard/" ||
               location.pathname === "/dashboard"
                 ? "application"
-                : location.pathname === "/dashboard/info" ||
-                  location.pathname === "/dashboard/info/"
-                ? "info"
-                : "chart"
+                : location.pathname === "/dashboard/bio" ||
+                  location.pathname === "/dashboard/bio/"
+                ? "bio"
+                : "analysis"
             }
             value={
-              location.pathname === "/dashboard/info" ||
-              location.pathname === "/dashboard/info/"
-                ? "info"
-                : location.pathname === "/dashboard/chart" ||
-                  location.pathname === "/dashboard/chart/"
-                ? "chart"
+              location.pathname === "/dashboard/bio" ||
+              location.pathname === "/dashboard/bio/"
+                ? "bio"
+                : location.pathname === "/dashboard/analysis" ||
+                  location.pathname === "/dashboard/analysis/"
+                ? "analysis"
                 : "application"
             }
             className="p-4"
@@ -61,9 +61,9 @@ function Dashboard() {
             }}
           >
             <TabsList className="grid w-full grid-cols-3">
-              <Link to="info" className="">
-                <TabsTrigger value="info" className="cursor-pointer w-full">
-                  Info
+              <Link to="bio" className="">
+                <TabsTrigger value="bio" className="cursor-pointer w-full">
+                  Bio
                 </TabsTrigger>
               </Link>
               <Link to="/dashboard">
@@ -74,9 +74,9 @@ function Dashboard() {
                   Application
                 </TabsTrigger>
               </Link>
-              <Link to="chart">
-                <TabsTrigger value="chart" className="cursor-pointer w-full">
-                  chart
+              <Link to="analysis">
+                <TabsTrigger value="analysis" className="cursor-pointer w-full">
+                  Analysis
                 </TabsTrigger>
               </Link>
             </TabsList>
