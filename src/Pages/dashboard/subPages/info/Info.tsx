@@ -53,6 +53,7 @@ const Info = () => {
                         : "https://github.com/shadcn.png"
                     }
                     alt="@shadcn"
+                    className="max-w-full max-h-full"
                   />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
