@@ -60,7 +60,7 @@ function Signup() {
               sessionStorage.setItem("email", signupFormDatas.email!);
             }}
           >
-            <Link to="/dashboard">Open Home Page</Link>
+            <Link to="/dashboard">Open Your Dashboard</Link>
           </Button>
         </div>
       </div>
