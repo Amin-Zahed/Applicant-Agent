@@ -78,7 +78,7 @@ const Info = () => {
             </div>
             <div className="space-y-1">
               <Label htmlFor="site">Site</Label>
-              <Textarea id="site" placeholder="Url ..." />
+              <Input type="url" id="site" placeholder="Url ..." />
             </div>
             <div className="space-y-1">
               <Label htmlFor="resume">Resume</Label>
