@@ -2,7 +2,7 @@ import { type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   Collapsible,
-  CollapsibleContent,
+  // CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import {
@@ -51,8 +51,8 @@ export function NavMain({
                     {/* <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" /> */}
                   </SidebarMenuButton>
                 </CollapsibleTrigger>
-                <CollapsibleContent>
-                  {/* <SidebarMenuSub>
+                {/* <CollapsibleContent> */}
+                {/* <SidebarMenuSub>
                     {item.items?.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.id}>
                         <SidebarMenuSubButton asChild>
@@ -63,7 +63,7 @@ export function NavMain({
                       </SidebarMenuSubItem>
                     ))}
                   </SidebarMenuSub> */}
-                </CollapsibleContent>
+                {/* </CollapsibleContent> */}
               </SidebarMenuItem>
             </Collapsible>
           </Link>
