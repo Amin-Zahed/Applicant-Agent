@@ -1,10 +1,10 @@
 import * as React from "react";
 import {
-  BookOpen,
-  Bot,
-  SquareTerminal,
+  Bell,
+  UserPen,
+  LayoutDashboard,
   ChartArea,
-  SquarePlus,
+  FilePlus,
 } from "lucide-react";
 import { NavMain } from "@/components/nav-main";
 import {
@@ -30,34 +30,34 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         title: "Dashboard",
         url: "/dashboard",
         id: 1,
-        icon: SquareTerminal,
+        icon: LayoutDashboard,
         // isActive: true,
       },
       {
         title: "Bio",
-        url: "/dashboard/info",
+        url: "/dashboard/bio",
         id: 2,
-        icon: Bot,
+        icon: UserPen,
         // isActive: true,
       },
       {
-        title: "Info chart",
-        url: "/dashboard/chart",
+        title: "Analysis",
+        url: "/dashboard/analysis",
         id: 3,
         icon: ChartArea,
         // isActive: true,
       },
       {
-        title: "Add +",
+        title: "Add",
         url: "/add",
         id: 4,
-        icon: SquarePlus,
+        icon: FilePlus,
       },
       {
         title: "Notifications",
         url: "/notifications",
         id: 5,
-        icon: BookOpen,
+        icon: Bell,
       },
     ],
     user: {
