@@ -37,7 +37,7 @@ const Navbar = () => {
               <MenubarTrigger> Dashboard</MenubarTrigger>
             </NavLink>
             <NavLink to="/add">
-              <MenubarTrigger>Add +</MenubarTrigger>
+              <MenubarTrigger>Add</MenubarTrigger>
             </NavLink>
           </MenubarMenu>
         </div>
