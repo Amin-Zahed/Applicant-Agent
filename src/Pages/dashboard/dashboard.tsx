@@ -28,10 +28,7 @@ function Dashboard() {
       >
         <AppSidebar />
         <main>
-          <SidebarTrigger
-            className="cursor-pointer md:absolute md:hidden"
-            // onClick={dashboardToggleAppSidebar}
-          />
+          <SidebarTrigger className="cursor-pointer md:absolute md:hidden" />
           <Tabs
             defaultValue={
               location.pathname === "/dashboard/" ||
