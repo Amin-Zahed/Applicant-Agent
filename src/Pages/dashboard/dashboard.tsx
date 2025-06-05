@@ -36,7 +36,6 @@ function Dashboard() {
       { id: 8, title: "Notification 8", content: "Content for notification 8" },
       { id: 9, title: "Notification 9", content: "Content for notification 9" },
     ]);
-    setNumberOfNots();
   }, []);
 
   useEffect(() => {
