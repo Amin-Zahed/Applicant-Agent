@@ -28,8 +28,8 @@ const Navbar = () => {
               <MenubarTrigger className="relative">
                 {" "}
                 <BellDot />
-                <span className="w-4 h-4 bg-red-600 rounded-full absolute top-0 right-1 text-balance text-white text-xs flex items-center justify-center border border-border">
-                  10
+                <span className="w-4.5 h-4.5 bg-red-600 rounded-full absolute top-0 right-1 text-balance text-white text-xs flex items-center justify-center border border-background">
+                  9
                 </span>
               </MenubarTrigger>
             </NavLink>
