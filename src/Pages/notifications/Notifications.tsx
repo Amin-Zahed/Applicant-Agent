@@ -8,10 +8,13 @@ import useAppSidebar from "@/stores/useAppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useEffect } from "react";
+import useNotifications from "@/stores/useNotifications";
 
 const Notifications = () => {
   const { sidebarIsOpen } = useAppSidebar();
   const isMobile = useIsMobile();
+  const { setNumberOfNots } = useNotifications();
 
   const notifications = [
     { id: 1, title: "Notification 1", content: "Content for notification 1" },
@@ -24,6 +27,10 @@ const Notifications = () => {
     { id: 8, title: "Notification 8", content: "Content for notification 8" },
     { id: 9, title: "Notification 9", content: "Content for notification 9" },
   ];
+
+  useEffect(() => {
+    setNumberOfNots(notifications.length);
+  }, [notifications]);
 
   return (
     <div
