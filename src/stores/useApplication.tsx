@@ -6,7 +6,7 @@ export type Data = {
   employer: string;
   baseResume: string;
   changedResume: string;
-  // time: number;
+  coverLetter: string;
 };
 
 interface UseApplication {

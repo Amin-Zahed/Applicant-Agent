@@ -13,7 +13,7 @@ import {
 } from "@tanstack/react-table";
 import {
   ArrowUpDown,
-  ChevronDown,
+  // ChevronDown,
   CircleCheck,
   CircleX,
   Download,
@@ -25,7 +25,7 @@ import { Button } from "@/components/ui/button";
 // import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
+  // DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
@@ -119,6 +119,13 @@ export const columns: ColumnDef<Data>[] = [
     ),
   },
   {
+    accessorKey: "coverLetter",
+    header: "Cover letter",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("coverLetter")}</div>
+    ),
+  },
+  {
     accessorKey: "employer",
     header: ({ column }) => {
       return (
@@ -196,43 +203,43 @@ function DataTable() {
       updateData([
         {
           id: "m5gr84i9",
-          // time: 316,
           status: "pending",
           employer: "ken99@example.com",
-          baseResume: "ewtretyryuy",
-          changedResume: "sdgfdhfgjhj",
+          baseResume: "john_doe_resume.pdf",
+          changedResume: "john_doe_changed_resume.pdf",
+          coverLetter: "john_doe_cover_letter.pdf",
         },
         {
           id: "3u1reuv4",
-          // time: 242,
           status: "interview",
           employer: "Abe45@example.com",
-          baseResume: "ewtretyryuy",
-          changedResume: "sdgfdhfgjhj",
+          baseResume: "john_doe_resume.pdf",
+          changedResume: "john_doe_changed_resume.pdf",
+          coverLetter: "john_doe_cover_letter.pdf",
         },
         {
           id: "derv1ws0",
-          // time: 837,
           status: "pending",
           employer: "Monserrat44@example.com",
-          baseResume: "ewtretyryuy",
-          changedResume: "sdgfdhfgjhj",
+          baseResume: "john_doe_resume.pdf",
+          changedResume: "john_doe_changed_resume.pdf",
+          coverLetter: "john_doe_cover_letter.pdf",
         },
         {
           id: "5kma53ae",
-          // time: 874,
           status: "interview",
           employer: "Silas22@example.com",
-          baseResume: "ewtretyryuy",
-          changedResume: "sdgfdhfgjhj",
+          baseResume: "john_doe_resume.pdf",
+          changedResume: "john_doe_changed_resume.pdf",
+          coverLetter: "john_doe_cover_letter.pdf",
         },
         {
           id: "bhqecj4p",
-          // time: 721,
           status: "rejected",
           employer: "carmella@example.com",
-          baseResume: "ewtretyryuy",
-          changedResume: "sdgfdhfgjhj",
+          baseResume: "john_doe_resume.pdf",
+          changedResume: "john_doe_changed_resume.pdf",
+          coverLetter: "john_doe_cover_letter.pdf",
         },
       ]);
     }
@@ -289,7 +296,7 @@ function DataTable() {
           }
           className="max-w-sm"
         />
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
               Columns <ChevronDown />
@@ -314,7 +321,7 @@ function DataTable() {
                 );
               })}
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
       </div>
       <div className="rounded-md border">
         <Table>
