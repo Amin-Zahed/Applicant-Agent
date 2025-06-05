@@ -62,7 +62,7 @@ function ComboBoxInstruction() {
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="p-0" side="right" align="start">
+        <PopoverContent className="p-0" side="bottom" align="start">
           <Command>
             <CommandInput placeholder="Change status..." />
             <CommandList>
