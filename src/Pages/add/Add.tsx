@@ -37,11 +37,11 @@ const Add = () => {
   return (
     <div
       id="AddPage"
-      className="w-full h-full flex flex-col overflow-y-auto scroll-y-auto"
+      className="w-full h-full flex flex-col overflow-y-auto scroll-auto"
     >
       <SidebarProvider
         defaultOpen={sidebarIsOpen ? true : false}
-        className=" w-full h-full"
+        className=" w-full h-full min-h-fit overflow-y-auto scroll-auto"
         // onOpenChange
       >
         <AppSidebar />
@@ -66,13 +66,13 @@ const Add = () => {
           >
             <ResizablePanel
               defaultSize={25}
-              className="overflow-auto scroll-auto"
+              className="overflow-y-auto scroll-auto"
             >
-              <div className="flex flex-col h-full p-6 gap-6">
-                <h1 className="text-2xl font-bold text-center">
+              <div className="flex flex-col h-full p-6 gap-6 lg:gap-2 2xl:gap-6">
+                <h1 className="text-2xl lg:text-lg 2xl:text-2xl font-bold text-center">
                   Add New Tasks
                 </h1>
-                <form className="flex flex-col gap-2">
+                <form className="flex flex-col gap-2 lg:gap-1 2xl:gap-2">
                   <p className="text-balance text-lg text-muted-foreground text-center">
                     Base info
                   </p>
@@ -88,7 +88,7 @@ const Add = () => {
                   <Label>Base resume</Label>
                   <ComboBoxBaseResume></ComboBoxBaseResume>
                 </form>
-                <form className="flex flex-col gap-2">
+                <form className="flex flex-col gap-2 2xl:gap-2 lg:gap-1">
                   <p className="text-balance text-lg text-muted-foreground text-center">
                     Instructions
                   </p>

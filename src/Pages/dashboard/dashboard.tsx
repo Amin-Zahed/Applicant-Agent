@@ -23,7 +23,7 @@ function Dashboard() {
   return (
     <div id="dashboard" className="w-full h-full flex flex-col overflow-auto">
       <SidebarProvider
-        className=" w-full min-h-0 h-full"
+        className="w-full min-h-fit h-full"
         defaultOpen={sidebarIsOpen ? true : false}
       >
         <AppSidebar />

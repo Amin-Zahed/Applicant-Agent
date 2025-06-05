@@ -21,7 +21,7 @@ const Notifications = () => {
     >
       <SidebarProvider
         defaultOpen={sidebarIsOpen ? true : false}
-        className=" w-full min-h-0 h-full"
+        className=" w-full min-h-fit h-full"
         // onOpenChange
       >
         <AppSidebar />
