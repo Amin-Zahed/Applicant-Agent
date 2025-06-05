@@ -1,16 +1,24 @@
 import { create } from "zustand";
 
+type Notifications = {
+  id: number;
+  title: string;
+  content: string;
+};
+
 interface UseNotifications {
+  notifications: Notifications[];
   numberOfNots: number;
-  setNumberOfNots: (number: number) => void;
+  setNotifications: (notifications: Notifications[]) => void;
+  setNumberOfNots: () => void;
 }
 
-const INITIAL_NUMBER_OF_NOTS = 0;
-
 const useNotifications = create<UseNotifications>((set, get) => ({
-  numberOfNots: INITIAL_NUMBER_OF_NOTS,
+  notifications: [],
+  numberOfNots: 0,
 
-  setNumberOfNots: (number) => set({ numberOfNots: number }),
+  setNotifications: (notifications) => set({ notifications }),
+  setNumberOfNots: () => set({ numberOfNots: get().notifications.length }),
 }));
 
 export default useNotifications;
