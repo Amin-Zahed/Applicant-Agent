@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <Menubar className="flex flex-nowrap justify-between w-full h-full items-center lg:px-10">
-      <div className="flex md:w-1/3 xl:w-1/6 w-1/2 justify-between items-center">
+      <div className="flex md:w-1/3 xl:w-1/6 w-1/3 justify-between items-center">
         <MenubarMenu>
           <Link to={isLogin ? "/dashboard" : "/"}>
             <MenubarTrigger>Logo</MenubarTrigger>
@@ -19,7 +19,7 @@ const Navbar = () => {
       </div>
 
       {isLogin ? (
-        <div className=" flex flex-nowrap justify-between md:w-1/3 xl:w-1/6 w-1/2 items-center">
+        <div className=" flex flex-nowrap justify-between md:w-1/3 xl:w-1/6 w-2/3 items-center">
           <MenubarMenu>
             <MenubarTrigger>
               <ModeToggle />
