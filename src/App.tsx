@@ -1,5 +1,5 @@
 import routes from "./routes";
-import { useRoutes } from "react-router-dom";
+import { useLocation, useRoutes } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "./components/navbar";
 import { useEffect } from "react";
@@ -9,7 +9,9 @@ import useNotifications from "./stores/useNotifications";
 function App() {
   let router = useRoutes(routes);
   const { setIsLogin } = useLogin();
-  const { setNotifications, setNumberOfNots } = useNotifications();
+  const { setNotifications, setNumberOfNots, resetNumberOfNots } =
+    useNotifications();
+  const location = useLocation();
 
   useEffect(() => {
     setNotifications([
@@ -37,6 +39,12 @@ function App() {
       setIsLogin(false);
     }
   }, []);
+
+  useEffect(() => {
+    (location.pathname === "/notifications" ||
+      location.pathname === "/notifications/") &&
+      resetNumberOfNots();
+  }, [location.pathname]);
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">

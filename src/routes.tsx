@@ -8,40 +8,40 @@ import Signin from "./Pages/signin/Signin";
 import Signup from "./Pages/signup/Signup";
 import ForgotPassword from "./Pages/forgotPassword/ForgotPassword";
 import PrivateRoute from "./components/private-route";
-import PersonalRoute from "./components/personal-route";
+import PublicRoute from "./components/public-route";
 import Dashboard from "./Pages/dashboard/dashboard";
 
 const routes = [
   {
     path: "/",
     element: (
-      <PersonalRoute>
+      <PublicRoute>
         <LandingPage />
-      </PersonalRoute>
+      </PublicRoute>
     ),
   },
   {
     path: "/signin",
     element: (
-      <PersonalRoute>
+      <PublicRoute>
         <Signin />
-      </PersonalRoute>
+      </PublicRoute>
     ),
   },
   {
     path: "/forgot-password",
     element: (
-      <PersonalRoute>
+      <PublicRoute>
         <ForgotPassword />
-      </PersonalRoute>
+      </PublicRoute>
     ),
   },
   {
     path: "/signup",
     element: (
-      <PersonalRoute>
+      <PublicRoute>
         <Signup />
-      </PersonalRoute>
+      </PublicRoute>
     ),
   },
   {
