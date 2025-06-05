@@ -9,7 +9,7 @@ const Navbar = () => {
   const { isLogin } = useLogin();
 
   return (
-    <Menubar className="flex flex-nowrap justify-between w-full h-full items-center px-10">
+    <Menubar className="flex flex-nowrap justify-between w-full h-full items-center lg:px-10">
       <div className="flex md:w-1/3 xl:w-1/6 w-1/2 justify-between items-center">
         <MenubarMenu>
           <Link to={isLogin ? "/dashboard" : "/"}>

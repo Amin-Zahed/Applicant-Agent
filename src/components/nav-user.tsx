@@ -37,6 +37,7 @@ import { Button } from "@/components/ui/button";
 import useLogin from "@/stores/useLogin";
 import useAppSidebar from "@/stores/useAppSidebar";
 import { Link } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function NavUser({
   user,
@@ -50,6 +51,7 @@ export function NavUser({
   // const { isMobile } = useSidebar();
   const { setIsLogin } = useLogin();
   const { sidebarIsOpen } = useAppSidebar();
+  const isMobile = useIsMobile();
 
   return (
     <SidebarMenu>
@@ -74,38 +76,38 @@ export function NavUser({
           </DropdownMenuTrigger>
         </DropdownMenu>
       </SidebarMenuItem>
-      {sidebarIsOpen && (
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <Button variant="outline" className="m-5">
-              <LogOut />
-              Sign out
-            </Button>
-          </AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Are you sure to sign out?</AlertDialogTitle>
-              {/* <AlertDialogDescription>
+      {/* {sidebarIsOpen && ( */}
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button variant="outline" className="m-2" title="Sign out">
+            <LogOut />
+            {isMobile ? "Sign out" : sidebarIsOpen && "Sign out"}
+          </Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure to sign out?</AlertDialogTitle>
+            {/* <AlertDialogDescription>
                 This action cannot be undone. This will permanently delete your
                 account and remove your data from our servers.
               </AlertDialogDescription> */}
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>No</AlertDialogCancel>
-              <AlertDialogAction
-                className="bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60"
-                onClick={() => {
-                  sessionStorage.clear();
-                  setIsLogin(false);
-                  window.location.reload();
-                }}
-              >
-                Yes
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
-      )}
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>No</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60"
+              onClick={() => {
+                sessionStorage.clear();
+                setIsLogin(false);
+                window.location.reload();
+              }}
+            >
+              Yes
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+      {/* )} */}
     </SidebarMenu>
   );
 }

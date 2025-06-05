@@ -18,11 +18,13 @@ import {
 import useAppSidebar from "@/stores/useAppSidebar";
 import { NavUser } from "./nav-user";
 import useInfo from "@/stores/useInfo";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { toggleAppSidebar } = useAppSidebar();
+  const { sidebarIsOpen, toggleAppSidebar } = useAppSidebar();
   const { toggleSidebar } = useSidebar();
   const { portraitURL } = useInfo();
+  const isMobile = useIsMobile();
 
   const data = {
     navMain: [
@@ -74,13 +76,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       className="h-full flex flex-col items-center"
       {...props}
     >
-      <SidebarTrigger
-        className="cursor-pointer absolute top-0 right-0"
-        onClick={() => {
-          toggleAppSidebar();
-          toggleSidebar();
-        }}
-      />{" "}
+      {!isMobile && (
+        <SidebarTrigger
+          title={sidebarIsOpen ? "Close sidebar" : "Open sidebar"}
+          className="cursor-pointer absolute top-0 right-0"
+          onClick={() => {
+            toggleAppSidebar();
+            toggleSidebar();
+          }}
+        />
+      )}
       <br />
       <br />
       <SidebarHeader></SidebarHeader>
@@ -89,10 +94,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <NavMain items={data.navMain} />
         </div>
 
-        <div>
+        <div className="mb-16">
           <NavUser user={data.user} />
         </div>
-        <div></div>
       </SidebarContent>
       <SidebarFooter></SidebarFooter>
     </Sidebar>
