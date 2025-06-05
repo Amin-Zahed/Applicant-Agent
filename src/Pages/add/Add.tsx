@@ -37,11 +37,11 @@ const Add = () => {
   return (
     <div
       id="AddPage"
-      className="w-full h-full flex flex-col overflow-auto scroll-auto"
+      className="w-full h-full flex flex-col overflow-y-auto scroll-y-auto"
     >
       <SidebarProvider
         defaultOpen={sidebarIsOpen ? true : false}
-        className=" w-full min-h-0 h-full"
+        className=" w-full h-full"
         // onOpenChange
       >
         <AppSidebar />
