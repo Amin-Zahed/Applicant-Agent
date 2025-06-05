@@ -8,7 +8,7 @@ import useNotifications from "@/stores/useNotifications";
 
 const Navbar = () => {
   const { isLogin } = useLogin();
-  const { numberOfNots } = useNotifications();
+  const { numberOfNots, resetNumberOfNots } = useNotifications();
 
   return (
     <Menubar className="flex flex-nowrap justify-between w-full h-full items-center lg:px-10">
@@ -27,7 +27,7 @@ const Navbar = () => {
               <ModeToggle />
             </MenubarTrigger>
             <NavLink to="/notifications">
-              <MenubarTrigger className="relative">
+              <MenubarTrigger className="relative" onClick={resetNumberOfNots}>
                 {" "}
                 <BellDot />
                 <span className="w-4.5 h-4.5 bg-red-600 rounded-full absolute top-0 right-1 text-balance text-white text-xs flex items-center justify-center border border-background">
