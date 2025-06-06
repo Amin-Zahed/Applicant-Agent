@@ -158,8 +158,9 @@ export const columns: ColumnDef<Data>[] = [
   {
     id: "actions",
     enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original;
+    cell: () => {
+      // cell: ({ row }) => {
+      // const payment = row.original;
       // const index = data.findIndex((Data) => Data.id === payment.id);
       // console.log(payment);
 
