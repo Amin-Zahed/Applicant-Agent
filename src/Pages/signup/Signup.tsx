@@ -55,9 +55,15 @@ function Signup() {
             className="text-xl"
             onClick={() => {
               setIsLogin(true);
-              sessionStorage.setItem("username", signupFormDatas.username!);
-              sessionStorage.setItem("password", signupFormDatas.password!);
-              sessionStorage.setItem("email", signupFormDatas.email!);
+              sessionStorage.setItem(
+                "username",
+                String(signupFormDatas.username)
+              );
+              sessionStorage.setItem(
+                "password",
+                String(signupFormDatas.password)
+              );
+              sessionStorage.setItem("email", String(signupFormDatas.email));
             }}
           >
             <Link to="/dashboard">Open Your Dashboard</Link>
