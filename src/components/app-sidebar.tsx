@@ -26,18 +26,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { portraitURL } = useInfo();
   const isMobile = useIsMobile();
 
-  // React.useEffect(() => {
-  //   if (!isMobile) {
-  //     window.addEventListener("keydown", (e) => {
-  //       if (e.ctrlKey && e.key === "b") {
-  //         e.preventDefault();
-  //         toggleAppSidebar();
-  //         toggleSidebar();
-  //       }
-  //     });
-  //   }
-  // }, [isMobile]);
-
   const data = {
     navMain: [
       {

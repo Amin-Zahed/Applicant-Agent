@@ -8,6 +8,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { useIsMobile } from "@/hooks/use-mobile";
 export function NavMain({
   items,
 }: {
@@ -24,9 +25,13 @@ export function NavMain({
     }[];
   }[];
 }) {
+  const isMobile = useIsMobile();
+
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Sidebar Menu</SidebarGroupLabel>
+      <SidebarGroupLabel>
+        {isMobile ? "Hamburger Menu" : "Shortcut => ctrl + b"}
+      </SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Link to={item.url} className="cursor-pointer">
