@@ -2,11 +2,11 @@ import { create } from "zustand";
 
 export type Data = {
   id: string;
-  status: "pending" | "rejected" | "interview";
-  employer: string;
-  baseResume: string;
-  changedResume: string;
-  coverLetter: string;
+  status: string;
+  employer: string | null | undefined;
+  baseResume: string | null;
+  changedResume: string | null;
+  coverLetter: string | null;
 };
 
 interface UseApplication {

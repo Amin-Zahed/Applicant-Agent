@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { Data } from "./useApplication";
 
 type Status = {
   label: string;
@@ -12,12 +13,14 @@ export type Drafts = {
   instruction: string | string[] | number | undefined;
 };
 
-type UsableData = {
-  id: string;
-  status: string;
-  employer: string | null | undefined;
-  baseResume: string | null;
-};
+// type UsableData = {
+//   id: string;
+//   status: string;
+//   employer: string | null | undefined;
+//   baseResume: string | null;
+//   changedResume: string | null;
+//   coverLetter: string | null;
+// };
 
 interface UseAdd {
   baseResumeStatuses: Status[];
@@ -30,7 +33,7 @@ interface UseAdd {
   draftId: number;
   drafts: Drafts[];
   cloneDrafts: Drafts[];
-  usableData: UsableData[];
+  usableData: Data[];
   setBaseResumeStatuses: (statuses: Status[]) => void;
   setBaseResumeSelectedStatus: (value: string) => void;
   setFileInputValue: (value: string) => void;
@@ -147,6 +150,8 @@ const useAdd = create<UseAdd>((set, get) => ({
       status: "pending",
       employer: draft.url,
       baseResume: draft.resume,
+      changedResume: null,
+      coverLetter: null,
     }));
     set({ usableData: makeData });
   },
