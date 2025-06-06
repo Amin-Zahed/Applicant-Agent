@@ -79,7 +79,7 @@ const ForgotPassword = ({
                   id="email"
                   placeholder="Email or Username"
                   required
-                  value={forgotPasswordInputValue}
+                  value={forgotPasswordInputValue!}
                   onInput={(e) =>
                     setForgotPasswordInputValue(
                       (e.target as HTMLInputElement).value
@@ -158,13 +158,13 @@ const ForgotPassword = ({
                   id="newPassword"
                   name="password"
                   placeholder="New Password"
-                  value={signupFormDatas.password}
-                  onInput={(e: ChangeEvent<HTMLInputElement>) =>
+                  value={signupFormDatas.password!}
+                  onInput={(e: ChangeEvent<HTMLInputElement>) => {
                     signupFormInputsHandler(
                       e,
                       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()[\]{}\-_=+|;:'",.<>/?\\`~])[\s\S]{4,}$/
-                    )
-                  }
+                    );
+                  }}
                   onChange={passwordInputChangeHandler}
                 />
                 <ol className="text-balance text-sm text-muted-foreground list-inside list-disc">
@@ -213,7 +213,7 @@ const ForgotPassword = ({
                   id="confirmNewPassword"
                   name="confirmPassword"
                   placeholder="Confirm New Password"
-                  value={confirmPassword}
+                  value={confirmPassword!}
                   onInput={confirmPasswordInputHandler}
                 />
                 <p
@@ -244,15 +244,15 @@ const ForgotPassword = ({
                       setIsLogin(true);
                       sessionStorage.setItem(
                         "username",
-                        forgotPasswordInputValue!
+                        String(forgotPasswordInputValue)
                       );
                       sessionStorage.setItem(
                         "password",
-                        signupFormDatas.password!
+                        String(signupFormDatas.password)
                       );
                       sessionStorage.setItem(
                         "email",
-                        forgotPasswordInputValue!
+                        String(forgotPasswordInputValue)
                       );
                     }}
                   >

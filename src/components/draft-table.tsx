@@ -71,7 +71,7 @@ function DraftTable() {
                         <Input
                           id="jobPostingUrl2"
                           type="url"
-                          value={drafts[index].url}
+                          value={drafts[index].url!}
                           onInput={(e) => {
                             setDrafts(index, {
                               ...drafts[index],

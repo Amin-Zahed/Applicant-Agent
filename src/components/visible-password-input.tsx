@@ -6,7 +6,7 @@ interface VisiblePasswordInputProps {
   id: string;
   name: string;
   placeholder: string;
-  value: string | undefined | null;
+  value: string | readonly string[] | number | undefined;
   onInput?: React.FormEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }

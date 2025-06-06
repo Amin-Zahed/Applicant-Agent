@@ -59,7 +59,7 @@ function SignupForm({
             minLength={3}
             placeholder="Username"
             required
-            value={signupFormDatas.username}
+            value={signupFormDatas.username!}
             onInput={(e: ChangeEvent<HTMLInputElement>) =>
               signupFormInputsHandler(e, /^[A-Za-z0-9._\-\+]{3,}$/)
             }
@@ -86,7 +86,7 @@ function SignupForm({
             name="email"
             placeholder="Email"
             required
-            value={signupFormDatas.email}
+            value={signupFormDatas.email!}
             onInput={(e: ChangeEvent<HTMLInputElement>) =>
               signupFormInputsHandler(
                 e,
@@ -117,7 +117,7 @@ function SignupForm({
             id="password"
             name="password"
             placeholder="Password"
-            value={signupFormDatas.password}
+            value={signupFormDatas.password!}
             onInput={(e: ChangeEvent<HTMLInputElement>) =>
               signupFormInputsHandler(
                 e,
@@ -172,7 +172,7 @@ function SignupForm({
             id="confirmPassword"
             name="confirmPassword"
             placeholder="Confirm Password"
-            value={confirmPassword}
+            value={confirmPassword!}
             onInput={confirmPasswordInputHandler}
           />
           <p

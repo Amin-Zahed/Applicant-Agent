@@ -2,9 +2,9 @@ import { create } from "zustand";
 import { ChangeEvent } from "react";
 
 interface SignupFormDatas {
-  username: string | null | undefined;
-  email: string | null | undefined;
-  password: string | null | undefined;
+  username: string | readonly string[] | number | undefined | null;
+  email: string | readonly string[] | number | undefined | null;
+  password: string | readonly string[] | number | undefined | null;
 }
 
 interface PasswordRegexes {
