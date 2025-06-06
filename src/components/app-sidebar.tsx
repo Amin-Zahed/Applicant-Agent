@@ -26,6 +26,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { portraitURL } = useInfo();
   const isMobile = useIsMobile();
 
+  // React.useEffect(() => {
+  //   if (!isMobile) {
+  //     window.addEventListener("keydown", (e) => {
+  //       if (e.ctrlKey && e.key === "b") {
+  //         e.preventDefault();
+  //         toggleAppSidebar();
+  //         toggleSidebar();
+  //       }
+  //     });
+  //   }
+  // }, [isMobile]);
+
   const data = {
     navMain: [
       {
@@ -66,7 +78,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       name: sessionStorage.getItem("username")!,
       email: sessionStorage.getItem("email")!,
       avatar: portraitURL ? portraitURL : "https://github.com/shadcn.png",
-      // avatar: "https://avatars.githubusercontent.com/u/166227862?v=4",
     },
   };
 
