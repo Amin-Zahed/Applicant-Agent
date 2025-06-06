@@ -30,7 +30,7 @@ export function NavMain({
   return (
     <SidebarGroup>
       <SidebarGroupLabel>
-        {isMobile ? "Hamburger Menu" : "Shortcut => ctrl + b"}
+        {isMobile ? "Hamburger Menu" : "Shortcut --> ctrl + b"}
       </SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
