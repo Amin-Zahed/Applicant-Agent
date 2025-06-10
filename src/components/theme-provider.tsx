@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
+import useThemeChanger from "@/stores/useTheme";
 
 type Theme = "dark" | "light" | "system";
 
@@ -26,9 +27,11 @@ export function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  const { theme, setTheme } = useThemeChanger();
+
+  // <Theme>(
+  //   () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
+  // );
 
   useEffect(() => {
     const root = window.document.documentElement;

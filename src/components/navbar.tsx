@@ -5,17 +5,32 @@ import { ModeToggle } from "./mode-toggle";
 import useLogin from "@/stores/useLogin";
 import { Button } from "./ui/button";
 import useNotifications from "@/stores/useNotifications";
+import logoLightImg from "../assets/images/logo-light.png";
+import logoDarkImg from "../assets/images/logo-dark.png";
+import useThemeChanger from "@/stores/useTheme";
 
 const Navbar = () => {
   const { isLogin } = useLogin();
   const { numberOfNots } = useNotifications();
+  const { theme } = useThemeChanger();
 
   return (
     <Menubar className="flex flex-nowrap justify-between w-full h-full items-center lg:px-10">
       <div className="flex md:w-1/3 lg:w-1/12 2xl:1/12 w-1/3 justify-between items-center">
         <MenubarMenu>
           <Link to={isLogin ? "/dashboard" : "/"}>
-            <MenubarTrigger>Logo</MenubarTrigger>
+            <MenubarTrigger>
+              <img
+                src={
+                  theme === "light"
+                    ? logoLightImg
+                    : theme === "dark"
+                    ? logoDarkImg
+                    : logoLightImg
+                }
+                alt="Logo"
+              />
+            </MenubarTrigger>
           </Link>
         </MenubarMenu>
       </div>
