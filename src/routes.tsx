@@ -10,6 +10,7 @@ import ForgotPassword from "./Pages/forgotPassword/ForgotPassword";
 import PrivateRoute from "./components/private-route";
 import PublicRoute from "./components/public-route";
 import Dashboard from "./Pages/dashboard/dashboard";
+import TermsAndConditionsPage from "./Pages/terms&conditions/terms&conditions";
 
 const routes = [
   {
@@ -41,6 +42,14 @@ const routes = [
     element: (
       <PublicRoute>
         <Signup />
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/terms&conditions",
+    element: (
+      <PublicRoute>
+        <TermsAndConditionsPage />
       </PublicRoute>
     ),
   },
