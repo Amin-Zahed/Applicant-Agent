@@ -22,9 +22,7 @@ const Navbar = () => {
             <MenubarTrigger>
               <img
                 src={
-                  theme === "light"
-                    ? logoLightImg
-                    : theme === "dark"
+                  theme === "dark"
                     ? logoDarkImg
                     : logoLightImg
                 }

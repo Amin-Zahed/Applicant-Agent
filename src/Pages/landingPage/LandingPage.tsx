@@ -7,3 +7,563 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
+// import { useState, useEffect } from "react";
+// import { Button } from "@/components/ui/button";
+// import { Card, CardContent } from "@/components/ui/card";
+// import { Badge } from "@/components/ui/badge";
+// import {
+//   Bot,
+//   Upload,
+//   Settings,
+//   Zap,
+//   Star,
+//   ArrowRight,
+//   Menu,
+//   X,
+//   CheckCircle,
+//   Users,
+//   Target,
+//   Sparkles,
+// } from "lucide-react";
+// // import Link from "next/link";
+
+// export default function ApolloLanding() {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+//   const [activeSection, setActiveSection] = useState("hero");
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       const sections = ["hero", "how-it-works", "testimonials", "get-started"];
+//       const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+//       for (const section of sections) {
+//         const element = document.getElementById(section);
+//         if (element) {
+//           const { offsetTop, offsetHeight } = element;
+//           if (
+//             scrollPosition >= offsetTop &&
+//             scrollPosition < offsetTop + offsetHeight
+//           ) {
+//             setActiveSection(section);
+//             break;
+//           }
+//         }
+//       }
+//     };
+
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   const scrollToSection = (sectionId: string) => {
+//     const element = document.getElementById(sectionId);
+//     if (element) {
+//       element.scrollIntoView({ behavior: "smooth" });
+//     }
+//     setIsMenuOpen(false);
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-white">
+//       {/* Sticky Navigation */}
+//       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <div className="flex justify-between items-center h-16">
+//             <div className="flex items-center space-x-2">
+//               <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+//                 <Bot className="w-5 h-5 text-white" />
+//               </div>
+//               <span className="text-xl font-bold text-gray-900">Apollo</span>
+//             </div>
+
+//             {/* Desktop Navigation */}
+//             <div className="hidden md:flex items-center space-x-8">
+//               <button
+//                 onClick={() => scrollToSection("hero")}
+//                 className={`text-sm font-medium transition-colors ${
+//                   activeSection === "hero"
+//                     ? "text-blue-600"
+//                     : "text-gray-600 hover:text-gray-900"
+//                 }`}
+//               >
+//                 Home
+//               </button>
+//               <button
+//                 onClick={() => scrollToSection("how-it-works")}
+//                 className={`text-sm font-medium transition-colors ${
+//                   activeSection === "how-it-works"
+//                     ? "text-blue-600"
+//                     : "text-gray-600 hover:text-gray-900"
+//                 }`}
+//               >
+//                 How It Works
+//               </button>
+//               <button
+//                 onClick={() => scrollToSection("testimonials")}
+//                 className={`text-sm font-medium transition-colors ${
+//                   activeSection === "testimonials"
+//                     ? "text-blue-600"
+//                     : "text-gray-600 hover:text-gray-900"
+//                 }`}
+//               >
+//                 Testimonials
+//               </button>
+//               <Button
+//                 onClick={() => scrollToSection("get-started")}
+//                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+//               >
+//                 Get Started
+//               </Button>
+//             </div>
+
+//             {/* Mobile menu button */}
+//             <button
+//               onClick={() => setIsMenuOpen(!isMenuOpen)}
+//               className="md:hidden p-2"
+//             >
+//               {isMenuOpen ? (
+//                 <X className="w-6 h-6" />
+//               ) : (
+//                 <Menu className="w-6 h-6" />
+//               )}
+//             </button>
+//           </div>
+
+//           {/* Mobile Navigation */}
+//           {isMenuOpen && (
+//             <div className="md:hidden py-4 border-t border-gray-100">
+//               <div className="flex flex-col space-y-4">
+//                 <button
+//                   onClick={() => scrollToSection("hero")}
+//                   className="text-left text-gray-600 hover:text-gray-900"
+//                 >
+//                   Home
+//                 </button>
+//                 <button
+//                   onClick={() => scrollToSection("how-it-works")}
+//                   className="text-left text-gray-600 hover:text-gray-900"
+//                 >
+//                   How It Works
+//                 </button>
+//                 <button
+//                   onClick={() => scrollToSection("testimonials")}
+//                   className="text-left text-gray-600 hover:text-gray-900"
+//                 >
+//                   Testimonials
+//                 </button>
+//                 <Button
+//                   onClick={() => scrollToSection("get-started")}
+//                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600"
+//                 >
+//                   Get Started
+//                 </Button>
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       </nav>
+
+//       {/* Scroll Container */}
+//       <div className="scroll-smooth snap-y snap-mandatory h-screen overflow-y-scroll">
+//         {/* Hero Section */}
+//         <section
+//           id="hero"
+//           className="h-screen snap-start flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50"
+//         >
+//           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+//             <div className="grid lg:grid-cols-2 gap-12 items-center">
+//               <div className="text-center lg:text-left">
+//                 <Badge className="mb-6 bg-blue-100 text-blue-700 hover:bg-blue-100">
+//                   <Sparkles className="w-4 h-4 mr-2" />
+//                   AI-Powered Job Applications
+//                 </Badge>
+//                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+//                   Let AI Apply to{" "}
+//                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+//                     Jobs for You
+//                   </span>
+//                 </h1>
+//                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+//                   Apollo personalizes your CVs, writes your cover letters, and
+//                   applies to jobs automatically—so you don't have to.
+//                 </p>
+//                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+//                   <Button
+//                     size="lg"
+//                     onClick={() => scrollToSection("get-started")}
+//                     className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-3"
+//                   >
+//                     Start Applying Today
+//                     <ArrowRight className="ml-2 w-5 h-5" />
+//                   </Button>
+//                   <Button
+//                     size="lg"
+//                     variant="outline"
+//                     onClick={() => scrollToSection("how-it-works")}
+//                     className="text-lg px-8 py-3 border-gray-300 hover:border-blue-300"
+//                   >
+//                     See How It Works
+//                   </Button>
+//                 </div>
+//                 <div className="mt-8 flex items-center justify-center lg:justify-start space-x-6 text-sm text-gray-500">
+//                   <div className="flex items-center">
+//                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+//                     No manual applications
+//                   </div>
+//                   <div className="flex items-center">
+//                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+//                     Tailored for each job
+//                   </div>
+//                   <div className="flex items-center">
+//                     <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+//                     24/7 automation
+//                   </div>
+//                 </div>
+//               </div>
+//               <div className="flex justify-center lg:justify-end">
+//                 <div className="relative">
+//                   <div className="w-96 h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl flex items-center justify-center">
+//                     <img
+//                       src="/placeholder.svg?height=300&width=300"
+//                       alt="AI Robot helping with job applications"
+//                       className="w-80 h-80 object-contain"
+//                     />
+//                   </div>
+//                   <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
+//                     <Bot className="w-8 h-8 text-white" />
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* How It Works Section */}
+//         <section
+//           id="how-it-works"
+//           className="h-screen snap-start flex items-center justify-center bg-gray-50"
+//         >
+//           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+//             <div className="text-center mb-16">
+//               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+//                 How Apollo Works
+//               </h2>
+//               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+//                 Get started in minutes and let our AI agents handle your job
+//                 search while you focus on what matters most.
+//               </p>
+//             </div>
+
+//             <div className="grid md:grid-cols-3 gap-8">
+//               {/* Step 1 */}
+//               <Card className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
+//                 <CardContent className="pt-6">
+//                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+//                     <Upload className="w-8 h-8 text-white" />
+//                   </div>
+//                   <h3 className="text-xl font-bold text-gray-900 mb-4">
+//                     Upload Your Info
+//                   </h3>
+//                   <p className="text-gray-600 leading-relaxed">
+//                     Share your resume, skills, and job preferences. Our AI
+//                     learns your unique background and career goals.
+//                   </p>
+//                 </CardContent>
+//               </Card>
+
+//               {/* Step 2 */}
+//               <Card className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
+//                 <CardContent className="pt-6">
+//                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+//                     <Settings className="w-8 h-8 text-white" />
+//                   </div>
+//                   <h3 className="text-xl font-bold text-gray-900 mb-4">
+//                     Train Your Agent
+//                   </h3>
+//                   <p className="text-gray-600 leading-relaxed">
+//                     Customize your AI agent's behavior, set application
+//                     criteria, and define your ideal job parameters.
+//                   </p>
+//                 </CardContent>
+//               </Card>
+
+//               {/* Step 3 */}
+//               <Card className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
+//                 <CardContent className="pt-6">
+//                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+//                     <Zap className="w-8 h-8 text-white" />
+//                   </div>
+//                   <h3 className="text-xl font-bold text-gray-900 mb-4">
+//                     Start Applying
+//                   </h3>
+//                   <p className="text-gray-600 leading-relaxed">
+//                     Sit back and relax. Apollo finds jobs, crafts personalized
+//                     applications, and submits them automatically.
+//                   </p>
+//                 </CardContent>
+//               </Card>
+//             </div>
+
+//             <div className="text-center mt-12">
+//               <Button
+//                 size="lg"
+//                 onClick={() => scrollToSection("get-started")}
+//                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+//               >
+//                 Get Started Now
+//                 <ArrowRight className="ml-2 w-5 h-5" />
+//               </Button>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Testimonials Section */}
+//         <section
+//           id="testimonials"
+//           className="h-screen snap-start flex items-center justify-center bg-white"
+//         >
+//           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+//             <div className="text-center mb-16">
+//               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+//                 Success Stories
+//               </h2>
+//               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+//                 Join thousands of candidates who've landed their dream jobs with
+//                 Apollo's AI-powered assistance.
+//               </p>
+//             </div>
+
+//             <div className="grid md:grid-cols-3 gap-8">
+//               {/* Testimonial 1 */}
+//               <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
+//                 <CardContent className="pt-6">
+//                   <div className="flex items-center mb-4">
+//                     {[...Array(5)].map((_, i) => (
+//                       <Star
+//                         key={i}
+//                         className="w-5 h-5 text-yellow-400 fill-current"
+//                       />
+//                     ))}
+//                   </div>
+//                   <p className="text-gray-600 mb-6 leading-relaxed">
+//                     "Apollo helped me land my dream job at a tech startup. The
+//                     AI wrote better cover letters than I ever could, and I got
+//                     3x more interviews!"
+//                   </p>
+//                   <div className="flex items-center">
+//                     <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center mr-4">
+//                       <span className="text-white font-bold">SM</span>
+//                     </div>
+//                     <div>
+//                       <p className="font-semibold text-gray-900">
+//                         Sarah Martinez
+//                       </p>
+//                       <p className="text-sm text-gray-500">Software Engineer</p>
+//                     </div>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+
+//               {/* Testimonial 2 */}
+//               <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
+//                 <CardContent className="pt-6">
+//                   <div className="flex items-center mb-4">
+//                     {[...Array(5)].map((_, i) => (
+//                       <Star
+//                         key={i}
+//                         className="w-5 h-5 text-yellow-400 fill-current"
+//                       />
+//                     ))}
+//                   </div>
+//                   <p className="text-gray-600 mb-6 leading-relaxed">
+//                     "I was spending 20+ hours a week on applications. Apollo
+//                     reduced that to zero while increasing my response rate by
+//                     400%."
+//                   </p>
+//                   <div className="flex items-center">
+//                     <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-400 rounded-full flex items-center justify-center mr-4">
+//                       <span className="text-white font-bold">JC</span>
+//                     </div>
+//                     <div>
+//                       <p className="font-semibold text-gray-900">James Chen</p>
+//                       <p className="text-sm text-gray-500">Product Manager</p>
+//                     </div>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+
+//               {/* Testimonial 3 */}
+//               <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
+//                 <CardContent className="pt-6">
+//                   <div className="flex items-center mb-4">
+//                     {[...Array(5)].map((_, i) => (
+//                       <Star
+//                         key={i}
+//                         className="w-5 h-5 text-yellow-400 fill-current"
+//                       />
+//                     ))}
+//                   </div>
+//                   <p className="text-gray-600 mb-6 leading-relaxed">
+//                     "The personalization is incredible. Each application felt
+//                     hand-crafted for the specific role. Got hired within 2
+//                     weeks!"
+//                   </p>
+//                   <div className="flex items-center">
+//                     <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center mr-4">
+//                       <span className="text-white font-bold">AR</span>
+//                     </div>
+//                     <div>
+//                       <p className="font-semibold text-gray-900">
+//                         Alex Rodriguez
+//                       </p>
+//                       <p className="text-sm text-gray-500">UX Designer</p>
+//                     </div>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+//             </div>
+
+//             <div className="text-center mt-12">
+//               <div className="flex items-center justify-center space-x-8 text-sm text-gray-500">
+//                 <div className="flex items-center">
+//                   <Users className="w-5 h-5 mr-2" />
+//                   10,000+ active users
+//                 </div>
+//                 <div className="flex items-center">
+//                   <Target className="w-5 h-5 mr-2" />
+//                   85% success rate
+//                 </div>
+//                 <div className="flex items-center">
+//                   <Zap className="w-5 h-5 mr-2" />
+//                   50,000+ applications sent
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Get Started Section */}
+//         <section
+//           id="get-started"
+//           className="h-screen snap-start flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-purple-700"
+//         >
+//           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+//             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+//               Ready to Transform Your Job Search?
+//             </h2>
+//             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+//               Join thousands of successful candidates who've automated their way
+//               to better careers.
+//             </p>
+
+//             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+//               <div className="grid md:grid-cols-3 gap-6 text-white">
+//                 <div>
+//                   <h3 className="text-2xl font-bold mb-2">Free</h3>
+//                   <p className="text-blue-100 mb-4">
+//                     Perfect for getting started
+//                   </p>
+//                   <ul className="text-sm space-y-2 text-left">
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />5
+//                       applications/month
+//                     </li>
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Basic CV optimization
+//                     </li>
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Email support
+//                     </li>
+//                   </ul>
+//                 </div>
+//                 <div className="border-2 border-yellow-400 rounded-xl p-6 relative">
+//                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-yellow-900">
+//                     Most Popular
+//                   </Badge>
+//                   <h3 className="text-2xl font-bold mb-2">Pro</h3>
+//                   <p className="text-blue-100 mb-4">$29/month</p>
+//                   <ul className="text-sm space-y-2 text-left">
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Unlimited applications
+//                     </li>
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Advanced AI personalization
+//                     </li>
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Priority support
+//                     </li>
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Analytics dashboard
+//                     </li>
+//                   </ul>
+//                 </div>
+//                 <div>
+//                   <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+//                   <p className="text-blue-100 mb-4">Custom pricing</p>
+//                   <ul className="text-sm space-y-2 text-left">
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Team management
+//                     </li>
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Custom integrations
+//                     </li>
+//                     <li className="flex items-center">
+//                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+//                       Dedicated support
+//                     </li>
+//                   </ul>
+//                 </div>
+//               </div>
+//             </div>
+
+//             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+//               <Button
+//                 size="lg"
+//                 className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
+//               >
+//                 Start Free Trial
+//                 <ArrowRight className="ml-2 w-5 h-5" />
+//               </Button>
+//               <Button
+//                 size="lg"
+//                 variant="outline"
+//                 className="border-white text-white hover:bg-white/10 text-lg px-8 py-3"
+//               >
+//                 Schedule Demo
+//               </Button>
+//             </div>
+
+//             <p className="text-blue-100 text-sm mt-6">
+//               No credit card required • 7-day free trial • Cancel anytime
+//             </p>
+//             <p className="text-blue-100 text-sm mt-2">
+//               By signing up, you agree to our{" "}
+//               <a
+//                 href="/terms"
+//                 className="text-white underline hover:text-blue-200"
+//               >
+//                 Terms & Conditions
+//               </a>{" "}
+//               and{" "}
+//               <a
+//                 href="/privacy"
+//                 className="text-white underline hover:text-blue-200"
+//               >
+//                 Privacy Policy
+//               </a>
+//             </p>
+//           </div>
+//         </section>
+//       </div>
+//     </div>
+//   );
+// }
