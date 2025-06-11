@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import usePrivacy from "@/stores/usePrivacy";
 
 export function LegalNav() {
-  const { privacyShow, setPrivacyShow } = usePrivacy();
+  const { setShowPrivacy } = usePrivacy();
 
   return (
     <nav className="bg-background border-b border-foreground sticky top-0 z-10">
@@ -16,18 +16,18 @@ export function LegalNav() {
           </div>
 
           <div className="flex items-center space-x-8">
-            <Link
-              to="/terms&conditions"
-              className="text-sm font-medium text-foreground hover:text-secondary-foreground"
+            <p
+              className="cursor-pointer text-sm font-medium text-foreground hover:text-secondary-foreground"
+              onClick={() => setShowPrivacy(false)}
             >
               Terms & Conditions
-            </Link>
-            <Link
-              to="/privacy-policy"
-              className="text-sm font-medium text-foreground hover:text-secondary-foreground"
+            </p>
+            <p
+              className="cursor-pointer text-sm font-medium text-foreground hover:text-secondary-foreground"
+              onClick={() => setShowPrivacy(true)}
             >
               Privacy Policy
-            </Link>
+            </p>
           </div>
         </div>
       </div>

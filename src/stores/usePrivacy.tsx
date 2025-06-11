@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
 interface UsePrivacy {
-  privacyShow: boolean;
-  setPrivacyShow: (privacyShow: boolean) => void;
+  showPrivacy: boolean;
+  setShowPrivacy: (showPrivacy: boolean) => void;
 }
 
 const usePrivacy = create<UsePrivacy>((set) => ({
-  privacyShow: false,
-  setPrivacyShow: (privacyShow: boolean) => set({ privacyShow }),
+  showPrivacy: false,
+  setShowPrivacy: (showPrivacy: boolean) => set({ showPrivacy }),
 }));
 
 export default usePrivacy;
