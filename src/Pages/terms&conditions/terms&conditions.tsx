@@ -1,6 +1,9 @@
 import { LegalNav } from "@/components/legal-nav";
+import usePrivacy from "@/stores/usePrivacy";
 
 const TermsAndConditions = () => {
+  const { privacyShow, setPrivacyShow } = usePrivacy();
+
   return (
     <div className="h-full overflow-y-auto scroll-auto bg-background text-foreground">
       <LegalNav />

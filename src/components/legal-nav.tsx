@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import usePrivacy from "@/stores/usePrivacy";
 
 export function LegalNav() {
+  const { privacyShow, setPrivacyShow } = usePrivacy();
+
   return (
     <nav className="bg-background border-b border-foreground sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
