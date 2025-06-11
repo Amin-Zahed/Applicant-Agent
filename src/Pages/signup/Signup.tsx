@@ -39,6 +39,7 @@ function Signup() {
               viewBox="0 0 800.283 459.452"
               xmlnsXlink="http://www.w3.org/1999/xlink"
               role="img"
+              className="opacity-50"
             >
               <g transform="translate(-560.001 -310)">
                 <g transform="translate(595.918 441.564)">
