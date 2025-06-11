@@ -7,6 +7,7 @@ interface UsePrivacy {
 
 const usePrivacy = create<UsePrivacy>((set) => ({
   showPrivacy: false,
+
   setShowPrivacy: (showPrivacy: boolean) => set({ showPrivacy }),
 }));
 
