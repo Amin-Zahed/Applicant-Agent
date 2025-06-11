@@ -10,7 +10,7 @@ import ForgotPassword from "./Pages/forgotPassword/ForgotPassword";
 import PrivateRoute from "./components/private-route";
 import PublicRoute from "./components/public-route";
 import Dashboard from "./Pages/dashboard/dashboard";
-import TermsAndConditionsPage from "./Pages/terms&conditions/terms&conditions";
+import TermsAndConditions from "./Pages/terms&conditions/terms&conditions";
 import PrivacyPolicy from "./Pages/privacyPolicy/privacyPolicy";
 
 const routes = [
@@ -50,7 +50,7 @@ const routes = [
     path: "/terms&conditions",
     element: (
       <PublicRoute>
-        <TermsAndConditionsPage />
+        <TermsAndConditions />
       </PublicRoute>
     ),
   },

@@ -1,6 +1,6 @@
 import { LegalNav } from "@/components/legal-nav";
 
-const TermsAndConditionsPage = () => {
+const TermsAndConditions = () => {
   return (
     <div className="min-h-screen bg-white">
       <LegalNav />
@@ -410,4 +410,4 @@ const TermsAndConditionsPage = () => {
   );
 };
 
-export default TermsAndConditionsPage;
+export default TermsAndConditions;
