@@ -31,7 +31,7 @@ function Signup() {
             alt="Image"
             className="absolute inset-0 h-full w-full object-cover"
           /> */}
-          <div className="absolute inset-0 opacity-50 flex items-center justify-center px-3">
+          <div className="absolute inset-0 bg-background flex items-center justify-center px-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="800.283"
