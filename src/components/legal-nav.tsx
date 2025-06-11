@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 export function LegalNav() {
   return (
-    <nav className="bg-background border-b border-gray-100">
+    <nav className="bg-background border-b border-foreground sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
@@ -15,13 +15,13 @@ export function LegalNav() {
           <div className="flex items-center space-x-8">
             <Link
               to="/terms&conditions"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              className="text-sm font-medium text-foreground hover:text-secondary-foreground"
             >
               Terms & Conditions
             </Link>
             <Link
               to="/privacy-policy"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              className="text-sm font-medium text-foreground hover:text-secondary-foreground"
             >
               Privacy Policy
             </Link>

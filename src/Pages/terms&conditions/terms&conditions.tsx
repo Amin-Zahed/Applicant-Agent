@@ -2,14 +2,14 @@ import { LegalNav } from "@/components/legal-nav";
 
 const TermsAndConditions = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="h-full overflow-y-auto scroll-auto bg-background text-foreground">
       <LegalNav />
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+      <div className="bg-primary-foreground py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold mb-4">Terms and Conditions</h1>
-          <p className="text-xl text-blue-100">
+          <p className="text-xl">
             Last updated:{" "}
             {new Date().toLocaleDateString("en-US", {
               year: "numeric",
@@ -25,21 +25,19 @@ const TermsAndConditions = () => {
         <div className="prose prose-lg max-w-none">
           {/* Introduction */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              1. Introduction
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
+            <p className=" leading-relaxed mb-4">
               Welcome to Apollo ("we," "our," or "us"). These Terms and
               Conditions ("Terms") govern your use of our website located at
               [your-domain.com] and our AI-powered job application platform
               service (the "Service") operated by Apollo, Inc.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4">
               By accessing or using our Service, you agree to be bound by these
               Terms. If you disagree with any part of these terms, then you may
               not access the Service.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="leading-relaxed">
               These Terms apply to all visitors, users, and others who access or
               use the Service.
             </p>
@@ -47,15 +45,13 @@ const TermsAndConditions = () => {
 
           {/* Acceptance of Terms */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              2. Acceptance of Terms
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold  mb-4">2. Acceptance of Terms</h2>
+            <p className="leading-relaxed mb-4">
               By creating an account or using our Service, you acknowledge that
               you have read, understood, and agree to be bound by these Terms
               and our Privacy Policy, which is incorporated herein by reference.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="leading-relaxed">
               We reserve the right to modify these Terms at any time. We will
               notify you of any changes by posting the new Terms on this page
               and updating the "Last updated" date. Your continued use of the
@@ -66,14 +62,12 @@ const TermsAndConditions = () => {
 
           {/* Eligibility */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              3. Eligibility
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold mb-4">3. Eligibility</h2>
+            <p className="leading-relaxed mb-4">
               You must be at least 18 years old to use our Service. By using the
               Service, you represent and warrant that:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+            <ul className="list-disc pl-6 space-y-2 mb-4">
               <li>You are at least 18 years of age</li>
               <li>You have the legal capacity to enter into these Terms</li>
               <li>
@@ -86,14 +80,14 @@ const TermsAndConditions = () => {
 
           {/* Account Registration */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold mb-4">
               4. Account Registration and Security
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4">
               To access certain features of the Service, you must register for
               an account. You agree to:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+            <ul className="list-disc pl-6 space-y-2 mb-4">
               <li>
                 Provide accurate, current, and complete information during
                 registration
@@ -107,7 +101,7 @@ const TermsAndConditions = () => {
                 Notify us immediately of any unauthorized use of your account
               </li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className=" leading-relaxed">
               We reserve the right to suspend or terminate your account if any
               information provided is inaccurate, false, or incomplete.
             </p>
@@ -115,20 +109,18 @@ const TermsAndConditions = () => {
 
           {/* Service Description */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              5. Service Description
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold mb-4">5. Service Description</h2>
+            <p className="leading-relaxed mb-4">
               Apollo provides an AI-powered platform that automates job
               application processes, including:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+            <ul className="list-disc pl-6 space-y-2 mb-4">
               <li>Generating tailored CVs and resumes</li>
               <li>Writing personalized cover letters</li>
               <li>Submitting job applications on your behalf</li>
               <li>Tracking application status and responses</li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="leading-relaxed">
               We reserve the right to modify, suspend, or discontinue any aspect
               of the Service at any time, with or without notice.
             </p>
@@ -136,13 +128,13 @@ const TermsAndConditions = () => {
 
           {/* User Responsibilities */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold  mb-4">
               6. User Responsibilities and Prohibited Uses
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4">
               You agree not to use the Service to:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+            <ul className="list-disc pl-6 space-y-2 mb-4">
               <li>Violate any applicable laws or regulations</li>
               <li>Submit false, misleading, or fraudulent information</li>
               <li>Impersonate any person or entity</li>
@@ -159,25 +151,23 @@ const TermsAndConditions = () => {
 
           {/* Payment Terms */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              7. Payment Terms
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold  mb-4">7. Payment Terms</h2>
+            <p className="leading-relaxed mb-4">
               <strong>Subscription Plans:</strong> We offer various subscription
               plans with different features and pricing. All fees are
               non-refundable except as required by law.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4">
               <strong>Billing:</strong> Subscription fees are billed in advance
               on a monthly or annual basis. You authorize us to charge your
               payment method for all applicable fees.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4">
               <strong>Price Changes:</strong> We may change our pricing at any
               time. We will provide at least 30 days' notice of any price
               increases.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="leading-relaxed">
               <strong>Cancellation:</strong> You may cancel your subscription at
               any time. Cancellation will take effect at the end of your current
               billing period.
@@ -186,22 +176,22 @@ const TermsAndConditions = () => {
 
           {/* Intellectual Property */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold mb-4">
               8. Intellectual Property Rights
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4">
               The Service and its original content, features, and functionality
               are owned by Apollo, Inc. and are protected by international
               copyright, trademark, patent, trade secret, and other intellectual
               property laws.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4">
               You retain ownership of any content you provide to the Service,
               including your resume, personal information, and job preferences.
               By using the Service, you grant us a limited, non-exclusive
               license to use this content solely to provide the Service to you.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="leading-relaxed">
               You may not reproduce, distribute, modify, create derivative works
               of, publicly display, publicly perform, republish, download,
               store, or transmit any of our content without our prior written
@@ -211,16 +201,14 @@ const TermsAndConditions = () => {
 
           {/* Privacy */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              9. Privacy
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold mb-4">9. Privacy</h2>
+            <p className="leading-relaxed mb-4">
               Your privacy is important to us. Our Privacy Policy explains how
               we collect, use, and protect your information when you use our
               Service. By using the Service, you agree to the collection and use
               of information in accordance with our Privacy Policy.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="leading-relaxed">
               We implement appropriate security measures to protect your
               personal information, but we cannot guarantee absolute security of
               data transmitted over the internet.
@@ -229,15 +217,13 @@ const TermsAndConditions = () => {
 
           {/* Disclaimers */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              10. Disclaimers
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold mb-4">10. Disclaimers</h2>
+            <p className="leading-relaxed mb-4">
               THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. WE
               MAKE NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
               TO:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+            <ul className="list-disc pl-6 space-y-2 mb-4">
               <li>The Service will meet your specific requirements</li>
               <li>
                 The Service will be uninterrupted, timely, secure, or error-free
@@ -251,7 +237,7 @@ const TermsAndConditions = () => {
                 opportunities
               </li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className=" leading-relaxed">
               We do not guarantee that our AI-generated content will be accepted
               by employers or that you will receive job offers through our
               Service.
@@ -260,16 +246,16 @@ const TermsAndConditions = () => {
 
           {/* Limitation of Liability */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold  mb-4">
               11. Limitation of Liability
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className=" leading-relaxed mb-4">
               TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL APOLLO,
               INC., ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR
               ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE
               DAMAGES, INCLUDING BUT NOT LIMITED TO:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
+            <ul className="list-disc pl-6space-y-2 mb-4">
               <li>
                 Loss of profits, data, use, goodwill, or other intangible losses
               </li>
@@ -281,7 +267,7 @@ const TermsAndConditions = () => {
               </li>
               <li>Damages resulting from any conduct of third parties</li>
             </ul>
-            <p className="text-gray-700 leading-relaxed">
+            <p className=" leading-relaxed">
               Our total liability to you for all claims arising from or relating
               to the Service shall not exceed the amount you paid us in the 12
               months preceding the claim, or $100, whichever is greater.
@@ -290,10 +276,8 @@ const TermsAndConditions = () => {
 
           {/* Indemnification */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              12. Indemnification
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <h2 className="text-2xl font-bold  mb-4">12. Indemnification</h2>
+            <p className=" leading-relaxed">
               You agree to defend, indemnify, and hold harmless Apollo, Inc. and
               its officers, directors, employees, and agents from and against
               any claims, damages, obligations, losses, liabilities, costs, or
@@ -305,19 +289,17 @@ const TermsAndConditions = () => {
 
           {/* Termination */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              13. Termination
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <h2 className="text-2xl font-bold  mb-4">13. Termination</h2>
+            <p className=" leading-relaxed mb-4">
               We may terminate or suspend your account and access to the Service
               immediately, without prior notice, for any reason, including if
               you breach these Terms.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className=" leading-relaxed mb-4">
               You may terminate your account at any time by contacting us or
               through your account settings.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className=" leading-relaxed">
               Upon termination, your right to use the Service will cease
               immediately, and we may delete your account and data.
             </p>
@@ -325,21 +307,21 @@ const TermsAndConditions = () => {
 
           {/* Dispute Resolution */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold  mb-4">
               14. Dispute Resolution and Arbitration
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className=" leading-relaxed mb-4">
               <strong>Binding Arbitration:</strong> Any dispute arising from or
               relating to these Terms or the Service shall be resolved through
               binding arbitration in accordance with the Commercial Arbitration
               Rules of the American Arbitration Association.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className=" leading-relaxed mb-4">
               <strong>Class Action Waiver:</strong> You agree that any
               arbitration shall be conducted in your individual capacity only
               and not as a class action or other representative action.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className=" leading-relaxed">
               <strong>Governing Law:</strong> These Terms shall be governed by
               and construed in accordance with the laws of the State of [Your
               State], without regard to its conflict of law provisions.
@@ -348,10 +330,8 @@ const TermsAndConditions = () => {
 
           {/* Severability */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              15. Severability
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <h2 className="text-2xl font-bold  mb-4">15. Severability</h2>
+            <p className=" leading-relaxed">
               If any provision of these Terms is held to be invalid or
               unenforceable, the remaining provisions will remain in full force
               and effect. The invalid or unenforceable provision will be
@@ -362,10 +342,8 @@ const TermsAndConditions = () => {
 
           {/* Entire Agreement */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              16. Entire Agreement
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <h2 className="text-2xl font-bold  mb-4">16. Entire Agreement</h2>
+            <p className=" leading-relaxed">
               These Terms, together with our Privacy Policy, constitute the
               entire agreement between you and Apollo, Inc. regarding the
               Service and supersede all prior agreements and understandings,
@@ -375,10 +353,10 @@ const TermsAndConditions = () => {
 
           {/* Contact Information */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold  mb-4">
               17. Contact Information
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4">
               If you have any questions about these Terms, please contact us at:
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
