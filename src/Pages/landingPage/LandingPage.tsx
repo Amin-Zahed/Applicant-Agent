@@ -220,10 +220,10 @@ const LandingPage = () => {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Success Stories
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 Join thousands of candidates who've landed their dream jobs with
                 Apollo's AI-powered assistance.
               </p>
@@ -241,7 +241,7 @@ const LandingPage = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     "Apollo helped me land my dream job at a tech startup. The
                     AI wrote better cover letters than I ever could, and I got
                     3x more interviews!"
@@ -251,10 +251,12 @@ const LandingPage = () => {
                       <span className="text-white font-bold">SM</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">
+                      <p className="font-semibold text-foreground">
                         Sarah Martinez
                       </p>
-                      <p className="text-sm text-gray-500">Software Engineer</p>
+                      <p className="text-sm text-muted-foreground">
+                        Software Engineer
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -271,7 +273,7 @@ const LandingPage = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     "I was spending 20+ hours a week on applications. Apollo
                     reduced that to zero while increasing my response rate by
                     400%."
@@ -281,8 +283,12 @@ const LandingPage = () => {
                       <span className="text-white font-bold">JC</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">James Chen</p>
-                      <p className="text-sm text-gray-500">Product Manager</p>
+                      <p className="font-semibold text-foreground">
+                        James Chen
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        Product Manager
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -299,7 +305,7 @@ const LandingPage = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     "The personalization is incredible. Each application felt
                     hand-crafted for the specific role. Got hired within 2
                     weeks!"
@@ -309,10 +315,12 @@ const LandingPage = () => {
                       <span className="text-white font-bold">AR</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">
+                      <p className="font-semibold text-foreground">
                         Alex Rodriguez
                       </p>
-                      <p className="text-sm text-gray-500">UX Designer</p>
+                      <p className="text-sm text-muted-foreground">
+                        UX Designer
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -320,7 +328,7 @@ const LandingPage = () => {
             </div>
 
             <div className="text-center mt-12">
-              <div className="flex items-center justify-center space-x-8 text-sm text-gray-500">
+              <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground">
                 <div className="flex items-center">
                   <Users className="w-5 h-5 mr-2" />
                   10,000+ active users
