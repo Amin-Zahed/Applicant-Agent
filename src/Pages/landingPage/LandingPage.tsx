@@ -1,26 +1,13 @@
-// const LandingPage = () => {
-//   return (
-//     <>
-//       <h1>Landing page</h1>
-//     </>
-//   );
-// };
-
-// export default LandingPage;
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  // Bot,
   Upload,
   Settings,
   Zap,
   Star,
   ArrowRight,
-  // Menu,
-  // X,
   CheckCircle,
   Users,
   Target,
@@ -29,7 +16,6 @@ import {
 import AiAgentSvg from "../../assets/svgs/ai-agent-svg";
 import { Link } from "react-router-dom";
 import usePrivacy from "@/stores/usePrivacy";
-// import Link from "next/link";
 
 const LandingPage = () => {
   const { setShowPrivacy } = usePrivacy();
