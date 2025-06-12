@@ -32,9 +32,10 @@ import usePrivacy from "@/stores/usePrivacy";
 // import Link from "next/link";
 
 const LandingPage = () => {
+  const { setShowPrivacy } = usePrivacy();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-  const { setShowPrivacy } = usePrivacy();
 
   useEffect(() => {
     const handleScroll = () => {
