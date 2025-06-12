@@ -28,11 +28,13 @@ import {
 } from "lucide-react";
 import AiAgentSvg from "../../assets/svgs/ai-agent-svg";
 import { Link } from "react-router-dom";
+import usePrivacy from "@/stores/usePrivacy";
 // import Link from "next/link";
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const { setShowPrivacy } = usePrivacy();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -456,6 +458,9 @@ const LandingPage = () => {
                 <Button
                   variant="link"
                   className="dark:text-foreground light:text-primary"
+                  onClick={() => {
+                    setShowPrivacy(false);
+                  }}
                 >
                   Terms & Conditions
                 </Button>
@@ -465,6 +470,9 @@ const LandingPage = () => {
                 <Button
                   variant="link"
                   className="dark:text-foreground light:text-primary"
+                  onClick={() => {
+                    setShowPrivacy(true);
+                  }}
                 >
                   Privacy Policy
                 </Button>
