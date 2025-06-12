@@ -352,19 +352,19 @@ const LandingPage = () => {
           className="h-screen snap-start flex items-center justify-center bg-primary-foreground"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Ready to Transform Your Job Search?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Join thousands of successful candidates who've automated their way
               to better careers.
             </p>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-              <div className="grid md:grid-cols-3 gap-6 text-white">
+              <div className="grid md:grid-cols-3 gap-6 text-foreground">
                 <div>
                   <h3 className="text-2xl font-bold mb-2">Free</h3>
-                  <p className="text-blue-100 mb-4">
+                  <p className="text-muted-foreground mb-4">
                     Perfect for getting started
                   </p>
                   <ul className="text-sm space-y-2 text-left">
@@ -387,7 +387,7 @@ const LandingPage = () => {
                     Most Popular
                   </Badge>
                   <h3 className="text-2xl font-bold mb-2">Pro</h3>
-                  <p className="text-blue-100 mb-4">$29/month</p>
+                  <p className="text-muted-foreground mb-4">$29/month</p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
@@ -409,7 +409,7 @@ const LandingPage = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
-                  <p className="text-blue-100 mb-4">Custom pricing</p>
+                  <p className="text-muted-foreground mb-4">Custom pricing</p>
                   <ul className="text-sm space-y-2 text-left">
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
