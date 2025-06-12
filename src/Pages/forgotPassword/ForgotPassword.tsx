@@ -89,7 +89,7 @@ const ForgotPassword = ({
                 <p className="text-sm text-balance text-muted-foreground">
                   Remembered my password,
                   <Button variant="link" className="ml-auto text-sm">
-                    <Link to="/signin">Go back to login.</Link>
+                    <Link to="/signin">Go back to sign in.</Link>
                   </Button>
                 </p>
                 <Button
