@@ -15,17 +15,13 @@ const Navbar = () => {
   const { theme } = useThemeChanger();
 
   return (
-    <Menubar className="flex flex-nowrap justify-between w-full h-full items-center lg:px-10">
+    <Menubar className="flex flex-nowrap justify-between w-full h-full items-center lg:px-10 sticky top-0 z-50">
       <div className="flex md:w-1/3 lg:w-1/12 2xl:1/12 w-1/3 justify-between items-center">
         <MenubarMenu>
           <Link to={isLogin ? "/dashboard" : "/"}>
             <MenubarTrigger>
               <img
-                src={
-                  theme === "dark"
-                    ? logoDarkImg
-                    : logoLightImg
-                }
+                src={theme === "dark" ? logoDarkImg : logoLightImg}
                 alt="Logo"
               />
             </MenubarTrigger>

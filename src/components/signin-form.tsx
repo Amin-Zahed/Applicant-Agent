@@ -30,7 +30,7 @@ function SigninForm({
           Sign in to your account
         </h1>
         <p className="text-balance text-sm lg:text-xs 2xl:text-sm text-muted-foreground">
-          Enter your username below to signin to your account
+          Enter your username below to sign in to your account
         </p>
       </div>
       <div className="grid gap-6 lg:gap-2 2xl:gap-6">
