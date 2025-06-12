@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
-import { Chrome, Github } from "lucide-react";
+// import { Chrome, Github } from "lucide-react";
 import useSigninForm from "@/stores/useSigninForm";
 import useLogin from "@/stores/useLogin";
 
