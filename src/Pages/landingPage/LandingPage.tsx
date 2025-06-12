@@ -27,6 +27,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import AiAgentSvg from "../../assets/svgs/ai-agent-svg";
+import { Link } from "react-router-dom";
 // import Link from "next/link";
 
 const LandingPage = () => {
@@ -429,40 +430,37 @@ const LandingPage = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-3"
-              >
+              <Button size="lg" className="text-lg px-8 py-3">
                 Start Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10 text-lg px-8 py-3"
-              >
+              <Button size="lg" variant="outline" className="text-lg px-8 py-3">
                 Schedule Demo
               </Button>
             </div>
 
-            <p className="text-blue-100 text-sm mt-6">
+            <p className="text-muted-foreground text-sm mt-6">
               No credit card required • 7-day free trial • Cancel anytime
             </p>
-            <p className="text-blue-100 text-sm mt-2">
-              By signing up, you agree to our{" "}
-              <a
-                href="/terms"
-                className="text-white underline hover:text-blue-200"
-              >
-                Terms & Conditions
-              </a>{" "}
-              and{" "}
-              <a
-                href="/privacy"
-                className="text-white underline hover:text-blue-200"
-              >
-                Privacy Policy
-              </a>
+            <p className="text-muted-foreground text-sm mt-2">
+              By signing up, you agree to our
+              <Link to="">
+                <Button
+                  variant="link"
+                  className="dark:text-foreground light:text-primary"
+                >
+                  Terms & Conditions
+                </Button>
+              </Link>
+              and
+              <Link to="/privacy">
+                <Button
+                  variant="link"
+                  className="dark:text-foreground light:text-primary"
+                >
+                  Privacy Policy
+                </Button>
+              </Link>
             </p>
           </div>
         </section>
