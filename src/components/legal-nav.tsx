@@ -17,13 +17,13 @@ export function LegalNav() {
 
           <div className="flex items-center space-x-8">
             <p
-              className="cursor-pointer text-sm font-medium text-foreground hover:text-secondary-foreground"
+              className="cursor-pointer text-sm font-medium text-foreground hover:text-secondary-foreground hover:border-b hover:border-secondary-foreground"
               onClick={() => setShowPrivacy(false)}
             >
               Terms & Conditions
             </p>
             <p
-              className="cursor-pointer text-sm font-medium text-foreground hover:text-secondary-foreground"
+              className="cursor-pointer text-sm font-medium text-foreground hover:text-secondary-foreground hover:border-b hover:border-secondary-foreground"
               onClick={() => setShowPrivacy(true)}
             >
               Privacy Policy
