@@ -430,13 +430,21 @@ const LandingPage = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-3">
-                Start Free Trial
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-3">
-                Schedule Demo
-              </Button>
+              <Link to="">
+                <Button size="lg" className="text-lg px-8 py-3">
+                  Start Free Trial
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <Link to="">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8 py-3"
+                >
+                  Schedule Demo
+                </Button>
+              </Link>
             </div>
 
             <p className="text-muted-foreground text-sm mt-6">
@@ -444,7 +452,7 @@ const LandingPage = () => {
             </p>
             <p className="text-muted-foreground text-sm mt-2">
               By signing up, you agree to our
-              <Link to="">
+              <Link to="/terms&conditions">
                 <Button
                   variant="link"
                   className="dark:text-foreground light:text-primary"
@@ -453,7 +461,7 @@ const LandingPage = () => {
                 </Button>
               </Link>
               and
-              <Link to="/privacy">
+              <Link to="/terms&conditions">
                 <Button
                   variant="link"
                   className="dark:text-foreground light:text-primary"
