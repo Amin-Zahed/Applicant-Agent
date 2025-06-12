@@ -12,44 +12,47 @@ const AiAgentSvg = () => {
         <path
           d="M15.18,488.763c0,.872.478,1.573,1.073,1.573h535.1c.6,0,1.073-.7,1.073-1.573s-.478-1.573-1.073-1.573H16.253C15.658,487.191,15.18,487.891,15.18,488.763Z"
           transform="translate(675.195 358.72)"
-          fill="#ccc"
+          fill="var(--foreground)"
         />
         <rect
           width="19.105"
           height="3.371"
           transform="translate(865.646 842.298)"
-          fill="#b6b3c5"
+          fill="var(--muted-foreground)"
         />
         <rect
           width="19.105"
           height="3.371"
           transform="translate(1034.779 842.861)"
-          fill="#b6b3c5"
+          fill="var(--muted-foreground)"
         />
         <path
           d="M352.955,370.945a27.529,27.529,0,0,1-54.321,0H229.146V521.536h193.3V370.945Z"
           transform="translate(634.205 321.322)"
-          fill="#d6d6e3"
+          fill="var(--foreground)"
         />
         <rect
           width="193.296"
           height="5.242"
           transform="translate(863.914 830.927)"
-          fill="#090814"
+          fill="var(--foreground)"
         />
         <path
           d="M788.255,487.17H10.776A10.788,10.788,0,0,1,0,476.394V32.688A10.788,10.788,0,0,1,10.776,21.911H788.255a10.789,10.789,0,0,1,10.776,10.776V476.394a10.789,10.789,0,0,1-10.776,10.776Z"
           transform="translate(560.484 209.033)"
-          fill="#090814"
+          fill="var(--foreground)"
         />
         <rect
           width="760.822"
           height="429.297"
           transform="translate(578.588 248)"
-          fill="#fff"
+          fill="var(--background)"
         />
         <g transform="translate(0 -41.857)">
-          <g transform="translate(-588.477 33.946)">
+          <g
+            transform="translate(-588.477 33.946)"
+            fill="var(--muted-foreground)"
+          >
             <path
               d="M35.524,67.628A24.524,24.524,0,0,1,11,43.1V36.524A24.524,24.524,0,0,1,35.524,12a1.492,1.492,0,1,1,0,2.983,21.54,21.54,0,0,0-21.54,21.54V43.1a21.54,21.54,0,1,0,43.081,0V31.259a1.492,1.492,0,1,1,2.983,0V43.1A24.524,24.524,0,0,1,35.524,67.628Z"
               transform="translate(1535.985 422.718)"
@@ -228,13 +231,13 @@ const AiAgentSvg = () => {
           <path
             d="M805.134,330.7H727.95a1.546,1.546,0,0,1-1.544-1.544V314.612h.618V329.16a.928.928,0,0,0,.927.927h77.184a.928.928,0,0,0,.927-.927V314.51h.618V329.16A1.546,1.546,0,0,1,805.134,330.7Z"
             transform="translate(-646.44 -292.702)"
-            fill="#3f3d56"
+            fill="var(--muted-foreground)"
           />
           <rect
             width="181.374"
             height="0.618"
             transform="translate(5.3 21.601)"
-            fill="#3f3d56"
+            fill="var(--muted-foreground)"
           />
           <ellipse
             cx="5.313"
@@ -258,7 +261,7 @@ const AiAgentSvg = () => {
             rx="5.313"
             ry="5.313"
             transform="translate(90.634 32.165)"
-            fill="#3f3d56"
+            fill="var(--muted-foreground)"
           />
           <ellipse
             cx="5.313"
@@ -266,7 +269,7 @@ const AiAgentSvg = () => {
             rx="5.313"
             ry="5.313"
             transform="translate(118.489 32.165)"
-            fill="#ccc"
+            fill="var(--foreground)"
           />
           <ellipse
             cx="5.313"
@@ -295,7 +298,7 @@ const AiAgentSvg = () => {
           <path
             d="M537.36,277.577a.309.309,0,0,1-.309-.309V262.022a1.546,1.546,0,0,1,1.544-1.544H553.63a.309.309,0,1,1,0,.618H538.6a.928.928,0,0,0-.927.927v15.246a.309.309,0,0,1-.309.309Z"
             transform="translate(-515.571 -255.358)"
-            fill="#3f3d56"
+            fill="var(--muted-foreground)"
           />
           <ellipse
             cx="5.313"
@@ -303,12 +306,12 @@ const AiAgentSvg = () => {
             rx="5.313"
             ry="5.313"
             transform="translate(33.452 0)"
-            fill="#e6e6e6"
+            fill="var(--foreground)"
           />
           <path
             d="M921.669,277.268h-.618V262.022a1.546,1.546,0,0,1,1.544-1.544H937.63v.618H922.6a.928.928,0,0,0-.927.927Z"
             transform="translate(-780.967 -255.358)"
-            fill="#3f3d56"
+            fill="var(--foreground)"
           />
           <ellipse
             cx="5.313"
@@ -316,28 +319,28 @@ const AiAgentSvg = () => {
             rx="5.313"
             ry="5.313"
             transform="translate(152.058 0)"
-            fill="#e6e6e6"
+            fill="var(--foreground)"
           />
         </g>
         <path
           d="M496.375,205.477c-2.221,0-4.027.792-4.027,1.764v1.411c0,.973,1.806,1.764,4.027,1.764h93.434c2.221,0,4.027-.792,4.027-1.764v-1.411c0-.973-1.806-1.764-4.027-1.764Z"
           transform="translate(635.637 363.33)"
-          fill="#f2f2f2"
+          fill="var(--muted-foreground)"
         />
         <path
           d="M670.026,309.282c4,0,7.249,1.75,7.249,3.9v30.351c0,2.152-3.252,3.9-7.249,3.9H497.656c-4,0-7.249-1.75-7.249-3.9V313.184c0-2.152,3.252-3.9,7.249-3.9"
           transform="translate(637.578 297.505)"
-          fill="#f2f2f2"
+          fill="var(--muted-foreground)"
         />
         <path
           d="M496.375,234.581c-2.221,0-4.027.973-4.027,2.168s1.806,2.168,4.027,2.168H639.748c2.221,0,4.027-.973,4.027-2.168s-1.806-2.168-4.027-2.168Z"
           transform="translate(635.637 343.828)"
-          fill="#f2f2f2"
+          fill="var(--muted-foreground)"
         />
         <path
           d="M496.375,234.581c-2.221,0-4.027.973-4.027,2.168s1.806,2.168,4.027,2.168H639.748c2.221,0,4.027-.973,4.027-2.168s-1.806-2.168-4.027-2.168Z"
           transform="translate(635.637 352.828)"
-          fill="#f2f2f2"
+          fill="var(--muted-foreground)"
         />
         <path
           d="M891.9,191.277H840.311a1.683,1.683,0,1,1,0-3.367H891.9a1.683,1.683,0,1,1,0,3.367Z"
@@ -361,7 +364,7 @@ const AiAgentSvg = () => {
           <path
             d="M847.243,585.331H847.2a.874.874,0,0,1-.646-.336l-1.118-1.434a.875.875,0,0,1,.154-1.228l.04-.032a.874.874,0,0,1,1.228.154.638.638,0,0,0,.966.047l2.267-2.4a.876.876,0,0,1,1.237-.034l.037.035a.874.874,0,0,1,.034,1.237l-3.521,3.716a.874.874,0,0,1-.635.273Z"
             transform="translate(-841.667 -576.242)"
-            fill="#fff"
+            fill="var(--background)"
           />
         </g>
         <path
@@ -381,12 +384,12 @@ const AiAgentSvg = () => {
             rx="6.686"
             ry="6.686"
             transform="translate(0 0)"
-            fill="#e6e6e6"
+            fill="var(--muted-foreground)"
           />
           <path
             d="M847.243,585.331H847.2a.874.874,0,0,1-.646-.336l-1.118-1.434a.875.875,0,0,1,.154-1.228l.04-.032a.874.874,0,0,1,1.228.154.638.638,0,0,0,.966.047l2.267-2.4a.876.876,0,0,1,1.237-.034l.037.035a.874.874,0,0,1,.034,1.237l-3.521,3.716a.874.874,0,0,1-.635.273Z"
             transform="translate(-841.667 -576.242)"
-            fill="#fff"
+            fill="var(--background)"
           />
         </g>
         <path
@@ -406,23 +409,23 @@ const AiAgentSvg = () => {
             rx="6.686"
             ry="6.686"
             transform="translate(0 0)"
-            fill="#e6e6e6"
+            fill="var(--muted-foreground)"
           />
           <path
             d="M847.243,585.331H847.2a.874.874,0,0,1-.646-.336l-1.118-1.434a.875.875,0,0,1,.154-1.228l.04-.032a.874.874,0,0,1,1.228.154.638.638,0,0,0,.966.047l2.267-2.4a.876.876,0,0,1,1.237-.034l.037.035a.874.874,0,0,1,.034,1.237l-3.521,3.716a.874.874,0,0,1-.635.273Z"
             transform="translate(-841.667 -576.242)"
-            fill="#fff"
+            fill="var(--background)"
           />
         </g>
         <path
           d="M891.9,191.277H840.311a1.683,1.683,0,1,1,0-3.367H891.9a1.683,1.683,0,1,1,0,3.367Z"
           transform="translate(-212.074 200.611)"
-          fill="#e6e6e6"
+          fill="var(--muted-foreground)"
         />
         <path
           d="M862.672,210.649H840.311a1.683,1.683,0,1,1,0-3.367h22.361a1.683,1.683,0,1,1,0,3.367Z"
           transform="translate(-212.074 187.886)"
-          fill="#e6e6e6"
+          fill="var(--muted-foreground)"
         />
         <g transform="translate(690.275 386.842)">
           <ellipse
@@ -431,23 +434,23 @@ const AiAgentSvg = () => {
             rx="6.686"
             ry="6.686"
             transform="translate(0 0)"
-            fill="#e6e6e6"
+            fill="var(--muted-foreground)"
           />
           <path
             d="M847.243,585.331H847.2a.874.874,0,0,1-.646-.336l-1.118-1.434a.875.875,0,0,1,.154-1.228l.04-.032a.874.874,0,0,1,1.228.154.638.638,0,0,0,.966.047l2.267-2.4a.876.876,0,0,1,1.237-.034l.037.035a.874.874,0,0,1,.034,1.237l-3.521,3.716a.874.874,0,0,1-.635.273Z"
             transform="translate(-841.667 -576.242)"
-            fill="#fff"
+            fill="var(--background)"
           />
         </g>
         <path
           d="M891.9,191.277H840.311a1.683,1.683,0,1,1,0-3.367H891.9a1.683,1.683,0,1,1,0,3.367Z"
           transform="translate(-212.074 236.191)"
-          fill="#e6e6e6"
+          fill="var(--muted-foreground)"
         />
         <path
           d="M862.672,210.649H840.311a1.683,1.683,0,1,1,0-3.367h22.361a1.683,1.683,0,1,1,0,3.367Z"
           transform="translate(-212.074 223.466)"
-          fill="#e6e6e6"
+          fill="var(--muted-foreground)"
         />
         <g transform="translate(690.275 422.422)">
           <ellipse
@@ -456,19 +459,19 @@ const AiAgentSvg = () => {
             rx="6.686"
             ry="6.686"
             transform="translate(0 0)"
-            fill="#e6e6e6"
+            fill="var(--muted-foreground)"
           />
           <path
             d="M847.243,585.331H847.2a.874.874,0,0,1-.646-.336l-1.118-1.434a.875.875,0,0,1,.154-1.228l.04-.032a.874.874,0,0,1,1.228.154.638.638,0,0,0,.966.047l2.267-2.4a.876.876,0,0,1,1.237-.034l.037.035a.874.874,0,0,1,.034,1.237l-3.521,3.716a.874.874,0,0,1-.635.273Z"
             transform="translate(-841.667 -576.242)"
-            fill="#fff"
+            fill="var(--background)"
           />
         </g>
         <g transform="translate(587.66 -327.248)">
           <path
             d="M345.8,318H248.438a.3.3,0,0,1-.3-.3c0-2.109,97.967-.168,97.967,0A.3.3,0,0,1,345.8,318Z"
             transform="translate(381.092 338.302)"
-            fill="#090814"
+            fill="var(--foreground)"
           />
           <path
             d="M290.014,369.407h-8.855a.905.905,0,0,1-.9-.9V356.3a.905.905,0,0,1,.9-.9h8.855a.905.905,0,0,1,.9.9V368.5A.905.905,0,0,1,290.014,369.407Z"

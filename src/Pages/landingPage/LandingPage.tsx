@@ -125,17 +125,9 @@ const LandingPage = () => {
               </div>
               <div className="flex justify-center lg:justify-end">
                 <div className="relative">
-                  <div className="w-96 h-96 p-3 bg-primary-foreground rounded-3xl flex items-center justify-center">
+                  <div className="w-96 h-96 p-3 bg-background flex items-center justify-center">
                     <AiAgentSvg />
-                    {/* <img
-                      src="/placeholder.svg?height=300&width=300"
-                      alt="AI Robot helping with job applications"
-                      className="w-80 h-80 object-contain"
-                    /> */}
                   </div>
-                  {/* <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center animate-pulse">
-                    <Bot className="w-8 h-8 text-white" />
-                  </div> */}
                 </div>
               </div>
             </div>
