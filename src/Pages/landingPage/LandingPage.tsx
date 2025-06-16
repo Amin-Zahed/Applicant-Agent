@@ -16,7 +16,6 @@ import {
 import AiAgentSvg from "../../assets/svgs/ai-agent-svg";
 import { Link } from "react-router-dom";
 import usePrivacy from "@/stores/usePrivacy";
-import { log } from "console";
 
 const LandingPage = () => {
   const { setShowPrivacy } = usePrivacy();
