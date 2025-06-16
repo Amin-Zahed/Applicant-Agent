@@ -16,6 +16,7 @@ import {
 import AiAgentSvg from "../../assets/svgs/ai-agent-svg";
 import { Link } from "react-router-dom";
 import usePrivacy from "@/stores/usePrivacy";
+import { log } from "console";
 
 const LandingPage = () => {
   const { setShowPrivacy } = usePrivacy();
@@ -56,8 +57,8 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="bg-background w-full h-full overflow-y-auto scroll-smooth">
-      <div className="scroll-smooth snap-y snap-mandatory  w-full h-full min-h-fit bg-background">
+    <div className="bg-background w-full h-full overflow-y-auto scroll-smooth snap-y snap-mandatory">
+      <div className="scroll-smooth snap-y snap-mandatory w-full h-full min-h-fit bg-background">
         {/* Hero Section */}
         <section
           id="hero"
