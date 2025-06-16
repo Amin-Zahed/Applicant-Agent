@@ -20,7 +20,6 @@ import usePrivacy from "@/stores/usePrivacy";
 const LandingPage = () => {
   const { setShowPrivacy } = usePrivacy();
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
@@ -52,7 +51,6 @@ const LandingPage = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false);
   };
 
   return (
