@@ -55,11 +55,11 @@ const LandingPage = () => {
 
   return (
     <div className="bg-background w-full h-full overflow-y-auto scroll-smooth snap-y snap-mandatory">
-      <div className="scroll-smooth snap-y snap-mandatory w-full h-full min-h-fit bg-background">
+      <div className="flex flex-col scroll-smooth snap-y snap-mandatory w-full h-full min-h-fit bg-background">
         {/* Hero Section */}
         <section
           id="hero"
-          className="h-screen snap-start flex items-center justify-center bg-background"
+          className="h-svh snap-start flex items-center justify-center bg-background"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -111,7 +111,7 @@ const LandingPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center lg:justify-end">
+              <div className="hidden lg:flex justify-center lg:justify-end">
                 <div className="relative">
                   <div className="w-96 h-96 p-3 bg-background flex items-center justify-center">
                     <AiAgentSvg />
@@ -125,7 +125,7 @@ const LandingPage = () => {
         {/* How It Works Section */}
         <section
           id="how-it-works"
-          className="h-screen snap-start flex items-center justify-center bg-secondary"
+          className="h-svh snap-start flex items-center justify-center bg-secondary"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="text-center mb-16">
@@ -138,17 +138,17 @@ const LandingPage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-3 gap-2 md:gap-8">
               {/* Step 1 */}
-              <Card className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
-                <CardContent className="pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Card className="text-center md:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
+                <CardContent className="pt-3 md:pt-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-6">
                     <Upload className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
-                    Upload Your Info
+                  <h3 className="text-xl font-bold text-foreground mb-1 md:mb-4">
+                    + Upload Your Info
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="hidden md:flex text-muted-foreground leading-relaxed">
                     Share your resume, skills, and job preferences. Our AI
                     learns your unique background and career goals.
                   </p>
@@ -156,15 +156,15 @@ const LandingPage = () => {
               </Card>
 
               {/* Step 2 */}
-              <Card className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
-                <CardContent className="pt-6">
+              <Card className="text-center md:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
+                <CardContent className="pt-3 md:pt-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Settings className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-4">
                     Train Your Agent
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="hidden md:flex text-muted-foreground leading-relaxed">
                     Customize your AI agent's behavior, set application
                     criteria, and define your ideal job parameters.
                   </p>
@@ -172,15 +172,15 @@ const LandingPage = () => {
               </Card>
 
               {/* Step 3 */}
-              <Card className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
-                <CardContent className="pt-6">
+              <Card className="text-center md:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
+                <CardContent className="pt-3 md:pt-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Zap className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-4">
                     Start Applying
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="hidden md:flex text-muted-foreground leading-relaxed">
                     Sit back and relax. Apollo finds jobs, crafts personalized
                     applications, and submits them automatically.
                   </p>
@@ -204,10 +204,10 @@ const LandingPage = () => {
         {/* Testimonials Section */}
         <section
           id="testimonials"
-          className="h-screen snap-start flex items-center justify-center bg-background"
+          className="h-svh snap-start flex items-center justify-center bg-background"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8 md:mb-16">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
                 Success Stories
               </h2>
@@ -217,11 +217,11 @@ const LandingPage = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-2 md:gap-8">
               {/* Testimonial 1 */}
-              <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center mb-4">
+              <Card className="p-2 md:p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="md:pt-6">
+                  <div className="items-center mb-1 md:mb-4 flex">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
@@ -229,7 +229,7 @@ const LandingPage = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="hidden md:flex text-muted-foreground mb-6 leading-relaxed">
                     "Apollo helped me land my dream job at a tech startup. The
                     AI wrote better cover letters than I ever could, and I got
                     3x more interviews!"
@@ -251,9 +251,9 @@ const LandingPage = () => {
               </Card>
 
               {/* Testimonial 2 */}
-              <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center mb-4">
+              <Card className="p-2 md:p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="md:pt-6">
+                  <div className="flex items-center mb-1 md:mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
@@ -261,7 +261,7 @@ const LandingPage = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="hidden md:flex text-muted-foreground mb-6 leading-relaxed">
                     "I was spending 20+ hours a week on applications. Apollo
                     reduced that to zero while increasing my response rate by
                     400%."
@@ -283,9 +283,9 @@ const LandingPage = () => {
               </Card>
 
               {/* Testimonial 3 */}
-              <Card className="p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex items-center mb-4">
+              <Card className="p-2 md:p-6 border-0 shadow-lg hover:shadow-xl transition-shadow">
+                <CardContent className="md:pt-6">
+                  <div className="flex items-center mb-1 md:mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
@@ -293,7 +293,7 @@ const LandingPage = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="hidden md:flex text-muted-foreground mb-6 leading-relaxed">
                     "The personalization is incredible. Each application felt
                     hand-crafted for the specific role. Got hired within 2
                     weeks!"
@@ -315,7 +315,7 @@ const LandingPage = () => {
               </Card>
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-6 md:mt-12">
               <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground">
                 <div className="flex items-center">
                   <Users className="w-5 h-5 mr-2" />
@@ -337,25 +337,27 @@ const LandingPage = () => {
         {/* Get Started Section */}
         <section
           id="get-started"
-          className="h-screen snap-start flex items-center justify-center bg-primary-foreground"
+          className="h-svh snap-start flex items-center justify-center bg-primary-foreground"
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-0 md:py-20 text-center">
+            <h2 className="hidden md:flex text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Ready to Transform Your Job Search?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="hidden md:flex text-xl text-muted-foreground mb-8 leading-relaxed">
               Join thousands of successful candidates who've automated their way
               to better careers.
             </p>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-8 mb-2 md:mb-8">
               <div className="grid md:grid-cols-3 gap-6 text-foreground">
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">Free</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <h3 className="text:lg md:text-2xl font-bold mb-1 md:mb-2">
+                    Free
+                  </h3>
+                  <p className="text-xs md:text-base text-muted-foreground mb-2 md:mb-4">
                     Perfect for getting started
                   </p>
-                  <ul className="text-sm space-y-2 text-left">
+                  <ul className="text-xs md:text-sm space-y-2 text-left">
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />5
                       applications/month
@@ -370,13 +372,17 @@ const LandingPage = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="border-2 border-yellow-400 rounded-xl p-6 relative">
+                <div className="border-2 border-yellow-400 rounded-xl p-2 md:p-6 relative">
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-yellow-900">
                     Most Popular
                   </Badge>
-                  <h3 className="text-2xl font-bold mb-2">Pro</h3>
-                  <p className="text-muted-foreground mb-4">$29/month</p>
-                  <ul className="text-sm space-y-2 text-left">
+                  <h3 className="text:lg md:text-2xl font-bold mb-1 md:mb-2">
+                    Pro
+                  </h3>
+                  <p className="text-xs md:text-base text-muted-foreground mb-2 md:mb-4">
+                    $29/month
+                  </p>
+                  <ul className="text-xs md:text-sm space-y-2 text-left">
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
                       Unlimited applications
@@ -396,9 +402,13 @@ const LandingPage = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
-                  <p className="text-muted-foreground mb-4">Custom pricing</p>
-                  <ul className="text-sm space-y-2 text-left">
+                  <h3 className="text:lg md:text-2xl font-bold mb-1 md:mb-2">
+                    Enterprise
+                  </h3>
+                  <p className="text-xs md:text-base text-muted-foreground mb-2 md:mb-4">
+                    Custom pricing
+                  </p>
+                  <ul className="text-xs md:text-sm space-y-2 text-left">
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
                       Team management
@@ -416,7 +426,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-4 justify-center">
               <Link to="/signup">
                 <Button size="lg" className="text-lg px-8 py-3">
                   Start Free Trial
@@ -434,15 +444,15 @@ const LandingPage = () => {
               </Link>
             </div>
 
-            <p className="text-muted-foreground text-sm mt-6">
+            <p className="text-muted-foreground text-[8px] md:text-sm mt-2 md:mt-6">
               No credit card required • 7-day free trial • Cancel anytime
             </p>
-            <p className="text-muted-foreground text-sm mt-2">
+            <p className="text-muted-foreground text-[8px] md:text-sm md:mt-2">
               By signing up, you agree to our
               <Link to="/terms&conditions">
                 <Button
                   variant="link"
-                  className="dark:text-foreground light:text-primary"
+                  className="dark:text-foreground light:text-primary text-[8px] md:text-sm"
                   onClick={() => {
                     setShowPrivacy(false);
                   }}
@@ -450,11 +460,11 @@ const LandingPage = () => {
                   Terms & Conditions
                 </Button>
               </Link>
-              and
+              <span className="text-[8px] md:text-sm">and</span>
               <Link to="/terms&conditions">
                 <Button
                   variant="link"
-                  className="dark:text-foreground light:text-primary"
+                  className="dark:text-foreground light:text-primary text-[8px] md:text-sm"
                   onClick={() => {
                     setShowPrivacy(true);
                   }}
