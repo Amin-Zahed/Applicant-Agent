@@ -5,8 +5,9 @@ import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import useLogin from "@/stores/useLogin";
-import FormSvg from "../../assets/svgs/form-svg";
+// import FormSvg from "../../assets/svgs/signup-form-svg";
 import ScheduleDemoForm from "@/components/scheduleDemo-form";
+import ScheduleDemoFormSvg from "../../assets/svgs/schedule-demo-svg";
 
 function ScheduleDemo() {
   const { signupFormDatas, signupFormIsSubmit } = useSignupForm();
@@ -35,7 +36,7 @@ function ScheduleDemo() {
           /> */}
           <div className="absolute inset-0 bg-background flex items-center justify-center px-3">
             {" "}
-            <FormSvg />
+            <ScheduleDemoFormSvg />
           </div>
         </div>
       </div>

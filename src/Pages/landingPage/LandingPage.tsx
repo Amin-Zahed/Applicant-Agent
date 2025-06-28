@@ -13,7 +13,7 @@ import {
   Target,
   Sparkles,
 } from "lucide-react";
-import AiAgentSvg from "../../assets/svgs/ai-agent-svg";
+import AiAgentSvg from "../../assets/svgs/ai-agent-hero-svg";
 import { Link } from "react-router-dom";
 import usePrivacy from "@/stores/usePrivacy";
 

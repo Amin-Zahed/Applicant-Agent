@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import useLogin from "@/stores/useLogin";
-import FormSvg from "../../assets/svgs/form-svg";
+import FormSvg from "../../assets/svgs/signup-form-svg";
 
 function Signup() {
   const { signupFormDatas, signupFormIsSubmit } = useSignupForm();
