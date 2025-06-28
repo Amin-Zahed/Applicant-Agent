@@ -1,104 +1,228 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { ChangeEvent, useEffect } from "react";
+import useSignupForm from "../stores/useSignupForm";
+// import useLogin from "../stores/useLogin";
+import VisiblePasswordInput from "./visible-password-input";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "react-router-dom";
-import useScheduleDemoForm from "@/stores/useScheduleDemoForm";
-import useLogin from "@/stores/useLogin";
-import GoogleIconSvg from "../assets/svgs/google-icon-svg";
-import GitHubIconSvg from "../assets/svgs/github-icon-svg";
+import ScheduleDemo from "@/Pages/scheduleDemo/ScheduleDemo";
 
 function ScheduleDemoForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
   const {
-    usernameInputValue,
-    passwordInputValue,
-    setUsernameInputValue,
-    setPasswordInputValue,
-  } = useScheduleDemoForm();
+    signupFormDatas,
+    signupFormInputsHandler,
+    passwordHasANumber,
+    passwordHasALowercase,
+    passwordHasAUppercase,
+    passwordHasASpecialChar,
+    confirmPassword,
+    passwordInputChangeHandler,
+    confirmPasswordInputHandler,
+    checkboxChecked,
+    setCheckboxChecked,
+    signupButtonEnabled,
+    setSignupButtonEnabled,
+    setSignupFormIsSubmit,
+  } = useSignupForm();
 
-  const { isLogin, setIsLogin } = useLogin();
+  // const { setIsLogin } = useLogin();
+
+  useEffect(() => {
+    setSignupButtonEnabled();
+  }, [signupFormDatas, confirmPassword, checkboxChecked]);
 
   return (
     <form
-      className={cn("flex flex-col gap-6 lg:gap-2 2xl:gap-6", className)}
+      className={cn("flex flex-col gap-6 lg:gap-2 2xl:gap-6 pb-7", className)}
       {...props}
-      id="signin-form"
+      id="signup-form"
     >
-      <div className="flex flex-col items-center gap-2 lg:gap-1 2xl:gap-2 text-center">
+      <div className="flex flex-col items-center gap-2  lg:gap-1 2xl:gap-2 text-center">
         <h1 className="text-2xl lg:text-lg 2xl:text-2xl font-bold">
-          Sign in to your account
+          Sign up form
         </h1>
         <p className="text-balance text-sm lg:text-xs 2xl:text-sm text-muted-foreground">
-          Enter your username below to sign in to your account
+          Create an account
         </p>
       </div>
       <div className="grid gap-6 lg:gap-2 2xl:gap-6">
         <div className="grid gap-2 lg:gap-1 2xl:gap-2">
-          <Label htmlFor="username">User name</Label>
           <Input
             id="username"
             type="username"
-            placeholder=""
-            onInput={(e) => {
-              setUsernameInputValue((e.target as HTMLInputElement).value);
-            }}
-          />
-        </div>
-        <div className="grid gap-2 lg:gap-1 2xl:gap-2">
-          <div className="flex items-center">
-            <Label htmlFor="password">Password</Label>
-            <Button variant="link" className="ml-auto text-sm">
-              <Link to="/forgot-password">Forgot your password?</Link>
-            </Button>
-          </div>
-          <Input
-            id="password"
-            type="password"
-            placeholder=""
-            onInput={(e) => {
-              setPasswordInputValue((e.target as HTMLInputElement).value);
-            }}
-          />
-        </div>
-        <Link to={isLogin ? "/dashboard" : ""}>
-          <Button
-            type="button"
-            disabled={
-              typeof usernameInputValue !== "string" ||
-              typeof passwordInputValue !== "string"
+            name="username"
+            maxLength={20}
+            minLength={3}
+            placeholder="Username"
+            required
+            value={signupFormDatas.username!}
+            onInput={(e: ChangeEvent<HTMLInputElement>) =>
+              signupFormInputsHandler(e, /^[A-Za-z0-9._\-\+]{3,}$/)
             }
-            className="w-full"
-            onClick={() => {
-              usernameInputValue === sessionStorage.getItem("username") &&
-              passwordInputValue === sessionStorage.getItem("password")
-                ? setIsLogin(true)
-                : setIsLogin(false);
+          />
+          <p
+            className="text-balance text-sm text-muted-foreground"
+            style={{
+              color:
+                signupFormDatas.username === undefined
+                  ? "red"
+                  : signupFormDatas.username === null
+                  ? "var(--muted-foreground)"
+                  : "green",
             }}
           >
-            Signin
-          </Button>
-        </Link>
-        <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
-          <span className="relative z-10 bg-background px-2 text-muted-foreground">
-            Or continue with
+            At least 3 charactors and only letters, numbers, dotes, underscores,
+            dashes and pluses.
+          </p>
+        </div>
+        <div className="grid gap-2 lg:gap-1 2xl:gap-2">
+          <Input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            value={signupFormDatas.email!}
+            onInput={(e: ChangeEvent<HTMLInputElement>) =>
+              signupFormInputsHandler(
+                e,
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+              )
+            }
+          />
+          <p
+            className="text-balance text-sm text-muted-foreground"
+            style={{
+              color:
+                signupFormDatas.email === undefined
+                  ? "red"
+                  : signupFormDatas.email === null
+                  ? "var(--muted-foreground)"
+                  : "green",
+            }}
+          >
+            {signupFormDatas.email === undefined
+              ? "Not a valid email address"
+              : signupFormDatas.email === null
+              ? "Email must be a valid email address"
+              : "Valid email address"}
+          </p>
+        </div>
+        <div className="grid gap-2">
+          <VisiblePasswordInput
+            id="password"
+            name="password"
+            placeholder="Password"
+            value={signupFormDatas.password!}
+            onInput={(e: ChangeEvent<HTMLInputElement>) =>
+              signupFormInputsHandler(
+                e,
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()[\]{}\-_=+|;:'",.<>/?\\`~])[\s\S]{4,}$/
+              )
+            }
+            onChange={passwordInputChangeHandler}
+          />
+          <ol className="text-balance text-sm text-muted-foreground list-inside list-disc">
+            <li
+              style={{
+                color:
+                  signupFormDatas.password === null
+                    ? "var(--muted-foreground)"
+                    : passwordHasANumber
+                    ? "green"
+                    : "red",
+              }}
+            >
+              At least one number.
+            </li>
+            <li
+              style={{
+                color:
+                  signupFormDatas.password === null
+                    ? "var(--muted-foreground)"
+                    : passwordHasALowercase && passwordHasAUppercase
+                    ? "green"
+                    : passwordHasALowercase || passwordHasAUppercase
+                    ? "orange"
+                    : "red",
+              }}
+            >
+              Combination of upper and lower case letters.
+            </li>
+            <li
+              style={{
+                color:
+                  signupFormDatas.password === null
+                    ? "var(--muted-foreground)"
+                    : passwordHasASpecialChar
+                    ? "green"
+                    : "red",
+              }}
+            >
+              At least one special charactor - [] , + = ? .{" "}
+            </li>
+          </ol>
+        </div>
+        <div className="grid gap-2 lg:gap-1 2xl:gap-2">
+          <VisiblePasswordInput
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            value={confirmPassword!}
+            onInput={confirmPasswordInputHandler}
+          />
+          <p
+            className="text-balance text-sm text-muted-foreground"
+            style={{
+              color:
+                confirmPassword === undefined
+                  ? "red"
+                  : confirmPassword === null
+                  ? "var(--muted-foreground)"
+                  : "green",
+            }}
+          >
+            {confirmPassword === undefined
+              ? "Confirm password is not the same as password"
+              : confirmPassword === null
+              ? "Confirm password must be the same as password"
+              : "Confirm password is the same as password"}
+          </p>
+        </div>
+        <div className="gap-2 lg:gap-1 2xl:gap-2 flex items-center">
+          <Checkbox
+            className="cursor-pointer"
+            onCheckedChange={() =>
+              checkboxChecked === false
+                ? setCheckboxChecked(true)
+                : setCheckboxChecked(false)
+            }
+            checked={checkboxChecked}
+            id="terms-and-conditions"
+          />
+          <span className="text-md">
+            Accept
+            <Button variant="link" className="text-md">
+              <Link to="/terms&conditions">terms and conditions</Link>
+            </Button>
           </span>
         </div>
-        <Button variant="outline" className="w-full">
-          <GitHubIconSvg />
-          Sign in with GitHub
-        </Button>
-        <Button variant="outline" className="w-full flex items-center gap-2">
-          <GoogleIconSvg />
-          Sign in with Google
-        </Button>
-      </div>
-      <div className="text-center text-sm">
-        Don&apos;t have an account?
-        <Button variant="link" className="text-sm">
-          <Link to="/signup">Sign up</Link>
+        <Button
+          type="button"
+          disabled={signupButtonEnabled ? false : true}
+          title={
+            signupButtonEnabled
+              ? "Sign up"
+              : "Button is disabled, Please fill all the fields"
+          }
+          onClick={() => setSignupFormIsSubmit(true)}
+        >
+          Sign up
         </Button>
       </div>
     </form>
