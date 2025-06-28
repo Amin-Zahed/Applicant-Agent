@@ -10,7 +10,7 @@ function ScheduleDemoForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
-  const { scheduleDemoFormDatas, scheduleDemoFormInputsHandler } =
+  const { scheduleDemoFormDatas, profession, scheduleDemoFormInputsHandler } =
     useScheduleForm();
 
   return (
@@ -185,13 +185,16 @@ function ScheduleDemoForm({
           type="button"
           disabled={
             typeof scheduleDemoFormDatas.name === "string" &&
-            typeof scheduleDemoFormDatas.email === "string"
+            typeof scheduleDemoFormDatas.email === "string" &&
+            typeof profession === "string"
               ? false
               : true
           }
           title={
-            scheduleDemoFormDatas.name && scheduleDemoFormDatas.email
-              ? "Sign up"
+            typeof scheduleDemoFormDatas.name === "string" &&
+            typeof scheduleDemoFormDatas.email === "string" &&
+            typeof profession === "string"
+              ? "Submit the form"
               : "Button is disabled, Please fill all the fields"
           }
           // onClick={() => setSignupFormIsSubmit(true)}

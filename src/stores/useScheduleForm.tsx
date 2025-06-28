@@ -9,10 +9,12 @@ interface ScheduleDemoFormDatas {
 
 interface UseScheduleForm {
   scheduleDemoFormDatas: ScheduleDemoFormDatas;
+  profession: string | null;
   scheduleDemoFormInputsHandler: (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     regex: RegExp
   ) => void;
+  setProfession: (profession: string) => void;
 }
 
 const initialScheduleDemoFormDatas: ScheduleDemoFormDatas = {
@@ -23,6 +25,7 @@ const initialScheduleDemoFormDatas: ScheduleDemoFormDatas = {
 
 const useScheduleForm = create<UseScheduleForm>((set) => ({
   scheduleDemoFormDatas: initialScheduleDemoFormDatas,
+  profession: null,
 
   scheduleDemoFormInputsHandler: (e, regex) => {
     const { name, value } = e.target;
@@ -46,6 +49,8 @@ const useScheduleForm = create<UseScheduleForm>((set) => ({
       }));
     }
   },
+  setProfession: (profession: string) =>
+    set({ profession: profession || null }),
 }));
 
 export default useScheduleForm;

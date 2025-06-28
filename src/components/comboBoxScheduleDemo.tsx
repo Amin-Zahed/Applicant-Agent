@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import useScheduleForm from "@/stores/useScheduleForm";
 
 const frameworks = [
   {
@@ -42,7 +43,8 @@ const frameworks = [
 
 function ComboBoxScheduleDemo({ ...props }) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  // const [value, setValue] = React.useState("");
+  const { profession, setProfession } = useScheduleForm();
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -53,8 +55,9 @@ function ComboBoxScheduleDemo({ ...props }) {
           aria-expanded={open}
           className={`justify-between ${props.inputWidth}`}
         >
-          {value
-            ? frameworks.find((framework) => framework.value === value)?.label
+          {profession
+            ? frameworks.find((framework) => framework.value === profession)
+                ?.label
             : "What is your profession ?"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
@@ -70,7 +73,9 @@ function ComboBoxScheduleDemo({ ...props }) {
                   key={framework.value}
                   value={framework.value}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue);
+                    setProfession(
+                      currentValue === profession ? "" : currentValue
+                    );
                     setOpen(false);
                   }}
                 >
@@ -78,7 +83,9 @@ function ComboBoxScheduleDemo({ ...props }) {
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      profession === framework.value
+                        ? "opacity-100"
+                        : "opacity-0"
                     )}
                   />
                 </CommandItem>
