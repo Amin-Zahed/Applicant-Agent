@@ -1,30 +1,17 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ChangeEvent, useEffect } from "react";
-import useSignupForm from "../stores/useSignupForm";
+import { ChangeEvent } from "react";
 import ComboBox from "./comboBox";
 import { Textarea } from "./ui/textarea";
+import useScheduleForm from "@/stores/useScheduleForm";
 
 function ScheduleDemoForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
-  const {
-    signupFormDatas,
-    signupFormInputsHandler,
-    confirmPassword,
-    checkboxChecked,
-    signupButtonEnabled,
-    setSignupButtonEnabled,
-    setSignupFormIsSubmit,
-  } = useSignupForm();
-
-  // const { setIsLogin } = useLogin();
-
-  useEffect(() => {
-    setSignupButtonEnabled();
-  }, [signupFormDatas, confirmPassword, checkboxChecked]);
+  const { scheduleDemoFormDatas, scheduleDemoFormInputsHandler } =
+    useScheduleForm();
 
   return (
     <form
@@ -43,25 +30,25 @@ function ScheduleDemoForm({
       <div className="grid gap-6 lg:gap-2 2xl:gap-6">
         <div className="grid gap-2 lg:gap-1 2xl:gap-2">
           <Input
-            id="username"
-            type="username"
-            name="username"
+            id="name"
+            type="text"
+            name="name"
             maxLength={20}
             minLength={3}
             placeholder="Name - What should we call you ?"
             required
-            value={signupFormDatas.username!}
+            value={scheduleDemoFormDatas.name!}
             onInput={(e: ChangeEvent<HTMLInputElement>) =>
-              signupFormInputsHandler(e, /^[A-Za-z0-9._\-\+]{3,}$/)
+              scheduleDemoFormInputsHandler(e, /^[A-Za-z0-9._\-\+]{3,}$/)
             }
           />
           <p
             className="text-balance text-sm text-muted-foreground"
             style={{
               color:
-                signupFormDatas.username === undefined
+                scheduleDemoFormDatas.name === undefined
                   ? "red"
-                  : signupFormDatas.username === null
+                  : scheduleDemoFormDatas.name === null
                   ? "var(--muted-foreground)"
                   : "green",
             }}
@@ -77,9 +64,9 @@ function ScheduleDemoForm({
             name="email"
             placeholder="Email"
             required
-            value={signupFormDatas.email!}
+            value={scheduleDemoFormDatas.email!}
             onInput={(e: ChangeEvent<HTMLInputElement>) =>
-              signupFormInputsHandler(
+              scheduleDemoFormInputsHandler(
                 e,
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
               )
@@ -89,16 +76,16 @@ function ScheduleDemoForm({
             className="text-balance text-sm text-muted-foreground"
             style={{
               color:
-                signupFormDatas.email === undefined
+                scheduleDemoFormDatas.email === undefined
                   ? "red"
-                  : signupFormDatas.email === null
+                  : scheduleDemoFormDatas.email === null
                   ? "var(--muted-foreground)"
                   : "green",
             }}
           >
-            {signupFormDatas.email === undefined
+            {scheduleDemoFormDatas.email === undefined
               ? "Not a valid email address"
-              : signupFormDatas.email === null
+              : scheduleDemoFormDatas.email === null
               ? "Email must be a valid email address"
               : "Valid email address"}
           </p>
@@ -160,7 +147,15 @@ function ScheduleDemoForm({
           </ol> */}
         </div>
         <div className="grid gap-2 lg:gap-1 2xl:gap-2">
-          <Textarea placeholder="Any thing else?" />
+          <Textarea
+            id="anythingElse"
+            name="anythingElse"
+            placeholder="Any thing else?"
+            value={scheduleDemoFormDatas.anythingElse!}
+            onInput={(e: ChangeEvent<HTMLTextAreaElement>) =>
+              scheduleDemoFormInputsHandler(e, /.*/)
+            }
+          />
           {/* <VisiblePasswordInput
             id="confirmPassword"
             name="confirmPassword"
@@ -188,13 +183,18 @@ function ScheduleDemoForm({
         </div>
         <Button
           type="button"
-          disabled={signupButtonEnabled ? false : true}
+          disabled={
+            typeof scheduleDemoFormDatas.name === "string" &&
+            typeof scheduleDemoFormDatas.email === "string"
+              ? false
+              : true
+          }
           title={
-            signupButtonEnabled
+            scheduleDemoFormDatas.name && scheduleDemoFormDatas.email
               ? "Sign up"
               : "Button is disabled, Please fill all the fields"
           }
-          onClick={() => setSignupFormIsSubmit(true)}
+          // onClick={() => setSignupFormIsSubmit(true)}
         >
           Submit
         </Button>
