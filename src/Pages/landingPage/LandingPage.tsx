@@ -433,7 +433,7 @@ const LandingPage = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Link to="">
+              <Link to="/schedule-demo">
                 <Button
                   size="lg"
                   variant="outline"
