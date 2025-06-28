@@ -40,7 +40,7 @@ const frameworks = [
   },
 ];
 
-function ComboBox({ ...props }) {
+function ComboBoxScheduleDemo({ ...props }) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
@@ -91,4 +91,4 @@ function ComboBox({ ...props }) {
   );
 }
 
-export default ComboBox;
+export default ComboBoxScheduleDemo;

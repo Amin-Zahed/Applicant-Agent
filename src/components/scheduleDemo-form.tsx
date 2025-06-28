@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChangeEvent } from "react";
-import ComboBox from "./comboBox";
+import ComboBoxScheduleDemo from "./comboBoxScheduleDemo";
 import { Textarea } from "./ui/textarea";
 import useScheduleForm from "@/stores/useScheduleForm";
 
@@ -91,7 +91,7 @@ function ScheduleDemoForm({
           </p>
         </div>
         <div className="grid gap-2">
-          <ComboBox />
+          <ComboBoxScheduleDemo id="profession" />
           {/* <VisiblePasswordInput
             id="password"
             name="password"
