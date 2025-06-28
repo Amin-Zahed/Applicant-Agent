@@ -3,11 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChangeEvent, useEffect } from "react";
 import useSignupForm from "../stores/useSignupForm";
-// import useLogin from "../stores/useLogin";
-import VisiblePasswordInput from "./visible-password-input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Link } from "react-router-dom";
-import ScheduleDemo from "@/Pages/scheduleDemo/ScheduleDemo";
 
 function ScheduleDemoForm({
   className,
@@ -16,15 +11,8 @@ function ScheduleDemoForm({
   const {
     signupFormDatas,
     signupFormInputsHandler,
-    passwordHasANumber,
-    passwordHasALowercase,
-    passwordHasAUppercase,
-    passwordHasASpecialChar,
     confirmPassword,
-    passwordInputChangeHandler,
-    confirmPasswordInputHandler,
     checkboxChecked,
-    setCheckboxChecked,
     signupButtonEnabled,
     setSignupButtonEnabled,
     setSignupFormIsSubmit,
@@ -44,10 +32,10 @@ function ScheduleDemoForm({
     >
       <div className="flex flex-col items-center gap-2  lg:gap-1 2xl:gap-2 text-center">
         <h1 className="text-2xl lg:text-lg 2xl:text-2xl font-bold">
-          Sign up form
+          Schedule a demo
         </h1>
         <p className="text-balance text-sm lg:text-xs 2xl:text-sm text-muted-foreground">
-          Create an account
+          Tell us who you are ?
         </p>
       </div>
       <div className="grid gap-6 lg:gap-2 2xl:gap-6">
@@ -58,7 +46,7 @@ function ScheduleDemoForm({
             name="username"
             maxLength={20}
             minLength={3}
-            placeholder="Username"
+            placeholder="Name - What should we call you ?"
             required
             value={signupFormDatas.username!}
             onInput={(e: ChangeEvent<HTMLInputElement>) =>
@@ -114,7 +102,7 @@ function ScheduleDemoForm({
           </p>
         </div>
         <div className="grid gap-2">
-          <VisiblePasswordInput
+          {/* <VisiblePasswordInput
             id="password"
             name="password"
             placeholder="Password"
@@ -164,12 +152,12 @@ function ScheduleDemoForm({
                     : "red",
               }}
             >
-              At least one special charactor - [] , + = ? .{" "}
+              At least one special character - [] , + = ? .{" "}
             </li>
-          </ol>
+          </ol> */}
         </div>
         <div className="grid gap-2 lg:gap-1 2xl:gap-2">
-          <VisiblePasswordInput
+          {/* <VisiblePasswordInput
             id="confirmPassword"
             name="confirmPassword"
             placeholder="Confirm Password"
@@ -192,9 +180,9 @@ function ScheduleDemoForm({
               : confirmPassword === null
               ? "Confirm password must be the same as password"
               : "Confirm password is the same as password"}
-          </p>
+          </p> */}
         </div>
-        <div className="gap-2 lg:gap-1 2xl:gap-2 flex items-center">
+        {/* <div className="gap-2 lg:gap-1 2xl:gap-2 flex items-center">
           <Checkbox
             className="cursor-pointer"
             onCheckedChange={() =>
@@ -211,7 +199,7 @@ function ScheduleDemoForm({
               <Link to="/terms&conditions">terms and conditions</Link>
             </Button>
           </span>
-        </div>
+        </div> */}
         <Button
           type="button"
           disabled={signupButtonEnabled ? false : true}

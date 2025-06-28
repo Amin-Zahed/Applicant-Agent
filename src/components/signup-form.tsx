@@ -75,7 +75,7 @@ function SignupForm({
                   : "green",
             }}
           >
-            At least 3 charactors and only letters, numbers, dotes, underscores,
+            At least 3 characters and only letters, numbers, dotes, underscores,
             dashes and pluses.
           </p>
         </div>
@@ -163,7 +163,7 @@ function SignupForm({
                     : "red",
               }}
             >
-              At least one special charactor - [] , + = ? .{" "}
+              At least one special character - [] , + = ? .{" "}
             </li>
           </ol>
         </div>
