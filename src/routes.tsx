@@ -11,6 +11,7 @@ import PrivateRoute from "./components/private-route";
 import PublicRoute from "./components/public-route";
 import Dashboard from "./Pages/dashboard/dashboard";
 import TermsAndConditions from "./Pages/terms&conditions/terms&conditions";
+import ScheduleDemo from "./Pages/scheduleDemo/ScheduleDemo";
 
 const routes = [
   {
@@ -50,6 +51,14 @@ const routes = [
     element: (
       <PublicRoute>
         <TermsAndConditions />
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/schedule-demo",
+    element: (
+      <PublicRoute>
+        <ScheduleDemo />
       </PublicRoute>
     ),
   },
