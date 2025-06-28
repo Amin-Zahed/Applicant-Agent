@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChangeEvent, useEffect } from "react";
 import useSignupForm from "../stores/useSignupForm";
+import ComboBox from "./comboBox";
+import { Textarea } from "./ui/textarea";
 
 function ScheduleDemoForm({
   className,
@@ -102,6 +104,7 @@ function ScheduleDemoForm({
           </p>
         </div>
         <div className="grid gap-2">
+          <ComboBox />
           {/* <VisiblePasswordInput
             id="password"
             name="password"
@@ -157,6 +160,7 @@ function ScheduleDemoForm({
           </ol> */}
         </div>
         <div className="grid gap-2 lg:gap-1 2xl:gap-2">
+          <Textarea placeholder="Any thing else?" />
           {/* <VisiblePasswordInput
             id="confirmPassword"
             name="confirmPassword"
@@ -182,24 +186,6 @@ function ScheduleDemoForm({
               : "Confirm password is the same as password"}
           </p> */}
         </div>
-        {/* <div className="gap-2 lg:gap-1 2xl:gap-2 flex items-center">
-          <Checkbox
-            className="cursor-pointer"
-            onCheckedChange={() =>
-              checkboxChecked === false
-                ? setCheckboxChecked(true)
-                : setCheckboxChecked(false)
-            }
-            checked={checkboxChecked}
-            id="terms-and-conditions"
-          />
-          <span className="text-md">
-            Accept
-            <Button variant="link" className="text-md">
-              <Link to="/terms&conditions">terms and conditions</Link>
-            </Button>
-          </span>
-        </div> */}
         <Button
           type="button"
           disabled={signupButtonEnabled ? false : true}
@@ -210,7 +196,7 @@ function ScheduleDemoForm({
           }
           onClick={() => setSignupFormIsSubmit(true)}
         >
-          Sign up
+          Submit
         </Button>
       </div>
     </form>
