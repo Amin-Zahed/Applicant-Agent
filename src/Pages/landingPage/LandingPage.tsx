@@ -13,7 +13,7 @@ import {
   Target,
   Sparkles,
 } from "lucide-react";
-import AiAgentSvg from "../../assets/svgs/ai-agent-hero-svg";
+import AiAgentHeroSvg from "../../assets/svgs/ai-agent-hero-svg";
 import { Link } from "react-router-dom";
 import usePrivacy from "@/stores/usePrivacy";
 
@@ -114,7 +114,7 @@ const LandingPage = () => {
               <div className="hidden lg:flex justify-center lg:justify-end">
                 <div className="relative">
                   <div className="w-96 h-96 p-3 bg-background flex items-center justify-center">
-                    <AiAgentSvg />
+                    <AiAgentHeroSvg />
                   </div>
                 </div>
               </div>

@@ -1,13 +1,10 @@
-import SignupForm from "@/components/signup-form";
-// import image from "@/assets/images/a modern dashboard design with Reacts Logo on the left side of the wall next to a monitor and TS logo on the right side of the wall next to the monitor.png";
 import useSignupForm from "../../stores/useSignupForm";
 import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import useLogin from "@/stores/useLogin";
-// import FormSvg from "../../assets/svgs/signup-form-svg";
 import ScheduleDemoForm from "@/components/scheduleDemo-form";
-import ScheduleDemoFormSvg from "../../assets/svgs/schedule-demo-svg";
+import ScheduleDemoSvg from "../../assets/svgs/schedule-demo-svg";
 
 function ScheduleDemo() {
   const { signupFormDatas, signupFormIsSubmit } = useSignupForm();
@@ -29,14 +26,8 @@ function ScheduleDemo() {
           </div>
         </div>
         <div className="relative hidden bg-muted lg:flex w-1/2 h-full">
-          {/* <img
-            src={image}
-            alt="Image"
-            className="absolute inset-0 h-full w-full object-cover"
-          /> */}
           <div className="absolute inset-0 bg-background flex items-center justify-center px-3">
-            {" "}
-            <ScheduleDemoFormSvg />
+            <ScheduleDemoSvg />
           </div>
         </div>
       </div>

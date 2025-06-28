@@ -1,4 +1,4 @@
-const ScheduleDemoFormSvg = () => {
+const ScheduleDemoSvg = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -112,4 +112,4 @@ const ScheduleDemoFormSvg = () => {
   );
 };
 
-export default ScheduleDemoFormSvg;
+export default ScheduleDemoSvg;

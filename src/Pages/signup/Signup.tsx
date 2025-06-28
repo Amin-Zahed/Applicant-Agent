@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import useLogin from "@/stores/useLogin";
-import FormSvg from "../../assets/svgs/signup-form-svg";
+import SignupSvg from "../../assets/svgs/signup-svg";
 
 function Signup() {
   const { signupFormDatas, signupFormIsSubmit } = useSignupForm();
@@ -34,7 +34,7 @@ function Signup() {
           /> */}
           <div className="absolute inset-0 bg-background flex items-center justify-center px-3">
             {" "}
-            <FormSvg />
+            <SignupSvg />
           </div>
         </div>
       </div>
