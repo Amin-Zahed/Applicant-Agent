@@ -18,32 +18,51 @@ import {
 } from "@/components/ui/popover";
 import useScheduleForm from "@/stores/useScheduleForm";
 
-const frameworks = [
+const professions = [
   {
-    value: "next.js",
-    label: "Next.js",
+    value: "Software Engineer / Developer",
+    label: "Software Engineer / Developer",
   },
   {
-    value: "sveltekit",
-    label: "SvelteKit",
+    value: "Designer(Graphic , UI/UX)",
+    label: "Designer(Graphic , UI/UX)",
   },
   {
-    value: "nuxt.js",
-    label: "Nuxt.js",
+    value: "Product Manager",
+    label: "Product Manager",
   },
   {
-    value: "remix",
-    label: "Remix",
+    value: "Project Manager",
+    label: "Project Manager",
   },
   {
-    value: "astro",
-    label: "Astro",
+    value: "Data Scientist / Analyst",
+    label: "Data Scientist / Analyst",
+  },
+  {
+    value: "Engineer (Non-software, e.g., Electrical, ...)",
+    label: "Engineer (Non-software, e.g., Electrical, ...)",
+  },
+  {
+    value: "Marketing / Communications",
+    label: "Marketing / Communications",
+  },
+  {
+    value: "Sales / Business Development",
+    label: "Sales / Business Development",
+  },
+  {
+    value: "Human Resources / Recruiter",
+    label: "Human Resources / Recruiter",
+  },
+  {
+    value: "Finance / Accounting",
+    label: "Finance / Accounting",
   },
 ];
 
 function ComboBoxScheduleDemo({ ...props }) {
   const [open, setOpen] = React.useState(false);
-  // const [value, setValue] = React.useState("");
   const { profession, setProfession } = useScheduleForm();
 
   return (
@@ -56,22 +75,21 @@ function ComboBoxScheduleDemo({ ...props }) {
           className={`justify-between ${props.inputWidth}`}
         >
           {profession
-            ? frameworks.find((framework) => framework.value === profession)
-                ?.label
+            ? professions.find((pro) => pro.value === profession)?.label
             : "What is your profession ?"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className={`p-0 ${props.popoverWidth}`}>
         <Command>
-          <CommandInput placeholder="Search framework..." className="h-9" />
+          <CommandInput placeholder="Search profession..." className="h-9" />
           <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandEmpty>No profession found.</CommandEmpty>
             <CommandGroup>
-              {frameworks.map((framework) => (
+              {professions.map((pro) => (
                 <CommandItem
-                  key={framework.value}
-                  value={framework.value}
+                  key={pro.value}
+                  value={pro.value}
                   onSelect={(currentValue) => {
                     setProfession(
                       currentValue === profession ? "" : currentValue
@@ -79,13 +97,11 @@ function ComboBoxScheduleDemo({ ...props }) {
                     setOpen(false);
                   }}
                 >
-                  {framework.label}
+                  {pro.label}
                   <Check
                     className={cn(
                       "ml-auto",
-                      profession === framework.value
-                        ? "opacity-100"
-                        : "opacity-0"
+                      profession === pro.value ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>
