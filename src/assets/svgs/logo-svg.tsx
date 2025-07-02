@@ -5,7 +5,7 @@ const LogoSvg = () => {
       width="1024"
       height="1024"
       viewBox="100 100 1200 800"
-      className="w-40 h-40"
+      className="w-30 h-20 2xl:w-40 2xl:h-30"
     >
       <path
         fill="var(--foreground)"
