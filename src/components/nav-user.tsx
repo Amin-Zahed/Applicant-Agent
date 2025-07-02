@@ -1,33 +1,19 @@
-import {
-  // BadgeCheck,
-  // Bell,
-  // ChevronsUpDown,
-  // CreditCard,
-  LogOut,
-  // Sparkles,
-} from "lucide-react";
+import { LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
-  // DropdownMenuContent,
-  // DropdownMenuGroup,
-  // DropdownMenuItem,
-  // DropdownMenuLabel,
-  // DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  // useSidebar,
 } from "@/components/ui/sidebar";
 import {
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  // AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -48,7 +34,6 @@ export function NavUser({
     avatar: string;
   };
 }) {
-  // const { isMobile } = useSidebar();
   const { setIsLogin } = useLogin();
   const { sidebarIsOpen } = useAppSidebar();
   const isMobile = useIsMobile();
@@ -76,7 +61,6 @@ export function NavUser({
           </DropdownMenuTrigger>
         </DropdownMenu>
       </SidebarMenuItem>
-      {/* {sidebarIsOpen && ( */}
       <AlertDialog>
         <AlertDialogTrigger asChild>
           <Button variant="outline" className="m-2" title="Sign out">
@@ -87,10 +71,6 @@ export function NavUser({
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Are you sure to sign out?</AlertDialogTitle>
-            {/* <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-              </AlertDialogDescription> */}
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>No</AlertDialogCancel>
