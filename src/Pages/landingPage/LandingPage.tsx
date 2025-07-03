@@ -68,7 +68,7 @@ const LandingPage = () => {
                   <Sparkles className="w-4 h-4 mr-2" />
                   AI-Powered Job Applications
                 </Badge>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+                <h1 className="text-4xl xl:text-6xl font-bold text-foreground mb-6 leading-tight">
                   Let AI Apply to{" "}
                   <span className="bg-primary bg-clip-text text-transparent">
                     Jobs for You
@@ -127,9 +127,9 @@ const LandingPage = () => {
           id="how-it-works"
           className="h-svh snap-start flex items-center justify-center bg-secondary"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <div className="max-w-7xl mx-auto px-4 2xl:px-8 py-20">
+            <div className="text-center mb-8 2xl:mb-16">
+              <h2 className="text-3xl 2xl:text-5xl font-bold text-foreground mb-6">
                 How Apollo Works
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -138,17 +138,17 @@ const LandingPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 md:gap-8">
+            <div className="grid grid-cols-3 gap-2 2xl:gap-8">
               {/* Step 1 */}
-              <Card className="text-center md:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
-                <CardContent className="pt-3 md:pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-6">
+              <Card className="text-center 2xl:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
+                <CardContent className="pt-3 2xl:pt-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Upload className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-1 md:mb-4">
+                  <h3 className="text-xl font-bold text-foreground mb-1 2xl:mb-4">
                     + Upload Your Info
                   </h3>
-                  <p className="hidden md:flex text-muted-foreground leading-relaxed">
+                  <p className="hidden md:flex text-sm 2xl:text-base text-muted-foreground leading-relaxed">
                     Share your resume, skills, and job preferences. Our AI
                     learns your unique background and career goals.
                   </p>
@@ -156,15 +156,15 @@ const LandingPage = () => {
               </Card>
 
               {/* Step 2 */}
-              <Card className="text-center md:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
-                <CardContent className="pt-3 md:pt-6">
+              <Card className="text-center 2xl:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
+                <CardContent className="pt-3 2xl:pt-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Settings className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
+                  <h3 className="text-xl font-bold text-foreground mb-1 2xl:mb-4">
                     Train Your Agent
                   </h3>
-                  <p className="hidden md:flex text-muted-foreground leading-relaxed">
+                  <p className="hidden md:flex text-sm 2xl:text-base text-muted-foreground leading-relaxed">
                     Customize your AI agent's behavior, set application
                     criteria, and define your ideal job parameters.
                   </p>
@@ -172,15 +172,15 @@ const LandingPage = () => {
               </Card>
 
               {/* Step 3 */}
-              <Card className="text-center md:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
-                <CardContent className="pt-3 md:pt-6">
+              <Card className="text-center 2xl:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
+                <CardContent className="pt-3 2xl:pt-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Zap className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
+                  <h3 className="text-xl font-bold text-foreground mb-1 2xl:mb-4">
                     Start Applying
                   </h3>
-                  <p className="hidden md:flex text-muted-foreground leading-relaxed">
+                  <p className="hidden md:flex text-sm 2xl:text-base text-muted-foreground leading-relaxed">
                     Sit back and relax. Apollo finds jobs, crafts personalized
                     applications, and submits them automatically.
                   </p>
