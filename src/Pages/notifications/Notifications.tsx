@@ -8,7 +8,6 @@ import useAppSidebar from "@/stores/useAppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { useIsMobile } from "@/hooks/use-mobile";
-// import { useEffect } from "react";
 import useNotifications from "@/stores/useNotifications";
 
 const Notifications = () => {
@@ -32,7 +31,7 @@ const Notifications = () => {
           style={{
             width: isMobile
               ? "100dvw"
-              : isMobile === false && sidebarIsOpen === false
+              : !isMobile && sidebarIsOpen === false
               ? "calc(100vw - (var(--sidebar-width-icon)))"
               : "calc(100vw - (var(--sidebar-width)))",
           }}
