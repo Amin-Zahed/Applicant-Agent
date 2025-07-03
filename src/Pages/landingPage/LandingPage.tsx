@@ -55,7 +55,7 @@ const LandingPage = () => {
 
   return (
     <div className="bg-background w-full h-full overflow-y-auto scroll-smooth snap-y snap-mandatory">
-      <div className="flex flex-col scroll-smooth snap-y snap-mandatory w-full h-full min-h-fit bg-background">
+      <div className="flex flex-col w-full h-full min-h-fit bg-background">
         {/* Hero Section */}
         <section
           id="hero"
@@ -342,25 +342,25 @@ const LandingPage = () => {
           id="get-started"
           className="h-svh snap-start flex items-center justify-center bg-primary-foreground"
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-0 md:py-20 text-center">
-            <h2 className="hidden md:flex text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <div className="max-w-4xl mx-auto px-4 2xl:px-8 py-0 2xl:py-20 text-center">
+            <h2 className="hidden md:flex justify-center text-3xl 2xl:text-5xl font-bold text-foreground mb-6">
               Ready to Transform Your Job Search?
             </h2>
-            <p className="hidden md:flex text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="hidden md:flex justify-center text-lg 2xl:text-xl text-muted-foreground mb-8 leading-relaxed">
               Join thousands of successful candidates who've automated their way
               to better careers.
             </p>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-8 mb-2 md:mb-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 2xl:p-8 mb-2 2xl:mb-8">
               <div className="grid md:grid-cols-3 gap-6 text-foreground">
                 <div>
-                  <h3 className="text:lg md:text-2xl font-bold mb-1 md:mb-2">
+                  <h3 className="text-base 2xl:text-2xl font-bold mb-1 2xl:mb-2">
                     Free
                   </h3>
-                  <p className="text-xs md:text-base text-muted-foreground mb-2 md:mb-4">
+                  <p className="text-xs 2xl:text-base text-muted-foreground mb-2 2xl:mb-4">
                     Perfect for getting started
                   </p>
-                  <ul className="text-xs md:text-sm space-y-2 text-left">
+                  <ul className="text-xs 2xl:text-sm space-y-2 text-left">
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />5
                       applications/month
@@ -375,17 +375,17 @@ const LandingPage = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="border-2 border-yellow-400 rounded-xl p-2 md:p-6 relative">
+                <div className="border-2 border-yellow-400 rounded-xl p-2 2xl:p-6 relative">
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-yellow-900">
                     Most Popular
                   </Badge>
-                  <h3 className="text:lg md:text-2xl font-bold mb-1 md:mb-2">
+                  <h3 className="text-base 2xl:text-2xl font-bold mb-1 2xl:mb-2">
                     Pro
                   </h3>
-                  <p className="text-xs md:text-base text-muted-foreground mb-2 md:mb-4">
+                  <p className="text-xs 2xl:text-base text-muted-foreground mb-2 2xl:mb-4">
                     $29/month
                   </p>
-                  <ul className="text-xs md:text-sm space-y-2 text-left">
+                  <ul className="text-xs 2xl:text-sm space-y-2 text-left">
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
                       Unlimited applications
@@ -405,13 +405,13 @@ const LandingPage = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text:lg md:text-2xl font-bold mb-1 md:mb-2">
+                  <h3 className="text-base 2xl:text-2xl font-bold mb-1 2xl:mb-2">
                     Enterprise
                   </h3>
-                  <p className="text-xs md:text-base text-muted-foreground mb-2 md:mb-4">
+                  <p className="text-xs 2xl:text-base text-muted-foreground mb-2 2xl:mb-4">
                     Custom pricing
                   </p>
-                  <ul className="text-xs md:text-sm space-y-2 text-left">
+                  <ul className="text-xs 2xl:text-sm space-y-2 text-left">
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
                       Team management
@@ -429,7 +429,7 @@ const LandingPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-2 md:gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-2 2xl:gap-4 justify-center">
               <Link to="/signup">
                 <Button size="lg" className="text-lg px-8 py-3">
                   Start Free Trial
