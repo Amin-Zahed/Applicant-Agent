@@ -1,54 +1,28 @@
-# React + TypeScript + Vite
+# Applicant-Agent
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**This Repository is a showcase repo for the dashboard part of an AI Agent for resume tailoring and coverletter generation.**
 
-Currently, two official plugins are available:
+**Applicant-Agent** is an AI-powered dashboard and frontend system that automates tailoring resumes for job applications. The core goal is to simplify and enhance the job application process using LLM agents, enabling users to customize their resumes for different job postings with ease.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Used technologies
 
-## Expanding the ESLint configuration
+- **_React_** is used as the UI Library.
+- **_TypeScript_** is used as main programming languge because of its type safty.
+- **_ShadCn_** and **_Taliwindcss_** are used as design system and styling tool.
+- **_Zustand_** library made it much easier to manage the complex states.
+- **_Docker_** is used for deployment.
+  - The container leverages an **_Nginx_** based image to serve built files including the eniter built application.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📦 Installation & Setup
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clone repository**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+   git clone https://github.com/Amin-Zahed/Applicant-Agent.git
+   cd Applicant-Agent
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+   docker build -t apollo:dashboard .
+   docker run --rm --name "apollo-dashboard" -p 8080:80 apollo:dashboard
 ```
