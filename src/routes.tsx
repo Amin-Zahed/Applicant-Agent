@@ -15,7 +15,7 @@ import ScheduleDemo from "./Pages/scheduleDemo/ScheduleDemo";
 
 const routes = [
   {
-    path: "/",
+    path: "/Applicant-Agent",
     element: (
       <PublicRoute>
         <LandingPage />
@@ -23,7 +23,7 @@ const routes = [
     ),
   },
   {
-    path: "/signin",
+    path: "/Applicant-Agent/signin",
     element: (
       <PublicRoute>
         <Signin />
@@ -31,7 +31,7 @@ const routes = [
     ),
   },
   {
-    path: "/forgot-password",
+    path: "/Applicant-Agent/forgot-password",
     element: (
       <PublicRoute>
         <ForgotPassword />
@@ -39,7 +39,7 @@ const routes = [
     ),
   },
   {
-    path: "/signup",
+    path: "/Applicant-Agent/signup",
     element: (
       <PublicRoute>
         <Signup />
@@ -47,7 +47,7 @@ const routes = [
     ),
   },
   {
-    path: "/terms&conditions",
+    path: "/Applicant-Agent/terms&conditions",
     element: (
       <PublicRoute>
         <TermsAndConditions />
@@ -55,7 +55,7 @@ const routes = [
     ),
   },
   {
-    path: "/schedule-demo",
+    path: "/Applicant-Agent/schedule-demo",
     element: (
       <PublicRoute>
         <ScheduleDemo />
@@ -63,7 +63,7 @@ const routes = [
     ),
   },
   {
-    path: "/notifications",
+    path: "/Applicant-Agent/notifications",
     element: (
       <PrivateRoute>
         <Notifications />
@@ -71,7 +71,7 @@ const routes = [
     ),
   },
   {
-    path: "/add",
+    path: "/Applicant-Agent/add",
     element: (
       <PrivateRoute>
         <Add />
@@ -79,7 +79,7 @@ const routes = [
     ),
   },
   {
-    path: "/dashboard",
+    path: "/Applicant-Agent/dashboard",
     element: (
       <PrivateRoute>
         <Dashboard />
@@ -90,7 +90,7 @@ const routes = [
       { path: "analysis", element: <Analysis /> },
     ],
   },
-  { path: "/*", element: <NotFound /> },
+  { path: "/Applicant-Agent/*", element: <NotFound /> },
 ];
 
 export default routes;
