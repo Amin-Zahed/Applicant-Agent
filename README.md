@@ -4,7 +4,7 @@
 
 **Applicant-Agent** is an AI-powered dashboard and frontend system that automates tailoring resumes for job applications. The core goal is to simplify and enhance the job application process using LLM agents, enabling users to customize their resumes for different job postings with ease.
 
-## Used technologies  
+## Used technologies
 
 - **_React_** is used as the UI Library.
 - **_TypeScript_** is used as main programming languge because of its type safty.
@@ -12,6 +12,7 @@
 - **_Zustand_** library made it much easier to manage the complex states.
 - **_Docker_** is used for deployment.
   - The container leverages an **_Nginx_** based image to serve built files including the eniter built application.
+- **_Github Actions_** and **_Github pages_** are used to deploy a demo version on github actions
 
 ---
 
