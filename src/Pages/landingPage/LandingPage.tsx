@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,11 +16,13 @@ import {
 import AiAgentHeroSvg from "../../assets/svgs/ai-agent-hero-svg";
 import { Link } from "react-router-dom";
 import usePrivacy from "@/stores/usePrivacy";
+import useLanding from "@/stores/useLanding";
 
 const LandingPage = () => {
   const { setShowPrivacy } = usePrivacy();
+  const { setActiveSection } = useLanding();
 
-  const [activeSection, setActiveSection] = useState("hero");
+  // const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const handleScroll = () => {
