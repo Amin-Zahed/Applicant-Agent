@@ -79,7 +79,7 @@ export function NavUser({
               onClick={() => {
                 sessionStorage.clear();
                 setIsLogin(false);
-                window.location.reload();
+                window.location.replace("/Applicant-Agent/");
               }}
             >
               Yes
@@ -87,7 +87,6 @@ export function NavUser({
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-      {/* )} */}
     </SidebarMenu>
   );
 }
