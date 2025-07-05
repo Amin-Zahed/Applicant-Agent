@@ -22,8 +22,6 @@ const LandingPage = () => {
   const { setShowPrivacy } = usePrivacy();
   const { setActiveSection } = useLanding();
 
-  // const [activeSection, setActiveSection] = useState("hero");
-
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["hero", "how-it-works", "testimonials", "get-started"];
