@@ -41,8 +41,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    (location.pathname === "/notifications" ||
-      location.pathname === "/notifications/") &&
+    (location.pathname === "/Applicant-Agent/notifications" ||
+      location.pathname === "/Applicant-Agent/notifications/") &&
       resetNumberOfNots();
   }, [location.pathname]);
 
