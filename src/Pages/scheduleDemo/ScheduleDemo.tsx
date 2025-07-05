@@ -47,10 +47,10 @@ function ScheduleDemo() {
           </p>
 
           <Button variant="link" className="text-xl">
-            <Link to="/">Back To Landing Page</Link>
+            <Link to="/Applicant-Agent">Back To Landing Page</Link>
           </Button>
           <Button variant="link" className="text-xl">
-            <Link to="/signup">Go to Sign up Form</Link>
+            <Link to="/Applicant-Agent/signup">Go to Sign up Form</Link>
           </Button>
         </div>
       </div>

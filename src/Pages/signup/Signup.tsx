@@ -27,11 +27,6 @@ function Signup() {
           </div>
         </div>
         <div className="relative hidden bg-muted lg:flex w-1/2 h-full">
-          {/* <img
-            src={image}
-            alt="Image"
-            className="absolute inset-0 h-full w-full object-cover"
-          /> */}
           <div className="absolute inset-0 bg-background flex items-center justify-center px-3">
             {" "}
             <SignupSvg />

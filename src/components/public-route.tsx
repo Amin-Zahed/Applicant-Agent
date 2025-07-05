@@ -6,7 +6,9 @@ import { ReactNode } from "react";
 const PublicRoute = ({ children }: { children: ReactNode }) => {
   const { isLogin } = useLogin();
 
-  return <>{!isLogin ? children : <Navigate to="/dashboard" />}</>;
+  return (
+    <>{!isLogin ? children : <Navigate to="/Applicant-Agent/dashboard" />}</>
+  );
 };
 
 export default PublicRoute;

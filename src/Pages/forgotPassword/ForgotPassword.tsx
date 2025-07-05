@@ -89,7 +89,9 @@ const ForgotPassword = ({
                 <p className="text-sm text-balance text-muted-foreground">
                   Remembered my password,
                   <Button variant="link" className="ml-auto text-sm">
-                    <Link to="/signin">Go back to sign in.</Link>
+                    <Link to="/Applicant-Agent/signin">
+                      Go back to sign in.
+                    </Link>
                   </Button>
                 </p>
                 <Button
@@ -235,7 +237,7 @@ const ForgotPassword = ({
                 </p>
               </div>
               <div className="grid gap-6">
-                <Link to="/dashboard">
+                <Link to="/Applicant-Agent/dashboard">
                   <Button
                     type="button"
                     disabled={!changePasswordButtonEnabled}

@@ -51,7 +51,9 @@ function SigninForm({
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
             <Button variant="link" className="ml-auto text-sm">
-              <Link to="/forgot-password">Forgot your password?</Link>
+              <Link to="/Applicant-Agent/forgot-password">
+                Forgot your password?
+              </Link>
             </Button>
           </div>
           <Input
@@ -63,7 +65,7 @@ function SigninForm({
             }}
           />
         </div>
-        <Link to={isLogin ? "/dashboard" : ""}>
+        <Link to={isLogin ? "/Applicant-Agent/dashboard" : ""}>
           <Button
             type="button"
             disabled={
@@ -98,7 +100,7 @@ function SigninForm({
       <div className="text-center text-sm">
         Don&apos;t have an account?
         <Button variant="link" className="text-sm">
-          <Link to="/signup">Sign up</Link>
+          <Link to="/Applicant-Agent/signup">Sign up</Link>
         </Button>
       </div>
     </form>

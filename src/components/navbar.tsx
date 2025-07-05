@@ -20,7 +20,7 @@ const Navbar = () => {
               <LogoSvg />
             </MenubarTrigger>
           ) : (
-            <Link to="/">
+            <Link to={"/Applicant-Agent"}>
               <MenubarTrigger>
                 <LogoSvg />
               </MenubarTrigger>
@@ -35,7 +35,7 @@ const Navbar = () => {
             <MenubarTrigger>
               <ModeToggle />
             </MenubarTrigger>
-            <NavLink to="/notifications">
+            <NavLink to="/Applicant-Agent/notifications">
               <MenubarTrigger className="relative">
                 {" "}
                 <BellDot />
@@ -44,10 +44,10 @@ const Navbar = () => {
                 </span>
               </MenubarTrigger>
             </NavLink>
-            <NavLink to="/dashboard">
+            <NavLink to="/Applicant-Agent/dashboard">
               <MenubarTrigger> Dashboard</MenubarTrigger>
             </NavLink>
-            <NavLink to="/add">
+            <NavLink to="/Applicant-Agent/add">
               <MenubarTrigger>Add</MenubarTrigger>
             </NavLink>
           </MenubarMenu>
@@ -62,12 +62,12 @@ const Navbar = () => {
               variant={"secondary"}
               className="border-2 border-primary hover:bg-primary hover:text-white w-1/3"
             >
-              <Link to="/signin">
+              <Link to="/Applicant-Agent/signin">
                 <MenubarTrigger>Sign in</MenubarTrigger>
               </Link>
             </Button>
             <Button className="w-1/3">
-              <Link to="/signup">
+              <Link to="/Applicant-Agent/signup">
                 <MenubarTrigger>Sign up</MenubarTrigger>
               </Link>
             </Button>

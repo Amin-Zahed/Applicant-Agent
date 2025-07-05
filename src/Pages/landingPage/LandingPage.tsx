@@ -430,13 +430,13 @@ const LandingPage = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-2 2xl:gap-4 justify-center">
-              <Link to="/signup">
+              <Link to="/Applicant-Agent/signup">
                 <Button size="lg" className="text-lg px-8 py-3">
                   Start Free Trial
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Link to="/schedule-demo">
+              <Link to="/Applicant-Agent/schedule-demo">
                 <Button
                   size="lg"
                   variant="outline"
@@ -452,7 +452,7 @@ const LandingPage = () => {
             </p>
             <p className="text-muted-foreground text-[8px] md:text-sm md:mt-2">
               By signing up, you agree to our
-              <Link to="/terms&conditions">
+              <Link to="/Applicant-Agent/terms&conditions">
                 <Button
                   variant="link"
                   className="dark:text-foreground light:text-primary text-[8px] md:text-sm"
@@ -464,7 +464,7 @@ const LandingPage = () => {
                 </Button>
               </Link>
               <span className="text-[8px] md:text-sm">and</span>
-              <Link to="/terms&conditions">
+              <Link to="/Applicant-Agent/terms&conditions">
                 <Button
                   variant="link"
                   className="dark:text-foreground light:text-primary text-[8px] md:text-sm"

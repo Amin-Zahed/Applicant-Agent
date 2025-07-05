@@ -300,7 +300,7 @@ function DataTable() {
           />
         </div>
         <div>
-          <Link to="/add">
+          <Link to="/Applicant-Agent/add">
             <Button variant="outline">Add +</Button>
           </Link>
         </div>
@@ -380,9 +380,6 @@ function DataTable() {
           </Button>
         </div>
       </div>
-      {/* <Link to="/add">
-        <Button variant="outline">Add +</Button>
-      </Link> */}
     </div>
   );
 }

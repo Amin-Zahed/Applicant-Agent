@@ -207,7 +207,9 @@ function SignupForm({
           <span className="text-md">
             Accept
             <Button variant="link" className="text-md">
-              <Link to="/terms&conditions">terms and conditions</Link>
+              <Link to="/Applicant-Agent/terms&conditions">
+                terms and conditions
+              </Link>
             </Button>
           </span>
         </div>

@@ -31,20 +31,20 @@ function Dashboard() {
           <SidebarTrigger className="cursor-pointer md:absolute md:hidden" />
           <Tabs
             defaultValue={
-              location.pathname === "/dashboard/" ||
-              location.pathname === "/dashboard"
+              location.pathname === "/Applicant-Agent/dashboard/" ||
+              location.pathname === "/Applicant-Agent/dashboard"
                 ? "application"
-                : location.pathname === "/dashboard/bio" ||
-                  location.pathname === "/dashboard/bio/"
+                : location.pathname === "/Applicant-Agent/dashboard/bio" ||
+                  location.pathname === "/Applicant-Agent/dashboard/bio/"
                 ? "bio"
                 : "analysis"
             }
             value={
-              location.pathname === "/dashboard/bio" ||
-              location.pathname === "/dashboard/bio/"
+              location.pathname === "/Applicant-Agent/dashboard/bio" ||
+              location.pathname === "/Applicant-Agent/dashboard/bio/"
                 ? "bio"
-                : location.pathname === "/dashboard/analysis" ||
-                  location.pathname === "/dashboard/analysis/"
+                : location.pathname === "/Applicant-Agent/dashboard/analysis" ||
+                  location.pathname === "/Applicant-Agent/dashboard/analysis/"
                 ? "analysis"
                 : "application"
             }
@@ -63,7 +63,7 @@ function Dashboard() {
                   Bio
                 </TabsTrigger>
               </Link>
-              <Link to="/dashboard">
+              <Link to="/Applicant-Agent/dashboard">
                 <TabsTrigger
                   value="application"
                   className="cursor-pointer w-full"
