@@ -142,7 +142,7 @@ const LandingPage = () => {
               {/* Step 1 */}
               <Card className="text-center 2xl:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
                 <CardContent className="pt-3 2xl:pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Upload className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-1 2xl:mb-4">
@@ -158,7 +158,7 @@ const LandingPage = () => {
               {/* Step 2 */}
               <Card className="text-center 2xl:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
                 <CardContent className="pt-3 2xl:pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-linear-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Settings className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-1 2xl:mb-4">
@@ -174,7 +174,7 @@ const LandingPage = () => {
               {/* Step 3 */}
               <Card className="text-center 2xl:p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
                 <CardContent className="pt-3 2xl:pt-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-linear-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Zap className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-1 2xl:mb-4">
@@ -235,7 +235,7 @@ const LandingPage = () => {
                     3x more interviews!"
                   </p>
                   <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-linear-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center mr-4">
                       <span className="text-white font-bold">SM</span>
                     </div>
                     <div>
@@ -267,7 +267,7 @@ const LandingPage = () => {
                     400%."
                   </p>
                   <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-400 rounded-full flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-linear-to-br from-green-400 to-blue-400 rounded-full flex items-center justify-center mr-4">
                       <span className="text-white font-bold">JC</span>
                     </div>
                     <div>
@@ -302,7 +302,7 @@ const LandingPage = () => {
                     within 2 weeks! And that's amazing."
                   </p>
                   <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center mr-4">
+                    <div className="w-12 h-12 bg-linear-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center mr-4">
                       <span className="text-white font-bold">AR</span>
                     </div>
                     <div>
